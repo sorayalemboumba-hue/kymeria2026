@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { Section, SectionHeader } from "@/components/ui/section";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { 
   ArrowRight,
   GraduationCap,
@@ -11,35 +10,51 @@ import {
   Scale,
   Eye,
   Settings,
-  RefreshCw
+  RefreshCw,
+  User
 } from "lucide-react";
 
 export default function Equipe() {
   const team = [
     {
       name: "Swann Asensio",
-      role: "Direction & vision produit",
-      description: "Garant de la cohérence entre technologie, pédagogie et responsabilité."
+      role: "DIRECTEUR & CO-FONDATEUR",
+      skills: [
+        "Direction & vision produit",
+        "Cohérence technologie-pédagogie-responsabilité"
+      ]
     },
     {
       name: "Sasha Asensio",
-      role: "Développement & partenariats",
-      description: "Accompagnement des organisations dans une logique de co-construction."
+      role: "RESPONSABLE DES VENTES & CO-FONDATEUR",
+      skills: [
+        "Développement & partenariats",
+        "Accompagnement des organisations"
+      ]
     },
     {
       name: "Soraya Koite",
-      role: "Responsable pédagogique",
-      description: "Cohérence des scénarios, intégration éthique de l'évaluation."
+      role: "RESPONSABLE PÉDAGOGIQUE",
+      skills: [
+        "Cohérence des scénarios",
+        "Intégration éthique de l'évaluation"
+      ]
     },
     {
       name: "Romain Kohn",
-      role: "Développeur IA & architecture",
-      description: "Fiabilité, performance et stabilité de la plateforme."
+      role: "DÉVELOPPEUR",
+      skills: [
+        "Architecture IA",
+        "Fiabilité et performance de la plateforme"
+      ]
     },
     {
       name: "Yann Anspach",
-      role: "Développeur IA, UX & conformité",
-      description: "Expérience utilisateur, conformité et veille réglementaire."
+      role: "DÉVELOPPEUR",
+      skills: [
+        "UX & conformité",
+        "Veille réglementaire"
+      ]
     }
   ];
 
@@ -66,14 +81,14 @@ export default function Equipe() {
       {/* Expertise */}
       <Section>
         <div className="max-w-4xl mx-auto">
-          <p className="text-xl text-muted-foreground mb-10 text-center">
+          <p className="text-xl text-muted-foreground mb-10 text-center leading-relaxed">
             KymerIA repose sur une équipe pluridisciplinaire réunissant :
           </p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {expertise.map((item, index) => (
               <div 
                 key={index} 
-                className="flex flex-col items-center text-center p-6 rounded-xl bg-muted/50"
+                className="flex flex-col items-center text-center p-6 rounded-xl bg-muted/50 hover:bg-muted transition-colors"
               >
                 <div className="mb-4 w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center">
                   <item.icon className="h-7 w-7 text-primary" />
@@ -88,21 +103,66 @@ export default function Equipe() {
       {/* Team Grid */}
       <Section variant="muted">
         <SectionHeader title="L'équipe" />
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          {team.map((member, index) => (
-            <Card key={index} className="border shadow-sm hover:shadow-md transition-shadow">
-              <CardContent className="p-6">
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center mb-4">
-                  <span className="text-2xl font-bold text-primary-foreground">
-                    {member.name.split(' ').map(n => n[0]).join('')}
-                  </span>
+        <div className="max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-8">
+            {team.slice(0, 4).map((member, index) => (
+              <div 
+                key={index} 
+                className="flex gap-6 p-6 bg-card rounded-xl border shadow-sm hover:shadow-md transition-shadow"
+              >
+                {/* Photo placeholder */}
+                <div className="flex-shrink-0">
+                  <div className="w-24 h-24 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center overflow-hidden">
+                    <User className="w-12 h-12 text-muted-foreground/50" />
+                  </div>
                 </div>
-                <h3 className="text-lg font-semibold mb-1">{member.name}</h3>
-                <p className="text-sm text-accent font-medium mb-3">{member.role}</p>
-                <p className="text-sm text-muted-foreground">{member.description}</p>
-              </CardContent>
-            </Card>
-          ))}
+                
+                {/* Info */}
+                <div className="flex-1 min-w-0">
+                  <h3 className="text-xl font-semibold mb-1">{member.name}</h3>
+                  <p className="text-xs font-semibold text-accent tracking-wider mb-4">
+                    {member.role}
+                  </p>
+                  <div className="space-y-1">
+                    {member.skills.map((skill, skillIndex) => (
+                      <p key={skillIndex} className="text-sm text-muted-foreground">
+                        {skill}
+                      </p>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+          
+          {/* Last member centered */}
+          <div className="mt-8 flex justify-center">
+            <div 
+              className="flex gap-6 p-6 bg-card rounded-xl border shadow-sm hover:shadow-md transition-shadow md:w-[calc(50%-1rem)]"
+            >
+              {/* Photo placeholder */}
+              <div className="flex-shrink-0">
+                <div className="w-24 h-24 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center overflow-hidden">
+                  <User className="w-12 h-12 text-muted-foreground/50" />
+                </div>
+              </div>
+              
+              {/* Info */}
+              <div className="flex-1 min-w-0">
+                <h3 className="text-xl font-semibold mb-1">{team[4].name}</h3>
+                <p className="text-xs font-semibold text-accent tracking-wider mb-4">
+                  {team[4].role}
+                </p>
+                <div className="space-y-1">
+                  {team[4].skills.map((skill, skillIndex) => (
+                    <p key={skillIndex} className="text-sm text-muted-foreground">
+                      {skill}
+                    </p>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </Section>
 
@@ -117,9 +177,9 @@ export default function Equipe() {
           </p>
           <div className="flex flex-wrap justify-center gap-6 mb-8">
             {[
-              { icon: Eye, text: "supervisée" },
-              { icon: Settings, text: "ajustée" },
-              { icon: RefreshCw, text: "corrigée" }
+              { icon: Eye, text: "Supervisée" },
+              { icon: Settings, text: "Ajustée" },
+              { icon: RefreshCw, text: "Corrigée" }
             ].map((item, index) => (
               <div 
                 key={index}
@@ -144,7 +204,7 @@ export default function Equipe() {
           </h2>
           <Button asChild size="lg" variant="secondary" className="text-base font-medium">
             <Link to="/contact">
-              Prendre contact
+              Discuter de vos enjeux
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </Button>

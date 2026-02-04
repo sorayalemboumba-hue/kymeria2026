@@ -25,11 +25,11 @@ export default function Pourquoi() {
           <p className="text-xl text-foreground mb-6 leading-relaxed">
             Dans une organisation, les échanges humains façonnent la confiance, la coopération et la performance.
           </p>
-          <p className="text-lg text-muted-foreground mb-6">
+          <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
             Ils influencent la qualité du travail, la relation aux usagers, la dynamique d'équipe et le climat professionnel.
           </p>
-          <p className="text-lg text-muted-foreground">
-            Ces échanges sont constants, souvent complexes, parfois sensibles — et rarement préparés.
+          <p className="text-lg text-muted-foreground leading-relaxed">
+            Ces échanges sont constants, souvent complexes, parfois sensibles, et rarement préparés.
           </p>
         </div>
       </Section>
@@ -41,27 +41,24 @@ export default function Pourquoi() {
         />
         <div className="max-w-3xl mx-auto">
           <p className="text-lg text-foreground mb-6 text-center">
-            Les organisations forment.
-          </p>
-          <p className="text-lg text-muted-foreground mb-8 text-center">
-            Mais elles manquent souvent de temps, d'espaces et de cadres pour entraîner réellement les compétences humaines.
+            Les organisations forment. Mais elles manquent souvent de temps, d'espaces et de cadres pour entraîner réellement les compétences humaines.
           </p>
           
           <p className="text-lg text-foreground mb-6 text-center">
             Or, les soft skills :
           </p>
-          <ul className="space-y-4 max-w-lg mx-auto">
+          <div className="space-y-4 max-w-lg mx-auto">
             {[
-              "ne se consolident pas uniquement par la théorie",
-              "se développent par la pratique",
-              "nécessitent répétition, feedback et progression"
+              "Ne se consolident pas uniquement par la théorie",
+              "Se développent par la pratique",
+              "Nécessitent répétition, feedback et progression"
             ].map((item, index) => (
-              <li key={index} className="flex items-start gap-3">
+              <div key={index} className="flex items-start gap-3">
                 <CheckCircle2 className="h-5 w-5 text-accent mt-0.5 flex-shrink-0" />
                 <span className="text-foreground">{item}</span>
-              </li>
+              </div>
             ))}
-          </ul>
+          </div>
         </div>
       </Section>
 
@@ -78,22 +75,22 @@ export default function Pourquoi() {
             {[
               {
                 icon: Target,
-                text: "les compétences humaines se travaillent"
+                text: "Les compétences humaines se travaillent"
               },
               {
                 icon: Heart,
-                text: "l'évaluation peut être constructive"
+                text: "L'évaluation peut être constructive"
               },
               {
                 icon: Shield,
-                text: "la technologie doit rester au service de l'humain"
+                text: "La technologie doit rester au service de l'humain"
               },
               {
                 icon: CheckCircle2,
-                text: "la responsabilité et l'éthique sont indissociables de l'innovation"
+                text: "La responsabilité et l'éthique sont indissociables de l'innovation"
               }
             ].map((item, index) => (
-              <Card key={index} className="border shadow-sm">
+              <Card key={index} className="border shadow-sm hover:shadow-md transition-shadow">
                 <CardContent className="p-6 flex items-start gap-4">
                   <div className="flex-shrink-0 w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center">
                     <item.icon className="h-5 w-5 text-accent" />
@@ -118,22 +115,20 @@ export default function Pourquoi() {
           <p className="text-lg text-muted-foreground mb-8 text-center">
             KymerIA propose un cadre :
           </p>
-          <ul className="space-y-4 max-w-xl mx-auto mb-8">
+          <div className="space-y-4 max-w-xl mx-auto mb-8">
             {[
-              "où l'on peut s'entraîner sans exposer inutilement les personnes",
-              "où l'évaluation sert la progression",
-              "où l'IA est encadrée, supervisée et jamais autonome"
+              "Où l'on peut s'entraîner sans exposer inutilement les personnes",
+              "Où l'évaluation sert la progression",
+              "Où l'IA est encadrée, supervisée et jamais autonome"
             ].map((item, index) => (
-              <li key={index} className="flex items-start gap-3">
+              <div key={index} className="flex items-start gap-3">
                 <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
                 <span className="text-foreground">{item}</span>
-              </li>
+              </div>
             ))}
-          </ul>
-          <p className="text-lg text-foreground text-center">
-            Parce que travailler les compétences humaines engage les individus,
-          </p>
-          <p className="text-lg text-foreground text-center font-medium mt-2">
+          </div>
+          <p className="text-lg text-foreground text-center leading-relaxed">
+            Parce que travailler les compétences humaines engage les individus, 
             nous assumons une posture responsable, suisse et institutionnellement compatible.
           </p>
         </div>
