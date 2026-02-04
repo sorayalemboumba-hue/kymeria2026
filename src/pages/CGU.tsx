@@ -11,7 +11,7 @@ export default function CGU() {
               Conditions Générales d'Utilisation
             </h1>
             <p className="text-muted-foreground">
-              Dernière mise à jour : Février 2026
+              Dernière mise à jour : février 2026
             </p>
           </div>
         </div>
@@ -86,8 +86,8 @@ export default function CGU() {
 
           <h2>9. Contact</h2>
           <p>
-            Pour toute question concernant ces conditions, contactez-nous à : 
-            <a href="mailto:contact@kymeria.ch" className="text-accent hover:underline ml-1">
+            Pour toute question concernant ces conditions, contactez-nous à :{" "}
+            <a href="mailto:contact@kymeria.ch" className="text-accent hover:underline">
               contact@kymeria.ch
             </a>
           </p>

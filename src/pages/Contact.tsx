@@ -44,10 +44,8 @@ export default function Contact() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 animate-fade-in">
               Entrer en discussion
             </h1>
-            <p className="text-xl text-muted-foreground animate-fade-in" style={{ animationDelay: '0.1s' }}>
-              KymerIA privilégie les échanges clairs et contextualisés.
-            </p>
-            <p className="text-lg text-muted-foreground mt-4 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+            <p className="text-xl text-muted-foreground animate-fade-in leading-relaxed" style={{ animationDelay: '0.1s' }}>
+              KymerIA privilégie les échanges clairs et contextualisés. 
               Chaque organisation a ses réalités, ses contraintes et ses objectifs.
             </p>
           </div>
@@ -69,7 +67,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h3 className="font-semibold mb-1">Discuter de vos enjeux</h3>
-                  <p className="text-muted-foreground">
+                  <p className="text-muted-foreground leading-relaxed">
                     Échangeons sur vos besoins en développement des compétences humaines.
                   </p>
                 </div>
@@ -81,7 +79,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h3 className="font-semibold mb-1">Explorer un projet pilote</h3>
-                  <p className="text-muted-foreground">
+                  <p className="text-muted-foreground leading-relaxed">
                     Découvrez KymerIA à travers une démonstration personnalisée.
                   </p>
                 </div>
@@ -203,7 +201,7 @@ export default function Contact() {
           </h2>
           <div className="grid sm:grid-cols-3 gap-6">
             {[
-              "Réponse sous 48h",
+              "Réponse sous 48 h",
               "Échange sans engagement",
               "Confidentialité assurée"
             ].map((item, index) => (

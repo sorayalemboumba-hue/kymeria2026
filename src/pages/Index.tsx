@@ -58,27 +58,25 @@ export default function Index() {
           title="Des compétences humaines essentielles, mais difficiles à travailler"
         />
         <div className="max-w-3xl mx-auto text-center">
-          <p className="text-lg text-muted-foreground mb-8">
-            Communication, écoute, posture, leadership, adaptation, relation à l'autre.
-          </p>
-          <p className="text-lg text-foreground mb-8">
+          <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+            Communication, écoute, posture, leadership, adaptation, relation à l'autre. 
             Ces compétences sont aujourd'hui au cœur des métiers, des organisations et des institutions.
           </p>
-          <p className="text-lg text-muted-foreground mb-8">
-            Elles sont pourtant :
+          <p className="text-lg text-foreground mb-8">
+            Pourtant, elles restent :
           </p>
-          <ul className="space-y-4 text-left max-w-md mx-auto">
+          <div className="space-y-4 text-left max-w-md mx-auto">
             {[
-              "difficiles à pratiquer régulièrement",
-              "complexes à objectiver",
-              "rarement entraînées dans la durée"
+              "Difficiles à pratiquer régulièrement",
+              "Complexes à objectiver",
+              "Rarement entraînées dans la durée"
             ].map((item, index) => (
-              <li key={index} className="flex items-start gap-3">
+              <div key={index} className="flex items-start gap-3">
                 <CheckCircle2 className="h-5 w-5 text-accent mt-0.5 flex-shrink-0" />
                 <span className="text-foreground">{item}</span>
-              </li>
+              </div>
             ))}
-          </ul>
+          </div>
         </div>
       </Section>
 
@@ -106,7 +104,7 @@ export default function Index() {
             <Card key={index} className="border-0 shadow-md hover:shadow-lg transition-shadow">
               <CardContent className="p-6">
                 <h3 className="text-lg font-semibold mb-3 text-primary">{item.title}</h3>
-                <p className="text-muted-foreground">{item.description}</p>
+                <p className="text-muted-foreground leading-relaxed">{item.description}</p>
               </CardContent>
             </Card>
           ))}
@@ -145,7 +143,7 @@ export default function Index() {
                   <item.icon className="h-6 w-6 text-accent" />
                 </div>
                 <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
-                <p className="text-sm text-muted-foreground">{item.description}</p>
+                <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
               </CardContent>
             </Card>
           ))}
@@ -192,7 +190,7 @@ export default function Index() {
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Prêt à explorer KymerIA ?
           </h2>
-          <p className="text-lg text-primary-foreground/80 mb-8">
+          <p className="text-lg text-primary-foreground/80 mb-8 leading-relaxed">
             Découvrez comment KymerIA peut accompagner votre organisation dans le développement des compétences humaines.
           </p>
           <Button asChild size="lg" variant="secondary" className="text-base font-medium">

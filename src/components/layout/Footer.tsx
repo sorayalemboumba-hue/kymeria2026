@@ -28,12 +28,13 @@ export function Footer() {
           {/* Brand */}
           <div className="md:col-span-2">
             <Link to="/" className="inline-block mb-4">
-              <span className="text-2xl font-bold tracking-tight">
-                <span className="text-primary-foreground">kymer</span>
-                <span className="text-accent">ia</span>
-              </span>
+              <img 
+                src="/kymeria-logo-light.svg" 
+                alt="KymerIA" 
+                className="h-10 w-auto"
+              />
             </Link>
-            <p className="text-sm text-primary-foreground/70 max-w-md">
+            <p className="text-sm text-primary-foreground/70 max-w-md leading-relaxed">
               Plateforme suisse d'entraînement et d'évaluation continue des soft skills. 
               Une solution responsable au service des organisations.
             </p>

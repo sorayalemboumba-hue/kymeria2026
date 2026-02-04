@@ -40,8 +40,8 @@ export default function Plateforme() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 animate-fade-in">
               Un espace structuré pour entraîner et évaluer les soft skills
             </h1>
-            <p className="text-xl text-muted-foreground animate-fade-in" style={{ animationDelay: '0.1s' }}>
-              KymerIA permet de travailler l'ensemble des compétences humaines mobilisées dans les échanges professionnels
+            <p className="text-xl text-muted-foreground animate-fade-in leading-relaxed" style={{ animationDelay: '0.1s' }}>
+              KymerIA permet de travailler l'ensemble des compétences humaines mobilisées dans les échanges professionnels.
             </p>
           </div>
         </div>
@@ -71,21 +71,21 @@ export default function Plateforme() {
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Entraîner par la pratique
             </h2>
-            <p className="text-lg text-muted-foreground mb-6">
+            <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
               La plateforme propose des situations d'entraînement inspirées de contextes réels, permettant :
             </p>
-            <ul className="space-y-4">
+            <div className="space-y-4">
               {[
-                "de pratiquer sans pression",
-                "d'explorer différentes postures",
-                "de renforcer la confiance et la clarté dans les échanges"
+                "De pratiquer sans pression",
+                "D'explorer différentes postures",
+                "De renforcer la confiance et la clarté dans les échanges"
               ].map((item, index) => (
-                <li key={index} className="flex items-start gap-3">
+                <div key={index} className="flex items-start gap-3">
                   <CheckCircle2 className="h-5 w-5 text-accent mt-0.5 flex-shrink-0" />
                   <span className="text-foreground">{item}</span>
-                </li>
+                </div>
               ))}
-            </ul>
+            </div>
           </div>
           <div className="bg-gradient-to-br from-primary/5 to-accent/5 rounded-2xl p-8 lg:p-12">
             <div className="space-y-6">
@@ -118,16 +118,16 @@ export default function Plateforme() {
           <SectionHeader 
             title="Évaluer pour progresser"
           />
-          <p className="text-lg text-muted-foreground mb-8 text-center">
+          <p className="text-lg text-muted-foreground mb-8 text-center leading-relaxed">
             Chaque entraînement génère :
           </p>
           <div className="grid md:grid-cols-3 gap-6 mb-12">
             {[
-              "un feedback structuré",
-              "des indicateurs de progression",
-              "une lecture utile pour l'utilisateur, le manager ou le formateur"
+              "Un feedback structuré",
+              "Des indicateurs de progression",
+              "Une lecture utile pour l'utilisateur, le manager ou le formateur"
             ].map((item, index) => (
-              <Card key={index} className="text-center border shadow-sm">
+              <Card key={index} className="text-center border shadow-sm hover:shadow-md transition-shadow">
                 <CardContent className="p-6">
                   <p className="font-medium">{item}</p>
                 </CardContent>
@@ -138,18 +138,18 @@ export default function Plateforme() {
           <p className="text-lg text-muted-foreground mb-6 text-center">
             L'évaluation est conçue comme :
           </p>
-          <ul className="space-y-3 max-w-md mx-auto">
+          <div className="space-y-3 max-w-md mx-auto">
             {[
-              "un repère",
-              "un outil de compréhension",
-              "jamais comme un instrument de contrôle"
+              "Un repère",
+              "Un outil de compréhension",
+              "Jamais comme un instrument de contrôle"
             ].map((item, index) => (
-              <li key={index} className="flex items-center gap-3">
+              <div key={index} className="flex items-center gap-3">
                 <CheckCircle2 className="h-5 w-5 text-accent flex-shrink-0" />
                 <span className="text-foreground">{item}</span>
-              </li>
+              </div>
             ))}
-          </ul>
+          </div>
         </div>
       </Section>
 
@@ -191,19 +191,19 @@ export default function Plateforme() {
             <p className="text-lg text-muted-foreground mb-6">
               L'IA utilisée par KymerIA :
             </p>
-            <ul className="space-y-4">
+            <div className="space-y-4">
               {[
-                "est supervisée par l'équipe",
-                "corrigée et ajustée en continu",
-                "adaptée aux contraintes clients",
-                "conforme aux cadres légaux"
+                "Est supervisée par l'équipe",
+                "Corrigée et ajustée en continu",
+                "Adaptée aux contraintes clients",
+                "Conforme aux cadres légaux"
               ].map((item, index) => (
-                <li key={index} className="flex items-start gap-3">
+                <div key={index} className="flex items-start gap-3">
                   <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
                   <span className="text-foreground">{item}</span>
-                </li>
+                </div>
               ))}
-            </ul>
+            </div>
           </div>
           
           <Card className="border-2 border-primary/20">
