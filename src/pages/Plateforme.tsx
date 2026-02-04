@@ -18,7 +18,10 @@ import {
   Shield,
   Server,
   Lock,
-  FileCheck
+  FileCheck,
+  Eye,
+  RefreshCw,
+  Sliders
 } from "lucide-react";
 
 export default function Plateforme() {
@@ -34,13 +37,13 @@ export default function Plateforme() {
   return (
     <Layout>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-muted to-background pt-24 pb-16 md:pt-32 md:pb-24">
+      <section className="bg-gradient-to-br from-primary via-primary to-kymeria-blue-light pt-24 pb-16 md:pt-32 md:pb-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 animate-fade-in">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 text-primary-foreground animate-fade-in">
               Un espace structuré pour entraîner et évaluer les soft skills
             </h1>
-            <p className="text-xl text-muted-foreground animate-fade-in leading-relaxed" style={{ animationDelay: '0.1s' }}>
+            <p className="text-xl text-primary-foreground/80 animate-fade-in leading-relaxed" style={{ animationDelay: '0.1s' }}>
               KymerIA permet de travailler l'ensemble des compétences humaines mobilisées dans les échanges professionnels.
             </p>
           </div>
@@ -53,12 +56,12 @@ export default function Plateforme() {
           {skills.map((skill, index) => (
             <div 
               key={index} 
-              className="flex flex-col items-center text-center p-4 rounded-lg bg-muted/50 hover:bg-muted transition-colors"
+              className="flex flex-col items-center text-center p-5 rounded-xl bg-muted/50 hover:bg-muted transition-all hover:shadow-md"
             >
-              <div className="mb-3 w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center">
-                <skill.icon className="h-6 w-6 text-accent" />
+              <div className="mb-3 w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center">
+                <skill.icon className="h-7 w-7 text-accent" />
               </div>
-              <span className="text-sm font-medium">{skill.name}</span>
+              <span className="font-medium">{skill.name}</span>
             </div>
           ))}
         </div>
@@ -71,42 +74,36 @@ export default function Plateforme() {
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Entraîner par la pratique
             </h2>
-            <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-              La plateforme propose des situations d'entraînement inspirées de contextes réels, permettant :
+            <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+              Des situations inspirées de contextes réels permettent :
             </p>
             <div className="space-y-4">
               {[
                 "De pratiquer sans pression",
                 "D'explorer différentes postures",
-                "De renforcer la confiance et la clarté dans les échanges"
+                "De gagner en clarté et en aisance"
               ].map((item, index) => (
-                <div key={index} className="flex items-start gap-3">
-                  <CheckCircle2 className="h-5 w-5 text-accent mt-0.5 flex-shrink-0" />
-                  <span className="text-foreground">{item}</span>
+                <div key={index} className="flex items-start gap-4 p-4 rounded-xl bg-card border shadow-sm">
+                  <CheckCircle2 className="h-6 w-6 text-accent mt-0.5 flex-shrink-0" />
+                  <span className="text-foreground font-medium">{item}</span>
                 </div>
               ))}
             </div>
           </div>
-          <div className="bg-gradient-to-br from-primary/5 to-accent/5 rounded-2xl p-8 lg:p-12">
+          <div className="bg-gradient-to-br from-primary/5 to-accent/5 rounded-2xl p-8 lg:p-10 border border-primary/10">
             <div className="space-y-6">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                  <Settings className="h-6 w-6 text-primary" />
+              {[
+                { icon: Settings, text: "Contextes personnalisables" },
+                { icon: Target, text: "Objectifs adaptés" },
+                { icon: BarChart3, text: "Progression mesurable" }
+              ].map((item, index) => (
+                <div key={index} className="flex items-center gap-4">
+                  <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center">
+                    <item.icon className="h-7 w-7 text-primary" />
+                  </div>
+                  <span className="text-lg font-medium">{item.text}</span>
                 </div>
-                <span className="text-lg font-medium">Contextes personnalisables</span>
-              </div>
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                  <Target className="h-6 w-6 text-primary" />
-                </div>
-                <span className="text-lg font-medium">Objectifs adaptés</span>
-              </div>
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                  <BarChart3 className="h-6 w-6 text-primary" />
-                </div>
-                <span className="text-lg font-medium">Progression mesurable</span>
-              </div>
+              ))}
             </div>
           </div>
         </div>
@@ -118,43 +115,34 @@ export default function Plateforme() {
           <SectionHeader 
             title="Évaluer pour progresser"
           />
-          <p className="text-lg text-muted-foreground mb-8 text-center leading-relaxed">
+          <p className="text-lg text-muted-foreground mb-10 text-center leading-relaxed">
             Chaque entraînement génère :
           </p>
           <div className="grid md:grid-cols-3 gap-6 mb-12">
             {[
               "Un feedback structuré",
-              "Des indicateurs de progression",
-              "Une lecture utile pour l'utilisateur, le manager ou le formateur"
+              "Des indicateurs et scores paramétrables",
+              "Un suivi de progression individuelle et collective"
             ].map((item, index) => (
-              <Card key={index} className="text-center border shadow-sm hover:shadow-md transition-shadow">
+              <Card key={index} className="text-center border shadow-sm hover:shadow-md transition-all">
                 <CardContent className="p-6">
+                  <CheckCircle2 className="h-8 w-8 text-accent mx-auto mb-4" />
                   <p className="font-medium">{item}</p>
                 </CardContent>
               </Card>
             ))}
           </div>
           
-          <p className="text-lg text-muted-foreground mb-6 text-center">
-            L'évaluation est conçue comme :
-          </p>
-          <div className="space-y-3 max-w-md mx-auto">
-            {[
-              "Un repère",
-              "Un outil de compréhension",
-              "Jamais comme un instrument de contrôle"
-            ].map((item, index) => (
-              <div key={index} className="flex items-center gap-3">
-                <CheckCircle2 className="h-5 w-5 text-accent flex-shrink-0" />
-                <span className="text-foreground">{item}</span>
-              </div>
-            ))}
+          <div className="p-6 rounded-2xl bg-accent/5 border border-accent/10 text-center">
+            <p className="text-lg text-foreground leading-relaxed">
+              <strong>L'évaluation n'est jamais imposée</strong> : elle est adaptée au cadre, à la culture et aux règles du client.
+            </p>
           </div>
         </div>
       </Section>
 
       {/* How it works */}
-      <Section variant="muted">
+      <Section variant="muted" id="fonctionnement">
         <SectionHeader title="Comment ça fonctionne" />
         <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
           {[
@@ -168,16 +156,26 @@ export default function Plateforme() {
             },
             {
               step: "3",
-              title: "Analyse et ajustement dans la durée"
+              title: "Analyse, ajustement et suivi dans la durée"
             }
           ].map((item, index) => (
-            <div key={index} className="text-center">
-              <div className="w-16 h-16 rounded-full bg-primary text-primary-foreground flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
+            <div key={index} className="text-center p-6 rounded-2xl bg-card border shadow-sm hover:shadow-md transition-all">
+              <div className="w-16 h-16 rounded-full bg-primary text-primary-foreground flex items-center justify-center mx-auto mb-5 text-2xl font-bold">
                 {item.step}
               </div>
-              <p className="font-medium text-lg">{item.title}</p>
+              <p className="font-semibold text-lg">{item.title}</p>
             </div>
           ))}
+        </div>
+        <div className="text-center mt-10">
+          <Button 
+            variant="outline" 
+            size="lg"
+            onClick={() => document.getElementById('fonctionnement')?.scrollIntoView({ behavior: 'smooth' })}
+            className="text-base"
+          >
+            Comprendre le fonctionnement de la plateforme
+          </Button>
         </div>
       </Section>
 
@@ -188,40 +186,38 @@ export default function Plateforme() {
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Une IA encadrée et supervisée
             </h2>
-            <p className="text-lg text-muted-foreground mb-6">
-              L'IA utilisée par KymerIA :
-            </p>
             <div className="space-y-4">
               {[
-                "Est supervisée par l'équipe",
-                "Corrigée et ajustée en continu",
-                "Adaptée aux contraintes clients",
-                "Conforme aux cadres légaux"
+                { icon: Eye, text: "Supervision humaine continue" },
+                { icon: RefreshCw, text: "Ajustements permanents" },
+                { icon: Sliders, text: "Paramétrage selon les usages" },
+                { icon: FileCheck, text: "Conformité réglementaire" }
               ].map((item, index) => (
-                <div key={index} className="flex items-start gap-3">
-                  <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                  <span className="text-foreground">{item}</span>
+                <div key={index} className="flex items-center gap-4 p-4 rounded-xl bg-muted/50 hover:bg-muted transition-colors">
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <item.icon className="h-6 w-6 text-primary" />
+                  </div>
+                  <span className="font-medium">{item.text}</span>
                 </div>
               ))}
             </div>
           </div>
           
-          <Card className="border-2 border-primary/20">
+          <Card className="border-2 border-primary/20 shadow-lg">
             <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <Shield className="h-5 w-5 text-primary" />
-                Sécurité et cadre suisse
+              <CardTitle className="flex items-center gap-3 text-xl">
+                <Shield className="h-6 w-6 text-primary" />
+                Sécurité & souveraineté
               </CardTitle>
             </CardHeader>
-            <CardContent className="space-y-4">
+            <CardContent className="space-y-5">
               {[
                 { icon: Server, text: "Données hébergées en Suisse" },
-                { icon: Lock, text: "Aucune utilisation des données clients pour entraîner les modèles" },
-                { icon: FileCheck, text: "Conformité réglementaire" },
-                { icon: Shield, text: "Gouvernance claire" }
+                { icon: Lock, text: "Aucune donnée client utilisée pour entraîner les modèles" },
+                { icon: Shield, text: "Gouvernance claire et maîtrisée" }
               ].map((item, index) => (
-                <div key={index} className="flex items-center gap-3">
-                  <item.icon className="h-5 w-5 text-accent flex-shrink-0" />
+                <div key={index} className="flex items-start gap-4">
+                  <item.icon className="h-6 w-6 text-accent flex-shrink-0 mt-0.5" />
                   <span className="text-foreground">{item.text}</span>
                 </div>
               ))}
@@ -236,10 +232,10 @@ export default function Plateforme() {
           <h2 className="text-3xl font-bold mb-6">
             Découvrir la plateforme en situation réelle
           </h2>
-          <Button asChild size="lg" variant="secondary" className="text-base font-medium">
+          <Button asChild size="lg" variant="secondary" className="text-base font-semibold shadow-lg hover:shadow-xl transition-all hover:scale-105">
             <Link to="/contact">
-              Demander une démonstration personnalisée
-              <ArrowRight className="ml-2 h-4 w-4" />
+              Découvrir la plateforme en situation réelle
+              <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
           </Button>
         </div>

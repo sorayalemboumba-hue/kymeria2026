@@ -29,9 +29,9 @@ export function Footer() {
           <div className="md:col-span-2">
             <Link to="/" className="inline-block mb-4">
               <img 
-                src="/kymeria-logo-light.svg" 
+                src="/kymeria-logo-light.png" 
                 alt="KymerIA" 
-                className="h-10 w-auto"
+                className="h-12 w-auto"
               />
             </Link>
             <p className="text-sm text-primary-foreground/70 max-w-md leading-relaxed">

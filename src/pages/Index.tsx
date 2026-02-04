@@ -12,14 +12,17 @@ import {
   Server,
   Eye,
   CheckCircle2,
-  ArrowRight
+  ArrowRight,
+  Target,
+  TrendingUp,
+  Handshake
 } from "lucide-react";
 
 export default function Index() {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative min-h-[85vh] flex items-center bg-gradient-to-br from-primary via-primary to-kymeria-blue-light overflow-hidden">
+      <section className="relative min-h-[90vh] flex items-center bg-gradient-to-br from-primary via-primary to-kymeria-blue-light overflow-hidden">
         {/* Subtle pattern overlay */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0" style={{
@@ -30,21 +33,21 @@ export default function Index() {
         
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-4xl">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-6 leading-tight animate-fade-in">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-8 leading-tight animate-fade-in">
               Développer, entraîner et faire progresser les compétences humaines
             </h1>
-            <p className="text-xl md:text-2xl text-primary-foreground/80 mb-8 max-w-3xl leading-relaxed animate-fade-in" style={{ animationDelay: '0.1s' }}>
+            <p className="text-xl md:text-2xl text-primary-foreground/90 mb-6 max-w-3xl leading-relaxed animate-fade-in" style={{ animationDelay: '0.1s' }}>
               KymerIA est une plateforme suisse d'entraînement et d'évaluation continue des soft skills.
             </p>
-            <p className="text-lg text-primary-foreground/70 mb-10 max-w-2xl animate-fade-in" style={{ animationDelay: '0.2s' }}>
-              Elle accompagne les organisations qui souhaitent renforcer la qualité des échanges humains, 
-              la posture professionnelle et la performance relationnelle, dans un cadre responsable et sécurisé.
+            <p className="text-lg text-primary-foreground/75 mb-10 max-w-3xl leading-relaxed animate-fade-in" style={{ animationDelay: '0.2s' }}>
+              Elle accompagne les organisations publiques et privées qui souhaitent renforcer durablement 
+              la qualité des échanges humains, la posture professionnelle et la performance relationnelle.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 animate-fade-in" style={{ animationDelay: '0.3s' }}>
-              <Button asChild size="lg" variant="secondary" className="text-base font-medium">
+            <div className="animate-fade-in" style={{ animationDelay: '0.3s' }}>
+              <Button asChild size="lg" variant="secondary" className="text-base font-semibold shadow-lg hover:shadow-xl transition-all hover:scale-105">
                 <Link to="/contact">
-                  Explorer si KymerIA a du sens pour votre organisation
-                  <ArrowRight className="ml-2 h-4 w-4" />
+                  Demander une démonstration personnalisée
+                  <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
             </div>
@@ -52,36 +55,70 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Challenge Section */}
+      {/* Daily Skills Section */}
       <Section>
         <SectionHeader 
-          title="Des compétences humaines essentielles, mais difficiles à travailler"
+          title="Les compétences humaines sont un outil de travail quotidien"
         />
-        <div className="max-w-3xl mx-auto text-center">
-          <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-            Communication, écoute, posture, leadership, adaptation, relation à l'autre. 
-            Ces compétences sont aujourd'hui au cœur des métiers, des organisations et des institutions.
+        <div className="max-w-4xl mx-auto">
+          <p className="text-lg text-muted-foreground mb-10 text-center leading-relaxed">
+            Dans les organisations, chaque jour, il faut :
           </p>
-          <p className="text-lg text-foreground mb-8">
-            Pourtant, elles restent :
-          </p>
-          <div className="space-y-4 text-left max-w-md mx-auto">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-10">
             {[
-              "Difficiles à pratiquer régulièrement",
-              "Complexes à objectiver",
-              "Rarement entraînées dans la durée"
+              "Expliquer",
+              "Écouter",
+              "Clarifier",
+              "Adapter sa posture",
+              "Construire la confiance"
             ].map((item, index) => (
-              <div key={index} className="flex items-start gap-3">
-                <CheckCircle2 className="h-5 w-5 text-accent mt-0.5 flex-shrink-0" />
-                <span className="text-foreground">{item}</span>
+              <div 
+                key={index} 
+                className="flex items-center justify-center gap-2 p-4 rounded-xl bg-muted/50 hover:bg-muted transition-colors"
+              >
+                <CheckCircle2 className="h-5 w-5 text-accent flex-shrink-0" />
+                <span className="font-medium text-foreground">{item}</span>
               </div>
             ))}
+          </div>
+          <div className="text-center space-y-4">
+            <p className="text-xl text-foreground font-medium">
+              Ces compétences sont essentielles.
+            </p>
+            <p className="text-lg text-muted-foreground">
+              Elles sont pourtant rarement entraînées dans la durée.
+            </p>
           </div>
         </div>
       </Section>
 
-      {/* Solution Section */}
+      {/* Training Gap Section */}
       <Section variant="muted">
+        <SectionHeader 
+          title="Former ne suffit pas toujours"
+        />
+        <div className="max-w-3xl mx-auto text-center">
+          <p className="text-lg text-foreground mb-8 leading-relaxed">
+            Les organisations forment. Mais elles disposent rarement d'un espace pour :
+          </p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+            {["Pratiquer", "Répéter", "Ajuster", "Progresser"].map((item, index) => (
+              <div 
+                key={index} 
+                className="p-6 rounded-xl bg-card border shadow-sm hover:shadow-md transition-all"
+              >
+                <span className="text-lg font-semibold text-primary">{item}</span>
+              </div>
+            ))}
+          </div>
+          <p className="text-lg text-muted-foreground italic">
+            dans un cadre sans enjeu réel.
+          </p>
+        </div>
+      </Section>
+
+      {/* Solution Section */}
+      <Section>
         <SectionHeader 
           title="La réponse KymerIA"
           subtitle="KymerIA complète les dispositifs existants en apportant :"
@@ -89,21 +126,27 @@ export default function Index() {
         <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
           {[
             {
+              icon: Target,
               title: "Un espace d'entraînement réaliste",
-              description: "Pratiquez dans des conditions proches du réel, sans pression."
+              description: "Pratiquez dans des conditions proches du réel, sans pression ni conséquences."
             },
             {
+              icon: TrendingUp,
               title: "Une évaluation au service de la progression",
-              description: "Des retours constructifs pour s'améliorer continuellement."
+              description: "Des retours constructifs et personnalisés pour s'améliorer continuellement."
             },
             {
+              icon: Handshake,
               title: "Une continuité formation-pratique",
-              description: "Le lien entre formation, pratique et accompagnement."
+              description: "Le lien entre formation, pratique et accompagnement dans la durée."
             }
           ].map((item, index) => (
-            <Card key={index} className="border-0 shadow-md hover:shadow-lg transition-shadow">
-              <CardContent className="p-6">
-                <h3 className="text-lg font-semibold mb-3 text-primary">{item.title}</h3>
+            <Card key={index} className="border shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+              <CardContent className="p-8">
+                <div className="mb-6 w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center">
+                  <item.icon className="h-7 w-7 text-accent" />
+                </div>
+                <h3 className="text-xl font-semibold mb-3 text-foreground">{item.title}</h3>
                 <p className="text-muted-foreground leading-relaxed">{item.description}</p>
               </CardContent>
             </Card>
@@ -112,37 +155,37 @@ export default function Index() {
       </Section>
 
       {/* For whom Section */}
-      <Section>
+      <Section variant="muted">
         <SectionHeader title="Pour qui ?" />
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
           {[
             {
               icon: Users,
-              title: "Pour vos équipes",
-              description: "Gagner en aisance, en clarté et en confiance dans les échanges du quotidien."
+              title: "Équipes",
+              description: "Gagner en aisance, clarté et confiance dans les échanges."
             },
             {
               icon: UserCog,
-              title: "Pour vos managers",
-              description: "Accompagner la progression relationnelle sans contrôle ni jugement."
+              title: "Managers",
+              description: "Accompagner les compétences relationnelles sans contrôle ni jugement."
             },
             {
               icon: GraduationCap,
-              title: "Pour vos formateurs",
-              description: "Renforcer l'impact des formations par de la pratique mesurable."
+              title: "Formateurs",
+              description: "Renforcer l'impact des formations par la pratique."
             },
             {
               icon: Building2,
-              title: "Pour votre organisation",
-              description: "Déployer un dispositif flexible, cohérent et durable."
+              title: "Organisations",
+              description: "Déployer un dispositif flexible, responsable et durable."
             }
           ].map((item, index) => (
-            <Card key={index} className="text-center border shadow-sm hover:shadow-md transition-shadow">
-              <CardContent className="p-6">
-                <div className="mb-4 inline-flex items-center justify-center w-12 h-12 rounded-full bg-accent/10">
-                  <item.icon className="h-6 w-6 text-accent" />
+            <Card key={index} className="text-center border shadow-sm hover:shadow-md transition-all duration-300">
+              <CardContent className="p-8">
+                <div className="mb-5 inline-flex items-center justify-center w-14 h-14 rounded-xl bg-primary/10">
+                  <item.icon className="h-7 w-7 text-primary" />
                 </div>
-                <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
+                <h3 className="text-lg font-semibold mb-3">{item.title}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
               </CardContent>
             </Card>
@@ -151,19 +194,19 @@ export default function Index() {
       </Section>
 
       {/* Swiss Trust Section */}
-      <Section variant="muted">
+      <Section>
         <SectionHeader 
-          title="Une solution suisse, responsable et sécurisée"
+          title="Un cadre suisse, responsable et sécurisé"
         />
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto">
           {[
             {
               icon: Server,
-              title: "Hébergement en Suisse"
+              title: "Hébergement des données en Suisse"
             },
             {
               icon: Shield,
-              title: "Gouvernance claire des données"
+              title: "Gouvernance claire"
             },
             {
               icon: Eye,
@@ -171,14 +214,14 @@ export default function Index() {
             },
             {
               icon: Building2,
-              title: "Adaptée aux environnements publics et privés"
+              title: "Compatible avec des environnements publics et privés"
             }
           ].map((item, index) => (
-            <div key={index} className="flex flex-col items-center text-center p-6">
-              <div className="mb-4 inline-flex items-center justify-center w-14 h-14 rounded-full bg-primary/10">
-                <item.icon className="h-7 w-7 text-primary" />
+            <div key={index} className="flex flex-col items-center text-center p-6 rounded-xl bg-muted/50 hover:bg-muted transition-colors">
+              <div className="mb-4 w-16 h-16 rounded-xl bg-primary/10 flex items-center justify-center">
+                <item.icon className="h-8 w-8 text-primary" />
               </div>
-              <h3 className="font-medium">{item.title}</h3>
+              <h3 className="font-medium leading-snug">{item.title}</h3>
             </div>
           ))}
         </div>
@@ -190,13 +233,13 @@ export default function Index() {
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Prêt à explorer KymerIA ?
           </h2>
-          <p className="text-lg text-primary-foreground/80 mb-8 leading-relaxed">
+          <p className="text-lg text-primary-foreground/80 mb-10 leading-relaxed">
             Découvrez comment KymerIA peut accompagner votre organisation dans le développement des compétences humaines.
           </p>
-          <Button asChild size="lg" variant="secondary" className="text-base font-medium">
+          <Button asChild size="lg" variant="secondary" className="text-base font-semibold shadow-lg hover:shadow-xl transition-all hover:scale-105">
             <Link to="/contact">
               Demander une démonstration personnalisée
-              <ArrowRight className="ml-2 h-4 w-4" />
+              <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
           </Button>
         </div>
