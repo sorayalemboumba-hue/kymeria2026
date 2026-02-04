@@ -39,9 +39,9 @@ export function Header() {
           {/* Logo */}
           <Link to="/" className="flex items-center">
             <img 
-              src="/kymeria-logo-dark.svg" 
+              src="/kymeria-logo-dark.png" 
               alt="KymerIA" 
-              className="h-8 w-auto"
+              className="h-10 w-auto"
             />
           </Link>
 
