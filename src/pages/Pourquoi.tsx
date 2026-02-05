@@ -139,12 +139,12 @@ export default function Pourquoi() {
       {/* CTA */}
       <Section variant="primary">
         <div className="text-center max-w-2xl mx-auto">
-          <h2 className="text-3xl font-bold mb-6">
-            Cette approche vous parle ?
-          </h2>
+          <p className="text-lg text-primary-foreground/80 mb-6">
+            Notre vision, notre cadre, nos responsabilités.
+          </p>
           <Button asChild size="lg" variant="secondary" className="text-base font-semibold shadow-lg hover:shadow-xl transition-all hover:scale-105">
-            <Link to="/contact">
-              Comprendre notre approche
+            <Link to="/equipe">
+              Découvrir l'équipe derrière KymerIA
               <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
           </Button>

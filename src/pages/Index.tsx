@@ -34,7 +34,7 @@ export default function Index() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-4xl">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-8 leading-tight animate-fade-in">
-              Développer, entraîner et faire progresser les compétences humaines
+              Développer, entraîner et mesurer les compétences humaines qui font la différence.
             </h1>
             <p className="text-xl md:text-2xl text-primary-foreground/90 mb-6 max-w-3xl leading-relaxed animate-fade-in" style={{ animationDelay: '0.1s' }}>
               KymerIA est une plateforme suisse d'entraînement et d'évaluation continue des soft skills.
