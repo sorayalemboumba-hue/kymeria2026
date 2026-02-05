@@ -1,216 +1,421 @@
 
 
-# Corrections Site KymerIA 2026
+# Plan de refonte graphique : Design Organique et Elegant
 
-## Résumé des 5 corrections à appliquer
+## Objectif
 
-Ce plan détaille les modifications précises demandées dans le document de corrections.
-
----
-
-## 1. Correction HOME — Changement de l'accroche
-
-### Fichier concerné
-`src/pages/Index.tsx`
-
-### Modification unique
-
-| Ligne | Élément | Actuel | Nouveau |
-|-------|---------|--------|---------|
-| 37 | Titre Hero | "Développer, entraîner et faire progresser les compétences humaines" | **"Développer, entraîner et mesurer les compétences humaines qui font la différence."** |
-
-Le reste de la page reste inchangé.
+Transformer le design actuel (institutionnel, géométrique, angulaire) en un design plus **organique**, **élégant**, **professionnel** et **original**, tout en conservant l'identité KymerIA et le positionnement B2B suisse.
 
 ---
 
-## 2. Correction Page Pourquoi KymerIA — CTA
+## Concept de design : "Organic Swiss"
 
-### Fichier concerné
-`src/pages/Pourquoi.tsx`
-
-### Modifications de la section CTA finale (lignes 139-152)
-
-| Élément | Actuel | Nouveau |
-|---------|--------|---------|
-| Titre H2 | "Cette approche vous parle ?" | Supprimer ce titre |
-| CTA Button | "Comprendre notre approche" | **"Découvrir l'équipe derrière KymerIA"** |
-| Lien | `/contact` | **`/equipe`** |
-| Sous-texte | (absent) | Ajouter : **"Notre vision, notre cadre, nos responsabilités."** |
-
-La structure finale sera un CTA avec sous-texte discret, qui redirige vers la page Équipe.
+Le nouveau design mélangera :
+- **Formes organiques** : courbes fluides, blob shapes, border-radius généreux
+- **Dégradés subtils** : transitions douces entre les sections
+- **Effets de profondeur** : ombres diffuses, glassmorphism léger
+- **Animations subtiles** : mouvements fluides au hover, parallax léger
+- **Éléments décoratifs** : formes abstraites flottantes, grain texture
 
 ---
 
-## 3. Correction PAGE LA PLATEFORME — Refonte structurelle complète
+## 1. Palette de couleurs enrichie
 
-### Fichier concerné
-`src/pages/Plateforme.tsx`
+### Fichier : `src/index.css`
 
-### Architecture finale de la page
+**Nouvelles variables :**
 
-**HERO (légèrement ajusté)**
-- Titre : "Un espace structuré pour entraîner et évaluer les **compétences humaines**"
-- Sous-titre : conservé
-- Grille des 6 compétences : conservée
+```css
+/* Couleurs organiques étendues */
+--kymeria-warm: 30 15% 95%;           /* Beige chaud */
+--kymeria-sage: 160 25% 92%;          /* Vert sauge très léger */
+--kymeria-lavender: 250 40% 96%;      /* Lavande très douce */
 
-**SECTION CENTRALE — COMMENT ÇA MARCHE (nouvelle structure)**
+/* Dégradés organiques */
+--gradient-organic: linear-gradient(135deg, 
+  hsl(250 70% 50% / 0.05) 0%, 
+  hsl(217 55% 25% / 0.03) 50%,
+  hsl(160 25% 92%) 100%);
+  
+--gradient-hero-organic: linear-gradient(160deg, 
+  hsl(217 55% 22%) 0%, 
+  hsl(217 45% 30%) 40%,
+  hsl(250 50% 35%) 100%);
 
-Cette section remplace les anciennes sections "Entraîner par la pratique" et "Évaluer pour progresser" qui étaient redondantes. Nouvelle organisation :
-
-1. **Une plateforme simple, prête à l'emploi**
-   - Plateforme intuitive, user-friendly et immédiatement opérationnelle
-   - Différents niveaux d'accès : utilisateurs, managers, formateurs et organisations
-
-2. **Une co-création avec chaque organisation**
-   - Définition des contextes métiers
-   - Création de personas
-   - Identification des compétences relationnelles à travailler
-   - Citation : "La plateforme et l'équipe KymerIA s'adaptent aux utilisateurs, jamais l'inverse."
-
-3. **Des personas riches et réalistes**
-   - Origines, niveaux socio-économiques, personnalités
-   - Accents, exigences relationnelles, contraintes métier
-   - Citation : "Ils permettent de s'entraîner dans des situations proches du réel, sans exposition inutile."
-
-4. **Entraînement vocal autonome ou accompagné**
-   - Autonome ou accompagné
-   - Intuitif
-   - Conforme aux règles éthiques, légales et réglementaires suisses
-
-5. **Feedback immédiat, clair et actionnable**
-   - Feedback structuré
-   - Note contextualisée
-   - Recommandations alignées avec les scénarios travaillés
-
-6. **Analyse, suivi et export des données (AUTOMATIQUE)**
-   - Automatiquement structurées
-   - Automatiquement exportables
-   - Directement exploitables par managers et formateurs
-   - Note : "Les formats et usages des données sont adaptés aux besoins du client."
-
-7. **Continuité avec les dispositifs existants**
-   - Renvoi vers les catalogues internes
-   - Complémentarité avec les parcours en place
-   - Continuité entre formation, pratique et accompagnement
-
-8. **Robustesse, supervision et sécurité**
-   - Corrections immédiates en cas d'erreur ou d'hallucination
-   - Supervision humaine continue
-   - Données protégées et anonymisées
-   - Conservation maximale des données : 1 an
-
-**3 REPÈRES VISUELS (nouvelles cartes épurées après "Comment ça marche")**
-
-Ces 3 éléments sont présentés comme des tuiles/cartes visuelles sans contenu explicatif supplémentaire (titre + phrase courte seulement) :
-
-1. **Entraîner par la pratique**
-   → "Des situations réalistes pour s'exercer sans pression ni jugement."
-
-2. **Évaluer pour progresser**
-   → "Des indicateurs clairs et exploitables pour objectiver les progrès."
-
-3. **IA encadrée et supervisée**
-   → "Une technologie maîtrisée, conforme et responsable, jamais autonome."
-
-**CTA FINAL**
-- Titre supprimé (CTA direct)
-- Bouton : "Découvrir la plateforme en situation réelle" → /contact
+/* Ombres organiques plus douces */
+--shadow-organic: 0 8px 32px -8px hsl(217 55% 25% / 0.12);
+--shadow-glow: 0 0 40px -10px hsl(250 70% 50% / 0.25);
+```
 
 ---
 
-## 4. Réécriture PAGE ÉQUIPE — Textes complets validés
+## 2. Nouvelles formes et composants CSS
 
-### Fichier concerné
-`src/pages/Equipe.tsx`
+### Fichier : `src/index.css`
 
-### Modifications majeures
+```css
+/* Cartes organiques avec bords arrondis généreux */
+.organic-card {
+  @apply bg-card backdrop-blur-sm p-8;
+  border-radius: 24px;
+  border: 1px solid hsl(var(--border) / 0.5);
+  box-shadow: var(--shadow-organic);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
-**HERO**
-- Titre : **"Une équipe engagée, responsable et complémentaire"**
-- (Remplace "Une équipe responsable au service de dispositifs durables")
+.organic-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-glow);
+}
 
-**SECTION INTRODUCTION (nouvelle)**
-- Texte d'introduction : "Chez KymerIA, la technologie n'est jamais une finalité. Ce qui fait la différence, c'est la manière dont elle est conçue, encadrée et mise au service des organisations."
+/* Formes blob décoratives */
+.blob-shape {
+  position: absolute;
+  border-radius: 50% 40% 60% 50%;
+  filter: blur(60px);
+  opacity: 0.4;
+  animation: blob-float 20s ease-in-out infinite;
+}
 
-**SECTION EXPERTISE PLURIDISCIPLINAIRE (mise à jour)**
+@keyframes blob-float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(20px, -15px) scale(1.05); }
+  50% { transform: translate(-10px, 20px) scale(0.95); }
+  75% { transform: translate(-20px, -10px) scale(1.02); }
+}
 
-Nouveaux libellés pour les 4 domaines :
-1. Expertise pédagogique et formation
-2. Compréhension fine des enjeux humains et organisationnels
-3. Maîtrise opérationnelle de l'intelligence artificielle en production
-4. Exigence éthique, réglementaire et sécuritaire
+/* Badge organique style "pill" */
+.organic-badge {
+  @apply px-5 py-2.5 font-medium text-sm;
+  border-radius: 100px;
+  background: hsl(var(--muted));
+  transition: all 0.3s ease;
+}
 
-Nouvelle phrase de conclusion : "Notre objectif est clair : concevoir des dispositifs fiables, utiles et responsables, capables de s'inscrire durablement dans des contextes professionnels et institutionnels exigeants."
+.organic-badge:hover {
+  background: hsl(var(--accent) / 0.1);
+  color: hsl(var(--accent));
+}
 
-**SECTION ÉQUIPE (réécriture complète avec descriptions détaillées)**
+/* Séparateur organique courbé */
+.organic-divider {
+  height: 120px;
+  margin-top: -60px;
+  background: inherit;
+  clip-path: ellipse(80% 100% at 50% 100%);
+}
 
-1. **Swann Asensio** — Cofondateur – Direction & vision produit
-   - Description : "À l'origine de la vision KymerIA, Swann pilote la cohérence globale du dispositif : technologie, pédagogie, usages et cadre éthique."
-   - Points clés : pertinente pour les organisations, mesurable dans ses impacts, maîtrisée dans ses usages, alignée avec des exigences institutionnelles élevées
+/* Icônes avec fond organique */
+.organic-icon-wrapper {
+  @apply flex items-center justify-center;
+  width: 64px;
+  height: 64px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, 
+    hsl(var(--accent) / 0.15) 0%, 
+    hsl(var(--primary) / 0.08) 100%);
+  transition: all 0.3s ease;
+}
 
-2. **Sasha Asensio** — Cofondateur – Développement commercial & partenariats
-   - Description : "Sasha accompagne les entreprises, institutions et centres de formation dans l'exploration des usages KymerIA."
-   - Points clés : comprendre les enjeux spécifiques, structurer des projets pilotes adaptés, construire des partenariats durables
+.organic-icon-wrapper:hover {
+  transform: rotate(-3deg) scale(1.05);
+}
 
-3. **Soraya Koite** — Responsable pédagogique & accompagnement
-   - Description : "Au cœur du dispositif KymerIA, Soraya intervient à l'interface entre les utilisateurs, les formateurs et la plateforme."
-   - Points clés : cohérence pédagogique des scénarios, intégration intelligente de l'évaluation
-
-4. **Romain Kohn** — Développeur IA & architecture
-   - Description : "Romain est responsable de la fiabilité technique et de la robustesse de la plateforme KymerIA."
-   - Points clés : stabilité de l'architecture, qualité des interactions IA en production, détection et correction des anomalies, optimisation continue des performances
-
-5. **Yann Anspach** — Développeur IA, UX & conformité
-   - Description : "Yann veille à ce que la plateforme reste intuitive, conforme et adaptable."
-   - Points clés : intuitive pour les utilisateurs, conforme aux cadres légaux, adaptable aux contraintes spécifiques, veille continue sur conformité et protection des données
-
-**NOUVELLE SECTION — Une IA supervisée par des humains, en continu**
-
-- Introduction : "Chez KymerIA, l'intelligence artificielle n'est jamais livrée seule."
-- Points : supervisée, ajustée, corrigée, optimisée en continu
-- Contexte : "par l'équipe KymerIA, en lien avec les retours utilisateurs, les besoins clients et les évolutions réglementaires."
-- Garanties : fiabilité du dispositif, maîtrise des risques, adaptation constante aux réalités du terrain
-
-**CTA**
-- Conservé : "Échanger avec l'équipe KymerIA" → /contact
+/* Grain texture overlay */
+.texture-grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,..."); /* Noise pattern */
+  pointer-events: none;
+}
+```
 
 ---
 
-## 5. Corrections PAGE CONTACT — Titre et CTA
+## 3. Animations fluides
 
-### Fichier concerné
-`src/pages/Contact.tsx`
+### Fichier : `tailwind.config.ts`
 
-### Modifications précises
+**Nouvelles animations :**
 
-| Ligne | Élément | Actuel | Nouveau |
-|-------|---------|--------|---------|
-| 48 | Titre Hero H1 | "Entrer en discussion" | **"Discuter d'un projet pilote KymerIA"** |
-| 206 | Bouton submit | "Entrer en discussion" | **"Envoyer"** |
-
-Le reste de la page (formulaire, infos contact, section engagement) reste inchangé.
+```typescript
+keyframes: {
+  // Animations organiques
+  "float": {
+    "0%, 100%": { transform: "translateY(0)" },
+    "50%": { transform: "translateY(-10px)" }
+  },
+  "pulse-soft": {
+    "0%, 100%": { opacity: "1" },
+    "50%": { opacity: "0.7" }
+  },
+  "scale-organic": {
+    "0%, 100%": { transform: "scale(1)" },
+    "50%": { transform: "scale(1.02)" }
+  },
+  "slide-up-fade": {
+    "0%": { opacity: "0", transform: "translateY(30px)" },
+    "100%": { opacity: "1", transform: "translateY(0)" }
+  }
+},
+animation: {
+  "float": "float 6s ease-in-out infinite",
+  "pulse-soft": "pulse-soft 3s ease-in-out infinite",
+  "scale-organic": "scale-organic 4s ease-in-out infinite",
+  "slide-up-fade": "slide-up-fade 0.8s ease-out forwards"
+}
+```
 
 ---
 
-## Résumé des fichiers à modifier
+## 4. Refonte du Hero (toutes pages)
 
-| Fichier | Modification |
-|---------|-------------|
-| `src/pages/Index.tsx` | Changement du titre Hero uniquement |
-| `src/pages/Pourquoi.tsx` | CTA redirige vers /equipe + nouveau texte |
-| `src/pages/Plateforme.tsx` | Refonte complète de la structure |
-| `src/pages/Equipe.tsx` | Réécriture complète avec descriptions détaillées |
-| `src/pages/Contact.tsx` | Titre Hero + bouton submit |
+### Concept visuel
+
+Le hero actuel est un simple dégradé linéaire. Le nouveau design intégrera :
+- Formes blob flottantes en arrière-plan
+- Dégradé plus riche avec transition vers le violet
+- Courbe organique en bas du hero
+- Animation subtile des éléments décoratifs
+
+### Implémentation (`Index.tsx` et autres pages)
+
+```tsx
+<section className="relative min-h-[90vh] flex items-center overflow-hidden">
+  {/* Fond avec dégradé organique */}
+  <div className="absolute inset-0 bg-gradient-organic-hero" />
+  
+  {/* Formes blob décoratives */}
+  <div className="blob-shape w-96 h-96 bg-accent/20 -top-20 -right-20" />
+  <div className="blob-shape w-80 h-80 bg-primary/30 bottom-0 left-1/4" 
+       style={{ animationDelay: '-5s' }} />
+  
+  {/* Contenu */}
+  <div className="container relative z-10">
+    {/* ... */}
+  </div>
+  
+  {/* Courbe organique vers la section suivante */}
+  <div className="absolute bottom-0 left-0 right-0 h-24">
+    <svg viewBox="0 0 1440 100" className="w-full h-full fill-background">
+      <path d="M0,50 C360,100 1080,0 1440,50 L1440,100 L0,100 Z" />
+    </svg>
+  </div>
+</section>
+```
 
 ---
 
-## Contraintes respectées
+## 5. Refonte des cartes
 
-- Aucun tiret (-) dans les listes (utilisation d'icônes/puces)
-- Ponctuation française avec espaces insécables
-- Paragraphes courts et web-friendly
-- Ton institutionnel sans marketing agressif
-- Pas de répétitions entre sections
-- CTAs spécifiques par page selon la stratégie validée
-- Design premium et perception haut de gamme pour organisations suisses 2026
+### Avant (angulaire)
+```tsx
+<Card className="border shadow-sm rounded-lg">
+```
+
+### Après (organique)
+```tsx
+<Card className="organic-card group">
+  <CardContent className="relative p-8">
+    {/* Effet de halo au hover */}
+    <div className="absolute inset-0 rounded-3xl bg-gradient-to-br 
+                    from-accent/5 to-transparent opacity-0 
+                    group-hover:opacity-100 transition-opacity" />
+    
+    <div className="organic-icon-wrapper mb-6">
+      <Icon className="h-7 w-7 text-accent" />
+    </div>
+    
+    <h3 className="text-xl font-semibold mb-3">{title}</h3>
+    <p className="text-muted-foreground leading-relaxed">{description}</p>
+  </CardContent>
+</Card>
+```
+
+---
+
+## 6. Refonte des badges et tags
+
+### Avant
+```tsx
+<div className="p-4 rounded-xl bg-muted/50">
+```
+
+### Après
+```tsx
+<div className="organic-badge group cursor-default">
+  <span className="flex items-center gap-2">
+    <CheckCircle2 className="h-4 w-4 text-accent 
+                             group-hover:scale-110 transition-transform" />
+    {text}
+  </span>
+</div>
+```
+
+---
+
+## 7. Refonte du Header
+
+### Fichier : `src/components/layout/Header.tsx`
+
+Améliorations :
+- Effet glassmorphism plus prononcé au scroll
+- Navigation avec underline animé au hover
+- Bouton CTA avec gradient et effet glow
+
+```tsx
+<header className={cn(
+  "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
+  scrolled 
+    ? "bg-background/80 backdrop-blur-xl border-b border-border/50 shadow-lg shadow-primary/5" 
+    : "bg-transparent"
+)}>
+```
+
+---
+
+## 8. Refonte du Footer
+
+### Fichier : `src/components/layout/Footer.tsx`
+
+Améliorations :
+- Courbe organique en haut du footer
+- Disposition plus aérée
+- Éléments avec animations subtiles
+
+---
+
+## 9. Sections avec transitions fluides
+
+### Nouvelle approche
+
+Au lieu de sections rectangulaires alternées, utiliser :
+- Courbes SVG entre les sections
+- Dégradés subtils qui se fondent
+- Éléments décoratifs flottants
+
+```tsx
+<Section className="relative overflow-visible">
+  {/* Contenu */}
+  
+  {/* Transition organique vers section suivante */}
+  <div className="absolute -bottom-16 left-0 right-0 h-32 overflow-hidden">
+    <svg className="w-full h-full" viewBox="0 0 1440 128">
+      <path 
+        fill="hsl(var(--muted))" 
+        d="M0,64 C240,128 720,0 1440,96 L1440,128 L0,128 Z"
+      />
+    </svg>
+  </div>
+</Section>
+```
+
+---
+
+## 10. Boutons CTA redesignés
+
+### Avant
+```tsx
+<Button variant="secondary" className="shadow-lg hover:scale-105">
+```
+
+### Après
+```tsx
+<Button className="relative overflow-hidden group px-8 py-4 
+                   bg-gradient-to-r from-accent to-accent/80
+                   rounded-full text-white font-semibold
+                   shadow-lg shadow-accent/25 hover:shadow-xl 
+                   hover:shadow-accent/30 transition-all duration-500">
+  {/* Effet de brillance au hover */}
+  <span className="absolute inset-0 bg-gradient-to-r from-transparent 
+                   via-white/20 to-transparent translate-x-[-200%] 
+                   group-hover:translate-x-[200%] transition-transform 
+                   duration-1000" />
+  <span className="relative flex items-center gap-2">
+    {children}
+    <ArrowRight className="h-5 w-5 group-hover:translate-x-1 
+                           transition-transform" />
+  </span>
+</Button>
+```
+
+---
+
+## 11. Nouveau composant : Formes décoratives
+
+### Fichier : `src/components/ui/decorative-shapes.tsx`
+
+```tsx
+export function DecorativeBlobs() {
+  return (
+    <>
+      <div className="absolute -top-40 -right-40 w-96 h-96 
+                      rounded-full bg-accent/10 blur-3xl animate-float" />
+      <div className="absolute -bottom-20 -left-20 w-72 h-72 
+                      rounded-full bg-primary/10 blur-3xl animate-float"
+           style={{ animationDelay: '-3s' }} />
+    </>
+  );
+}
+```
+
+---
+
+## Fichiers à modifier
+
+| Fichier | Modifications |
+|---------|--------------|
+| `src/index.css` | Nouvelles variables, composants organiques, animations |
+| `tailwind.config.ts` | Nouvelles keyframes et animations |
+| `src/components/ui/decorative-shapes.tsx` | Nouveau composant (création) |
+| `src/pages/Index.tsx` | Hero organique, cartes redesignées, sections fluides |
+| `src/pages/Pourquoi.tsx` | Même traitement organique |
+| `src/pages/Plateforme.tsx` | Même traitement organique |
+| `src/pages/Equipe.tsx` | Cartes équipe organiques |
+| `src/pages/Contact.tsx` | Formulaire et cartes organiques |
+| `src/components/layout/Header.tsx` | Glassmorphism, navigation améliorée |
+| `src/components/layout/Footer.tsx` | Courbe organique, disposition aérée |
+
+---
+
+## Avant / Après visuel
+
+```text
+AVANT (Angulaire)                    APRES (Organique)
++------------------+                 ╭──────────────────╮
+|  Border radius   |                 │  Border radius   │
+|  : 8px          |                 │  : 24px          │
+|                  |        →        │                  │
+|  Shadows: sharp  |                 │  Shadows: soft   │
+|  Transitions:    |                 │  Transitions:    │
+|  linéaires       |                 │  courbes fluides │
++------------------+                 ╰──────────────────╯
+
+Hero plat                            Hero avec blobs
+┌────────────────┐                   ╭────────○─────────╮
+│                │                   │    ◯      ○      │
+│   Texte        │        →          │   Texte          │
+│                │                   │          ◯       │
+└────────────────┘                   ╰─────╭────╮───────╯
+                                           ╰────╯ (courbe)
+```
+
+---
+
+## Résumé des améliorations
+
+1. **Formes** : Coins arrondis généreux (24px+), formes blob décoratives
+2. **Couleurs** : Palette enrichie avec tons chauds et lavande
+3. **Dégradés** : Transitions douces multi-couleurs
+4. **Ombres** : Diffuses et colorées (glow effect)
+5. **Animations** : Float, pulse soft, transitions fluides (cubic-bezier)
+6. **Transitions sections** : Courbes SVG au lieu de bordures droites
+7. **Header** : Glassmorphism premium
+8. **Boutons** : Pills avec gradient et effet brillance
+9. **Icônes** : Wrappers avec dégradé et rotation au hover
+10. **Texture** : Grain subtil pour effet premium
+
+Le résultat sera un site qui conserve son professionnalisme institutionnel suisse tout en apportant une touche de modernité, d'originalité et d'élégance organique qui le distinguera.
 
