@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { DecorativeBlobs, SectionCurve } from "@/components/ui/decorative-shapes";
+import { DecorativeBlobs, FloatingShapes, SectionCurve } from "@/components/ui/decorative-shapes";
 import { useToast } from "@/hooks/use-toast";
 import { 
   Mail, 
@@ -48,8 +48,14 @@ export default function Contact() {
           style={{ background: "var(--gradient-hero-organic)" }}
         />
         
-        {/* Decorative blobs */}
-        <DecorativeBlobs variant="hero" />
+        {/* Gradient mesh overlay */}
+        <div className="absolute inset-0 gradient-mesh" />
+        
+        {/* Dot grid */}
+        <div className="absolute inset-0 dot-grid-light opacity-40" />
+        
+        {/* Floating shapes */}
+        <FloatingShapes variant="hero" />
         
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-4xl mx-auto text-center">

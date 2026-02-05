@@ -3,7 +3,7 @@ import { Layout } from "@/components/layout/Layout";
 import { Section, SectionHeader } from "@/components/ui/section";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { DecorativeBlobs, SectionCurve } from "@/components/ui/decorative-shapes";
+import { DecorativeBlobs, FloatingShapes, SectionCurve } from "@/components/ui/decorative-shapes";
 import { 
   Users, 
   UserCog, 
@@ -30,21 +30,24 @@ export default function Index() {
           style={{ background: "var(--gradient-hero-organic)" }}
         />
         
-        {/* Decorative blobs */}
-        <DecorativeBlobs variant="hero" />
+        {/* Gradient mesh overlay */}
+        <div className="absolute inset-0 gradient-mesh" />
         
-        {/* Subtle pattern overlay */}
-        <div className="absolute inset-0 opacity-[0.03]">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`,
-            backgroundSize: '40px 40px'
-          }} />
-        </div>
+        {/* Dot grid pattern */}
+        <div className="absolute inset-0 dot-grid-light opacity-50" />
+        
+        {/* Floating geometric shapes */}
+        <FloatingShapes variant="hero" />
+        
+        {/* Legacy blobs for depth */}
+        <DecorativeBlobs variant="hero" />
         
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-4xl">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-8 leading-tight animate-fade-in">
-              Développer, entraîner et mesurer les compétences humaines qui font la différence.
+              Développer, entraîner et mesurer les{" "}
+              <span className="text-gradient-hero">compétences humaines</span>{" "}
+              qui font la différence.
             </h1>
             <p className="text-xl md:text-2xl text-primary-foreground/90 mb-6 max-w-3xl leading-relaxed animate-fade-in" style={{ animationDelay: '0.1s' }}>
               KymerIA est une plateforme suisse d'entraînement et d'évaluation continue des soft skills.
@@ -57,11 +60,11 @@ export default function Index() {
               <Button 
                 asChild 
                 size="lg" 
-                className="btn-organic text-base px-8 py-6 text-white"
+                className="btn-organic text-base px-8 py-6 text-white group"
               >
                 <Link to="/contact" className="flex items-center gap-3">
                   Demander une démonstration personnalisée
-                  <ArrowRight className="h-5 w-5" />
+                  <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
                 </Link>
               </Button>
             </div>
