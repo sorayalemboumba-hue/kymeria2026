@@ -45,7 +45,7 @@ export default function Contact() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 text-primary-foreground animate-fade-in">
-              Entrer en discussion
+              Discuter d'un projet pilote KymerIA
             </h1>
             <p className="text-xl text-primary-foreground/80 animate-fade-in leading-relaxed max-w-2xl mx-auto" style={{ animationDelay: '0.1s' }}>
               Chaque organisation a ses réalités, ses contraintes et ses objectifs.
@@ -203,7 +203,7 @@ export default function Contact() {
                     <>Envoi en cours...</>
                   ) : (
                     <>
-                      Entrer en discussion
+                      Envoyer
                       <Send className="ml-2 h-5 w-5" />
                     </>
                   )}
