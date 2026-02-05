@@ -3,7 +3,7 @@ import { Layout } from "@/components/layout/Layout";
 import { Section, SectionHeader } from "@/components/ui/section";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { DecorativeBlobs, SectionCurve } from "@/components/ui/decorative-shapes";
+import { DecorativeBlobs, FloatingShapes, SectionCurve } from "@/components/ui/decorative-shapes";
 import { CheckCircle2, ArrowRight, Heart, Target, Shield, Lightbulb } from "lucide-react";
 
 export default function Pourquoi() {
@@ -17,8 +17,14 @@ export default function Pourquoi() {
           style={{ background: "var(--gradient-hero-organic)" }}
         />
         
-        {/* Decorative blobs */}
-        <DecorativeBlobs variant="hero" />
+        {/* Gradient mesh overlay */}
+        <div className="absolute inset-0 gradient-mesh" />
+        
+        {/* Dot grid */}
+        <div className="absolute inset-0 dot-grid-light opacity-40" />
+        
+        {/* Floating shapes */}
+        <FloatingShapes variant="hero" />
         
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
