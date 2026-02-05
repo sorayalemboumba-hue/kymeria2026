@@ -3,6 +3,7 @@ import { Layout } from "@/components/layout/Layout";
 import { Section, SectionHeader } from "@/components/ui/section";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { DecorativeBlobs, SectionCurve } from "@/components/ui/decorative-shapes";
 import { 
   CheckCircle2, 
   ArrowRight,
@@ -42,8 +43,17 @@ export default function Plateforme() {
   return (
     <Layout>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-primary via-primary to-kymeria-blue-light pt-24 pb-16 md:pt-32 md:pb-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative overflow-hidden pt-24 pb-20 md:pt-32 md:pb-28">
+        {/* Gradient background */}
+        <div 
+          className="absolute inset-0"
+          style={{ background: "var(--gradient-hero-organic)" }}
+        />
+        
+        {/* Decorative blobs */}
+        <DecorativeBlobs variant="hero" />
+        
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 text-primary-foreground animate-fade-in">
               Un espace structuré pour entraîner et évaluer les <span className="text-accent">compétences humaines</span>
@@ -53,17 +63,21 @@ export default function Plateforme() {
             </p>
           </div>
         </div>
+
+        {/* Organic curve */}
+        <SectionCurve />
       </section>
 
       {/* Skills Grid */}
-      <Section>
+      <Section className="relative overflow-hidden">
+        <DecorativeBlobs variant="subtle" />
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 max-w-4xl mx-auto">
           {skills.map((skill, index) => (
             <div 
               key={index} 
-              className="flex flex-col items-center text-center p-5 rounded-xl bg-muted/50 hover:bg-muted transition-all hover:shadow-md"
+              className="organic-card flex flex-col items-center text-center p-5 group"
             >
-              <div className="mb-3 w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center">
+              <div className="mb-3 organic-icon-wrapper w-14 h-14">
                 <skill.icon className="h-7 w-7 text-accent" />
               </div>
               <span className="font-medium">{skill.name}</span>
@@ -73,7 +87,8 @@ export default function Plateforme() {
       </Section>
 
       {/* Comment ça marche - Section principale */}
-      <Section variant="muted">
+      <Section variant="muted" className="relative">
+        <DecorativeBlobs variant="section" />
         <SectionHeader title="Comment ça marche" />
         
         <div className="max-w-5xl mx-auto space-y-12">
@@ -81,7 +96,7 @@ export default function Plateforme() {
           <div className="grid lg:grid-cols-2 gap-8 items-center">
             <div>
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                <div className="organic-icon-wrapper w-14 h-14">
                   <Monitor className="h-6 w-6 text-primary" />
                 </div>
                 <h3 className="text-2xl font-bold">Une plateforme simple, prête à l'emploi</h3>
@@ -100,7 +115,7 @@ export default function Plateforme() {
                 { icon: Trophy, text: "Formateurs" },
                 { icon: Shield, text: "Organisations" }
               ].map((item, index) => (
-                <div key={index} className="flex items-center gap-3 p-4 rounded-xl bg-card border shadow-sm">
+                <div key={index} className="organic-card flex items-center gap-3 p-4">
                   <item.icon className="h-5 w-5 text-accent flex-shrink-0" />
                   <span className="font-medium text-sm">{item.text}</span>
                 </div>
@@ -109,9 +124,9 @@ export default function Plateforme() {
           </div>
 
           {/* 2. Co-création */}
-          <div className="p-8 rounded-2xl bg-card border shadow-sm">
+          <div className="organic-card p-8">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center">
+              <div className="organic-icon-wrapper w-14 h-14">
                 <Users className="h-6 w-6 text-accent" />
               </div>
               <h3 className="text-2xl font-bold">Une co-création avec chaque organisation</h3>
@@ -125,13 +140,13 @@ export default function Plateforme() {
                 "Création de personas",
                 "Identification des compétences relationnelles à travailler"
               ].map((item, index) => (
-                <div key={index} className="flex items-start gap-3 p-4 rounded-xl bg-muted/50">
+                <div key={index} className="flex items-start gap-3 p-4 rounded-2xl bg-muted/50">
                   <CheckCircle2 className="h-5 w-5 text-accent mt-0.5 flex-shrink-0" />
                   <span className="text-foreground font-medium">{item}</span>
                 </div>
               ))}
             </div>
-            <div className="p-4 rounded-xl bg-accent/5 border border-accent/10">
+            <div className="p-5 rounded-2xl bg-gradient-to-br from-accent/5 to-primary/5 border border-accent/10">
               <p className="text-lg text-foreground italic text-center">
                 « La plateforme et l'équipe KymerIA s'adaptent aux utilisateurs, jamais l'inverse. »
               </p>
@@ -150,7 +165,7 @@ export default function Plateforme() {
                   "Exigences relationnelles",
                   "Contraintes métier"
                 ].map((item, index) => (
-                  <div key={index} className="flex items-center gap-2 p-3 rounded-lg bg-muted/50">
+                  <div key={index} className="organic-badge flex items-center gap-2 py-3">
                     <CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0" />
                     <span className="text-sm font-medium">{item}</span>
                   </div>
@@ -159,7 +174,7 @@ export default function Plateforme() {
             </div>
             <div className="order-1 lg:order-2">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                <div className="organic-icon-wrapper w-14 h-14">
                   <UserRound className="h-6 w-6 text-primary" />
                 </div>
                 <h3 className="text-2xl font-bold">Des personas riches et réalistes</h3>
@@ -167,7 +182,7 @@ export default function Plateforme() {
               <p className="text-lg text-muted-foreground leading-relaxed mb-6">
                 Les personas peuvent intégrer une pluralité de critères pour refléter la diversité des situations réelles.
               </p>
-              <div className="p-4 rounded-xl bg-primary/5 border border-primary/10">
+              <div className="p-5 rounded-2xl bg-gradient-to-br from-primary/5 to-accent/5 border border-primary/10">
                 <p className="text-foreground italic">
                   « Ils permettent de s'entraîner dans des situations proches du réel, sans exposition inutile. »
                 </p>
@@ -176,9 +191,9 @@ export default function Plateforme() {
           </div>
 
           {/* 4. Entraînement vocal */}
-          <div className="p-8 rounded-2xl bg-gradient-to-br from-primary/5 to-accent/5 border border-primary/10">
+          <div className="organic-card p-8 bg-gradient-to-br from-card to-muted/30">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+              <div className="organic-icon-wrapper w-14 h-14">
                 <Mic className="h-6 w-6 text-primary" />
               </div>
               <h3 className="text-2xl font-bold">Entraînement vocal autonome ou accompagné</h3>
@@ -192,7 +207,7 @@ export default function Plateforme() {
                 { icon: Target, text: "Intuitif" },
                 { icon: Shield, text: "Conforme aux règles éthiques, légales et réglementaires suisses" }
               ].map((item, index) => (
-                <div key={index} className="flex items-start gap-3 p-4 rounded-xl bg-card border shadow-sm">
+                <div key={index} className="organic-card flex items-start gap-3 p-5">
                   <item.icon className="h-5 w-5 text-accent mt-0.5 flex-shrink-0" />
                   <span className="text-foreground font-medium">{item.text}</span>
                 </div>
@@ -204,7 +219,7 @@ export default function Plateforme() {
           <div className="grid lg:grid-cols-2 gap-8 items-center">
             <div>
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center">
+                <div className="organic-icon-wrapper w-14 h-14">
                   <MessageCircle className="h-6 w-6 text-accent" />
                 </div>
                 <h3 className="text-2xl font-bold">Feedback immédiat, clair et actionnable</h3>
@@ -219,7 +234,7 @@ export default function Plateforme() {
                 "Une note contextualisée",
                 "Des recommandations alignées avec les scénarios travaillés"
               ].map((item, index) => (
-                <div key={index} className="flex items-center gap-4 p-4 rounded-xl bg-card border shadow-sm">
+                <div key={index} className="organic-card flex items-center gap-4 p-5">
                   <CheckCircle2 className="h-6 w-6 text-accent flex-shrink-0" />
                   <span className="text-foreground font-medium">{item}</span>
                 </div>
@@ -228,9 +243,9 @@ export default function Plateforme() {
           </div>
 
           {/* 6. Analyse et données */}
-          <div className="p-8 rounded-2xl bg-card border shadow-sm">
+          <div className="organic-card p-8">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+              <div className="organic-icon-wrapper w-14 h-14">
                 <BarChart3 className="h-6 w-6 text-primary" />
               </div>
               <h3 className="text-2xl font-bold">Analyse, suivi et export des données</h3>
@@ -244,13 +259,13 @@ export default function Plateforme() {
                 { icon: FileDown, text: "Automatiquement exportables" },
                 { icon: Users, text: "Directement exploitables par managers et formateurs" }
               ].map((item, index) => (
-                <div key={index} className="flex items-start gap-3 p-4 rounded-xl bg-muted/50">
+                <div key={index} className="flex items-start gap-3 p-4 rounded-2xl bg-muted/50">
                   <item.icon className="h-5 w-5 text-accent mt-0.5 flex-shrink-0" />
                   <span className="text-foreground font-medium">{item.text}</span>
                 </div>
               ))}
             </div>
-            <div className="p-4 rounded-xl bg-muted/50">
+            <div className="p-5 rounded-2xl bg-muted/50">
               <p className="text-foreground text-center">
                 Les formats et usages des données sont adaptés aux besoins du client, afin de faciliter le travail d'évaluation, de suivi et d'accompagnement.
               </p>
@@ -266,7 +281,7 @@ export default function Plateforme() {
                   "Complémentarité avec les parcours en place",
                   "Continuité entre formation, pratique et accompagnement"
                 ].map((item, index) => (
-                  <div key={index} className="flex items-center gap-4 p-4 rounded-xl bg-card border shadow-sm">
+                  <div key={index} className="organic-card flex items-center gap-4 p-5">
                     <Link2 className="h-5 w-5 text-primary flex-shrink-0" />
                     <span className="text-foreground font-medium">{item}</span>
                   </div>
@@ -275,7 +290,7 @@ export default function Plateforme() {
             </div>
             <div className="order-1 lg:order-2">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center">
+                <div className="organic-icon-wrapper w-14 h-14">
                   <Link2 className="h-6 w-6 text-accent" />
                 </div>
                 <h3 className="text-2xl font-bold">Continuité avec les dispositifs existants</h3>
@@ -287,9 +302,9 @@ export default function Plateforme() {
           </div>
 
           {/* 8. Robustesse et sécurité */}
-          <div className="p-8 rounded-2xl bg-gradient-to-br from-primary/5 to-accent/5 border border-primary/10">
+          <div className="organic-card p-8 bg-gradient-to-br from-card to-primary/5">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+              <div className="organic-icon-wrapper w-14 h-14">
                 <Shield className="h-6 w-6 text-primary" />
               </div>
               <h3 className="text-2xl font-bold">Robustesse, supervision et sécurité</h3>
@@ -301,7 +316,7 @@ export default function Plateforme() {
                 { icon: Lock, text: "Données protégées et anonymisées" },
                 { icon: Clock, text: "Conservation maximale des données : 1 an" }
               ].map((item, index) => (
-                <div key={index} className="flex flex-col items-center text-center p-5 rounded-xl bg-card border shadow-sm">
+                <div key={index} className="organic-card flex flex-col items-center text-center p-6">
                   <item.icon className="h-8 w-8 text-accent mb-3" />
                   <span className="text-sm font-medium">{item.text}</span>
                 </div>
@@ -312,7 +327,8 @@ export default function Plateforme() {
       </Section>
 
       {/* 3 Repères visuels */}
-      <Section>
+      <Section className="relative overflow-hidden">
+        <DecorativeBlobs variant="section" />
         <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
           {[
             {
@@ -331,13 +347,17 @@ export default function Plateforme() {
               description: "Une technologie maîtrisée, conforme et responsable, jamais autonome."
             }
           ].map((item, index) => (
-            <Card key={index} className="text-center border-2 border-primary/10 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-              <CardContent className="p-8">
-                <div className="mb-6 w-16 h-16 rounded-2xl bg-accent/10 flex items-center justify-center mx-auto">
-                  <item.icon className="h-8 w-8 text-accent" />
+            <Card key={index} className="organic-card text-center border-2 border-accent/10 group overflow-hidden">
+              <CardContent className="relative p-8">
+                <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                <div className="relative">
+                  <div className="mb-6 w-18 h-18 rounded-2xl bg-gradient-to-br from-accent/15 to-accent/5 flex items-center justify-center mx-auto p-4">
+                    <item.icon className="h-10 w-10 text-accent" />
+                  </div>
+                  <h3 className="text-xl font-bold mb-3">{item.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed">{item.description}</p>
                 </div>
-                <h3 className="text-xl font-bold mb-3">{item.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{item.description}</p>
               </CardContent>
             </Card>
           ))}
@@ -345,12 +365,18 @@ export default function Plateforme() {
       </Section>
 
       {/* CTA */}
-      <Section variant="primary">
-        <div className="text-center max-w-2xl mx-auto">
-          <Button asChild size="lg" variant="secondary" className="text-base font-semibold shadow-lg hover:shadow-xl transition-all hover:scale-105">
-            <Link to="/contact">
+      <Section variant="primary" className="relative overflow-hidden">
+        <DecorativeBlobs variant="hero" />
+        <div className="text-center max-w-2xl mx-auto relative z-10">
+          <Button 
+            asChild 
+            size="lg" 
+            variant="secondary" 
+            className="rounded-full text-base font-semibold shadow-lg hover:shadow-xl transition-all hover:scale-105 px-8"
+          >
+            <Link to="/contact" className="flex items-center gap-2">
               Découvrir la plateforme en situation réelle
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <ArrowRight className="h-5 w-5" />
             </Link>
           </Button>
         </div>
