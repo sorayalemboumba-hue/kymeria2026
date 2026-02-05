@@ -3,6 +3,7 @@ import { Layout } from "@/components/layout/Layout";
 import { Section, SectionHeader } from "@/components/ui/section";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { DecorativeBlobs, SectionCurve } from "@/components/ui/decorative-shapes";
 import { 
   ArrowRight,
   GraduationCap,
@@ -85,18 +86,31 @@ export default function Equipe() {
   return (
     <Layout>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-primary via-primary to-kymeria-blue-light pt-24 pb-16 md:pt-32 md:pb-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative overflow-hidden pt-24 pb-20 md:pt-32 md:pb-28">
+        {/* Gradient background */}
+        <div 
+          className="absolute inset-0"
+          style={{ background: "var(--gradient-hero-organic)" }}
+        />
+        
+        {/* Decorative blobs */}
+        <DecorativeBlobs variant="hero" />
+        
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 text-primary-foreground animate-fade-in">
               Une équipe engagée, responsable et complémentaire
             </h1>
           </div>
         </div>
+
+        {/* Organic curve */}
+        <SectionCurve />
       </section>
 
       {/* Introduction */}
-      <Section>
+      <Section className="relative overflow-hidden">
+        <DecorativeBlobs variant="subtle" />
         <div className="max-w-4xl mx-auto text-center">
           <p className="text-xl text-muted-foreground leading-relaxed mb-12">
             Chez KymerIA, la technologie n'est jamais une finalité. Ce qui fait la différence, c'est la manière dont elle est conçue, encadrée et mise au service des organisations.
@@ -109,9 +123,9 @@ export default function Equipe() {
             {expertise.map((item, index) => (
               <div 
                 key={index} 
-                className="flex flex-col items-center text-center p-6 rounded-xl bg-muted/50 hover:bg-muted transition-all hover:shadow-md"
+                className="organic-card flex flex-col items-center text-center p-6 group"
               >
-                <div className="mb-4 w-16 h-16 rounded-xl bg-primary/10 flex items-center justify-center">
+                <div className="mb-4 organic-icon-wrapper w-16 h-16">
                   <item.icon className="h-8 w-8 text-primary" />
                 </div>
                 <span className="font-semibold text-sm leading-snug">{item.text}</span>
@@ -119,7 +133,7 @@ export default function Equipe() {
             ))}
           </div>
           
-          <div className="p-6 rounded-2xl bg-primary/5 border border-primary/10 text-center">
+          <div className="p-8 rounded-3xl bg-gradient-to-br from-primary/5 to-accent/5 border border-primary/10 text-center">
             <p className="text-lg text-foreground leading-relaxed">
               Notre objectif est clair : concevoir des dispositifs fiables, utiles et responsables, capables de s'inscrire durablement dans des contextes professionnels et institutionnels exigeants.
             </p>
@@ -128,16 +142,19 @@ export default function Equipe() {
       </Section>
 
       {/* Team Grid */}
-      <Section variant="muted">
+      <Section variant="muted" className="relative">
+        <DecorativeBlobs variant="section" />
         <SectionHeader title="L'équipe KymerIA" />
         <div className="max-w-5xl mx-auto space-y-8">
           {team.map((member, index) => (
-            <Card key={index} className="border shadow-sm hover:shadow-md transition-all overflow-hidden">
+            <Card key={index} className="organic-card overflow-hidden group">
               <CardContent className="p-0">
-                <div className="flex flex-col md:flex-row gap-6 p-6">
+                <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                <div className="relative flex flex-col md:flex-row gap-6 p-8">
                   {/* Photo placeholder */}
                   <div className="flex-shrink-0 flex justify-center md:justify-start">
-                    <div className="w-28 h-28 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center overflow-hidden">
+                    <div className="w-28 h-28 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center overflow-hidden ring-4 ring-background shadow-lg">
                       <User className="w-14 h-14 text-muted-foreground/50" />
                     </div>
                   </div>
@@ -153,9 +170,9 @@ export default function Equipe() {
                     </p>
                     <div className="flex flex-wrap gap-2">
                       {member.points.map((point, pointIndex) => (
-                        <div key={pointIndex} className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-muted text-sm">
+                        <div key={pointIndex} className="organic-badge flex items-center gap-2 py-2 px-4">
                           <CheckCircle2 className="h-4 w-4 text-accent flex-shrink-0" />
-                          <span>{point}</span>
+                          <span className="text-sm">{point}</span>
                         </div>
                       ))}
                     </div>
@@ -168,7 +185,8 @@ export default function Equipe() {
       </Section>
 
       {/* Human Supervision */}
-      <Section>
+      <Section className="relative overflow-hidden">
+        <DecorativeBlobs variant="section" />
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
@@ -188,7 +206,7 @@ export default function Equipe() {
             ].map((item, index) => (
               <div 
                 key={index}
-                className="flex items-center gap-3 px-6 py-4 bg-muted rounded-xl hover:shadow-md transition-all"
+                className="organic-badge flex items-center gap-3 px-6 py-4"
               >
                 <item.icon className="h-6 w-6 text-accent" />
                 <span className="font-semibold">{item.text}</span>
@@ -200,7 +218,7 @@ export default function Equipe() {
             par l'équipe KymerIA, en lien avec les retours utilisateurs, les besoins clients et les évolutions réglementaires.
           </p>
 
-          <div className="p-8 rounded-2xl bg-primary/5 border border-primary/10">
+          <div className="p-8 rounded-3xl bg-gradient-to-br from-primary/5 to-accent/5 border border-primary/10">
             <p className="text-lg text-foreground text-center mb-6">
               Cette supervision humaine garantit :
             </p>
@@ -210,7 +228,7 @@ export default function Equipe() {
                 { icon: Eye, text: "La maîtrise des risques" },
                 { icon: RefreshCw, text: "Une adaptation constante aux réalités du terrain" }
               ].map((item, index) => (
-                <div key={index} className="flex flex-col items-center text-center p-4 rounded-xl bg-card border shadow-sm">
+                <div key={index} className="organic-card flex flex-col items-center text-center p-6">
                   <item.icon className="h-8 w-8 text-primary mb-3" />
                   <span className="font-medium text-sm">{item.text}</span>
                 </div>
@@ -221,12 +239,18 @@ export default function Equipe() {
       </Section>
 
       {/* CTA */}
-      <Section variant="primary">
-        <div className="text-center max-w-2xl mx-auto">
-          <Button asChild size="lg" variant="secondary" className="text-base font-semibold shadow-lg hover:shadow-xl transition-all hover:scale-105">
-            <Link to="/contact">
+      <Section variant="primary" className="relative overflow-hidden">
+        <DecorativeBlobs variant="hero" />
+        <div className="text-center max-w-2xl mx-auto relative z-10">
+          <Button 
+            asChild 
+            size="lg" 
+            variant="secondary" 
+            className="rounded-full text-base font-semibold shadow-lg hover:shadow-xl transition-all hover:scale-105 px-8"
+          >
+            <Link to="/contact" className="flex items-center gap-2">
               Échanger avec l'équipe KymerIA
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <ArrowRight className="h-5 w-5" />
             </Link>
           </Button>
         </div>

@@ -6,13 +6,13 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { DecorativeBlobs, SectionCurve } from "@/components/ui/decorative-shapes";
 import { useToast } from "@/hooks/use-toast";
 import { 
   Mail, 
   MessageSquare,
   Building2,
   Send,
-  CheckCircle2,
   Clock,
   Shield,
   Users
@@ -41,8 +41,17 @@ export default function Contact() {
   return (
     <Layout>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-primary via-primary to-kymeria-blue-light pt-24 pb-16 md:pt-32 md:pb-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative overflow-hidden pt-24 pb-20 md:pt-32 md:pb-28">
+        {/* Gradient background */}
+        <div 
+          className="absolute inset-0"
+          style={{ background: "var(--gradient-hero-organic)" }}
+        />
+        
+        {/* Decorative blobs */}
+        <DecorativeBlobs variant="hero" />
+        
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 text-primary-foreground animate-fade-in">
               Discuter d'un projet pilote KymerIA
@@ -53,9 +62,13 @@ export default function Contact() {
             </p>
           </div>
         </div>
+
+        {/* Organic curve */}
+        <SectionCurve />
       </section>
 
-      <Section>
+      <Section className="relative overflow-hidden">
+        <DecorativeBlobs variant="subtle" />
         <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
           {/* Contact Info */}
           <div>
@@ -64,47 +77,44 @@ export default function Contact() {
             </h2>
             
             <div className="space-y-6 mb-10">
-              <div className="flex items-start gap-4 p-5 rounded-xl bg-muted/50 hover:bg-muted transition-colors">
-                <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0">
-                  <MessageSquare className="h-6 w-6 text-accent" />
+              {[
+                {
+                  icon: MessageSquare,
+                  title: "Discuter de vos enjeux",
+                  description: "Échangeons sur vos besoins en développement des compétences humaines."
+                },
+                {
+                  icon: Building2,
+                  title: "Explorer une démonstration ou un projet pilote",
+                  description: "Découvrez KymerIA à travers une démonstration personnalisée."
+                },
+                {
+                  icon: Users,
+                  title: "Nous présenter votre contexte",
+                  description: "Partagez vos spécificités pour une réponse adaptée."
+                }
+              ].map((item, index) => (
+                <div 
+                  key={index}
+                  className="organic-card flex items-start gap-5 p-6 group"
+                >
+                  <div className="organic-icon-wrapper w-14 h-14 flex-shrink-0">
+                    <item.icon className="h-6 w-6 text-accent" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-1">{item.title}</h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {item.description}
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="font-semibold mb-1">Discuter de vos enjeux</h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    Échangeons sur vos besoins en développement des compétences humaines.
-                  </p>
-                </div>
-              </div>
-              
-              <div className="flex items-start gap-4 p-5 rounded-xl bg-muted/50 hover:bg-muted transition-colors">
-                <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0">
-                  <Building2 className="h-6 w-6 text-accent" />
-                </div>
-                <div>
-                  <h3 className="font-semibold mb-1">Explorer une démonstration ou un projet pilote</h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    Découvrez KymerIA à travers une démonstration personnalisée.
-                  </p>
-                </div>
-              </div>
-              
-              <div className="flex items-start gap-4 p-5 rounded-xl bg-muted/50 hover:bg-muted transition-colors">
-                <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0">
-                  <Users className="h-6 w-6 text-accent" />
-                </div>
-                <div>
-                  <h3 className="font-semibold mb-1">Nous présenter votre contexte</h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    Partagez vos spécificités pour une réponse adaptée.
-                  </p>
-                </div>
-              </div>
+              ))}
             </div>
 
-            <Card className="border-2 border-primary/10">
-              <CardHeader>
+            <Card className="organic-card border-2 border-accent/20 overflow-hidden">
+              <CardHeader className="pb-3">
                 <CardTitle className="flex items-center gap-2 text-lg">
-                  <Mail className="h-5 w-5 text-primary" />
+                  <Mail className="h-5 w-5 text-accent" />
                   Contact direct
                 </CardTitle>
               </CardHeader>
@@ -120,8 +130,8 @@ export default function Contact() {
           </div>
 
           {/* Contact Form */}
-          <Card className="border shadow-lg">
-            <CardHeader>
+          <Card className="organic-card overflow-hidden">
+            <CardHeader className="pb-4">
               <CardTitle className="text-xl">Envoyez-nous un message</CardTitle>
             </CardHeader>
             <CardContent>
@@ -134,7 +144,7 @@ export default function Contact() {
                       name="firstName"
                       required 
                       placeholder="Votre prénom"
-                      className="h-11"
+                      className="h-12 rounded-xl"
                     />
                   </div>
                   <div className="space-y-2">
@@ -144,7 +154,7 @@ export default function Contact() {
                       name="lastName"
                       required 
                       placeholder="Votre nom"
-                      className="h-11"
+                      className="h-12 rounded-xl"
                     />
                   </div>
                 </div>
@@ -157,7 +167,7 @@ export default function Contact() {
                     type="email" 
                     required 
                     placeholder="vous@organisation.ch"
-                    className="h-11"
+                    className="h-12 rounded-xl"
                   />
                 </div>
                 
@@ -168,7 +178,7 @@ export default function Contact() {
                     name="organization"
                     required 
                     placeholder="Nom de votre organisation"
-                    className="h-11"
+                    className="h-12 rounded-xl"
                   />
                 </div>
                 
@@ -178,7 +188,7 @@ export default function Contact() {
                     id="role" 
                     name="role"
                     placeholder="Votre fonction"
-                    className="h-11"
+                    className="h-12 rounded-xl"
                   />
                 </div>
                 
@@ -190,13 +200,13 @@ export default function Contact() {
                     required
                     rows={4}
                     placeholder="Décrivez brièvement vos enjeux ou votre intérêt pour KymerIA..."
-                    className="resize-none"
+                    className="resize-none rounded-xl"
                   />
                 </div>
                 
                 <Button 
                   type="submit" 
-                  className="w-full h-12 text-base font-semibold"
+                  className="w-full h-12 text-base font-semibold rounded-full bg-gradient-to-r from-accent to-accent/85 text-white hover:shadow-lg transition-all"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? (
@@ -215,7 +225,8 @@ export default function Contact() {
       </Section>
 
       {/* Trust Section */}
-      <Section variant="muted">
+      <Section variant="muted" className="relative">
+        <DecorativeBlobs variant="subtle" />
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-2xl font-bold mb-10">
             Notre engagement
@@ -226,8 +237,10 @@ export default function Contact() {
               { icon: MessageSquare, text: "Échange sans engagement" },
               { icon: Shield, text: "Confidentialité assurée" }
             ].map((item, index) => (
-              <div key={index} className="flex flex-col items-center gap-3 p-6 rounded-xl bg-card border shadow-sm">
-                <item.icon className="h-8 w-8 text-accent" />
+              <div key={index} className="organic-card flex flex-col items-center gap-4 p-8">
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-accent/15 to-accent/5 flex items-center justify-center">
+                  <item.icon className="h-8 w-8 text-accent" />
+                </div>
                 <span className="font-semibold">{item.text}</span>
               </div>
             ))}
