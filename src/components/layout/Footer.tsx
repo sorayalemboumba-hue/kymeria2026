@@ -4,9 +4,9 @@ import { SectionCurveWave } from "@/components/ui/decorative-shapes";
 
 export function Footer() {
   return (
-    <footer className="relative bg-primary text-primary-foreground">
+    <footer className="relative bg-primary text-primary-foreground mt-24">
       {/* Organic curve at top */}
-      <SectionCurveWave fill="hsl(var(--background))" className="absolute -top-[99px] left-0 right-0" />
+      <SectionCurveWave fill="hsl(var(--background))" className="absolute -top-[100px] left-0 right-0 z-10" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Trust badges */}
