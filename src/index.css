@@ -124,6 +124,21 @@
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
+
+  /* ============================================
+     WELCOME PAGE - DARK PREMIUM THEME
+     ============================================ */
+  
+  .welcome-dark {
+    --welcome-bg: 222 47% 6%;
+    --welcome-surface: 222 35% 10%;
+    --welcome-surface-elevated: 222 30% 13%;
+    --welcome-text: 210 40% 98%;
+    --welcome-muted: 215 20% 65%;
+    --welcome-accent: 250 70% 55%;
+    --welcome-accent-glow: 250 70% 60%;
+    --welcome-border: 222 25% 18%;
+  }
 }
 
 @layer base {
@@ -731,6 +746,161 @@
 
   .animate-breathing-glow {
     animation: breathing-glow 3s ease-in-out infinite;
+  }
+
+  /* K Logo breathing effect */
+  @keyframes breathing-k {
+    0%, 100% { 
+      transform: scale(1);
+      filter: drop-shadow(0 0 20px hsl(250 70% 55% / 0.4));
+    }
+    50% { 
+      transform: scale(1.03);
+      filter: drop-shadow(0 0 30px hsl(250 70% 55% / 0.6));
+    }
+  }
+
+  .animate-breathing-k {
+    animation: breathing-k 4s ease-in-out infinite;
+  }
+
+  /* Orbital dash animation */
+  @keyframes orbit-dash {
+    from { stroke-dashoffset: 0; }
+    to { stroke-dashoffset: 100; }
+  }
+
+  .animate-orbit-dash {
+    animation: orbit-dash 20s linear infinite;
+  }
+
+  /* Welcome page specific styles */
+  .welcome-gradient-mesh {
+    background: 
+      radial-gradient(at 20% 30%, hsl(250 70% 55% / 0.15) 0px, transparent 50%),
+      radial-gradient(at 80% 10%, hsl(250 50% 40% / 0.12) 0px, transparent 45%),
+      radial-gradient(at 0% 80%, hsl(250 60% 50% / 0.08) 0px, transparent 50%),
+      radial-gradient(at 90% 70%, hsl(217 55% 30% / 0.1) 0px, transparent 45%);
+  }
+
+  .welcome-card-primary {
+    background: linear-gradient(145deg, 
+      hsl(222 30% 13%) 0%, 
+      hsl(222 35% 10%) 100%);
+    border: 1px solid hsl(250 70% 55% / 0.2);
+    border-radius: 24px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .welcome-card-primary::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 24px;
+    padding: 2px;
+    background: linear-gradient(135deg, 
+      hsl(250 70% 55% / 0.4) 0%, 
+      hsl(250 50% 45% / 0.2) 50%,
+      hsl(217 55% 35% / 0.3) 100%);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: xor;
+    -webkit-mask-composite: xor;
+    pointer-events: none;
+    animation: border-glow 3s ease-in-out infinite;
+  }
+
+  @keyframes border-glow {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+  }
+
+  .welcome-card-primary:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px -15px hsl(250 70% 55% / 0.25);
+  }
+
+  .welcome-card-primary:hover::before {
+    background: linear-gradient(135deg, 
+      hsl(250 70% 55% / 0.6) 0%, 
+      hsl(250 50% 45% / 0.3) 50%,
+      hsl(217 55% 35% / 0.4) 100%);
+  }
+
+  .welcome-card-secondary {
+    background: hsl(222 35% 10% / 0.8);
+    border: 1px solid hsl(222 25% 20%);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+  }
+
+  .welcome-card-secondary:hover {
+    border-color: hsl(222 25% 25%);
+    background: hsl(222 35% 11%);
+  }
+
+  .welcome-orbital-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 96px;
+    height: 96px;
+    border-radius: 24px;
+    background: linear-gradient(145deg, 
+      hsl(250 70% 55% / 0.15) 0%, 
+      hsl(250 50% 40% / 0.08) 100%);
+    border: 2px solid hsl(250 70% 55% / 0.3);
+  }
+
+  .welcome-orbital-point {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    background: hsl(222 30% 12%);
+    border: 1px solid hsl(222 25% 20%);
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .welcome-orbital-point:hover,
+  .welcome-orbital-point.active {
+    background: hsl(250 70% 55% / 0.15);
+    border-color: hsl(250 70% 55% / 0.4);
+    transform: scale(1.08);
+    box-shadow: 0 0 20px -5px hsl(250 70% 55% / 0.3);
+  }
+
+  .welcome-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    border-radius: 100px;
+    background: hsl(222 30% 12% / 0.8);
+    border: 1px solid hsl(222 25% 20%);
+    backdrop-filter: blur(10px);
+    font-size: 12px;
+    font-weight: 500;
+    color: hsl(var(--welcome-muted));
+  }
+
+  .welcome-focus-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 100px;
+    background: hsl(145 60% 45% / 0.15);
+    color: hsl(145 60% 55%);
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
   }
 
   /* ============================================
