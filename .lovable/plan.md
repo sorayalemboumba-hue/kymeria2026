@@ -1,221 +1,217 @@
 
-# Refonte Complète Landing Page KymerIA 2026
+# Refonte Landing Page - Simplification Elegante
 
-## Vision Design (basée sur les mockups Gemini)
+## Analyse des Problemes Identifies
 
-D'après les screenshots et les instructions PDF, la nouvelle landing page doit adopter l'esthétique **"Swiss Dark Premium 2026"** avec :
+D'apres les screenshots, voici les 6 corrections demandees :
 
-- **Fond sombre** : `#0F111A` (dark slate)
-- **Texture grain** : Overlay noise à 5% d'opacité
-- **Logo combiné** : Icône "k" violet + texte "kymeria" en blanc
-- **Layout asymétrique 70/30** renforcé
-- **Parcours orbital** avec le "k" central animé
+| # | Probleme | Solution |
+|---|----------|----------|
+| 1 | Logo "k" noir sur fond sombre = invisible | Utiliser la version light du logo (`web_kymeria_logo_squared_light_512.png`) avec fond blanc |
+| 2 | Badge vert "FOCUS PRINCIPAL" = deplace | Supprimer completement |
+| 3 | Section Decouvrir dans un encadre | Supprimer l'encadre, centrer le texte + CTA sur la page |
+| 4 | Section Tester = bouton invisible | Deplacer en dessous, centrer, texte CTA "Choisir et tester" visible |
+| 5 | 4 encadres Parcours (Definition, Simulateur...) | Supprimer les cartes, garder titre + description |
+| 6 | Recommandations supplementaires | Voir ci-dessous |
 
 ---
 
-## 1. Nouveaux Assets Logo
-
-### Fichiers à copier dans `/public/`
-
-| Source | Destination | Usage |
-|--------|-------------|-------|
-| `web_kymeria_logo_squared_dark_512.png` | `public/kymeria-k-icon.png` | Icône "k" pour header et orbital |
-| `web_kymeria_logo_squared_dark_192.png` | `public/kymeria-k-icon-sm.png` | Petite icône |
-| `web_kymeria_logo_squared_dark_32.png` | `public/favicon-k.png` | Favicon |
-
-### Composant Logo Combiné
-Création d'un nouveau header-logo : **Icône "k" + texte "kymeria"** comme dans les mockups
+## Nouvelle Structure Visuelle
 
 ```text
-[ k ] kymeria
- ↑      ↑
-icon  texte blanc, "ia" en accent violet
++--------------------------------------------------+
+|                                                   |
+|            [k.] kymeria                          |
+|         (logo light visible sur fond sombre)      |
+|                                                   |
+|           Bienvenue sur KymerIA                   |
+|        S'entrainer. Ajuster. Progresser.          |
+|                                                   |
+|  ─────────────────────────────────────────────   |
+|                                                   |
+|                  Decouvrir                        |
+|                                                   |
+|         La vision, le produit, l'equipe.          |
+|   Entrez dans la nouvelle dimension de            |
+|            l'entrainement.                        |
+|                                                   |
+|          [Decouvrir KymerIA →]                   |
+|              (bouton accent)                      |
+|                                                   |
+|  ─────────────────────────────────────────────   |
+|                                                   |
+|                    Tester                         |
+|          MOMENTS CLES A MAITRISER                |
+|                                                   |
+|    Entretien delicat · Annoncer une decision     |
+|     Gerer une tension · Convaincre/negocier      |
+|                                                   |
+|          [Choisir et tester →]                   |
+|           (bouton outline blanc)                  |
+|                                                   |
+|  ═════════════════════════════════════════════   |
+|                                                   |
+|           Un parcours immersif                    |
+|                                                   |
+|   KymerIA est un cycle d'evolution constant,      |
+|   concu pour ancrer durablement votre posture     |
+|   relationnelle par une pratique intensive        |
+|   et securisee.                                   |
+|                                                   |
+|  ─────────────────────────────────────────────   |
+|                                                   |
+|   Hebergement suisse · Securite · Deploiement    |
+|                                                   |
+|            (c) 2026 KymerIA                       |
++--------------------------------------------------+
 ```
 
 ---
 
-## 2. Refonte Welcome.tsx - Design Sombre Premium
+## Modifications Techniques
 
-### Structure Visuelle (basée sur screenshots Gemini)
+### 1. Fichier Logo - Copier la version light
 
-```text
-┌────────────────────────────────────────────────────────────────┐
-│ [k] kymeria          Vision  Plateforme  Équipe  [Démo]       │ ← Nav sombre
-├────────────────────────────────────────────────────────────────┤
-│                                                                 │
-│              Bienvenue sur KymerIA                             │
-│         S'entraîner. Ajuster. Progresser.                      │
-│                                                                 │
-│  ┌─────────────────────────────┐  ┌─────────────────────────┐  │
-│  │ • FOCUS PRINCIPAL           │  │ Tester                  │  │
-│  │                             │  │ MOMENTS CLÉS À MAÎTRISER│  │
-│  │ Découvrir                   │  │                         │  │
-│  │                             │  │ ┌─ Entretien délicat   │  │
-│  │ La vision, le produit,     │  │ ├─ Annoncer décision   │  │
-│  │ l'équipe.                   │  │ ├─ Gérer une tension   │  │
-│  │ Entrez dans la nouvelle     │  │ └─ Convaincre/négocier │  │
-│  │ dimension de l'entraînement.│  │                         │  │
-│  │                             │  │ [Choisir & tester →]   │  │
-│  │ [Découvrir KymerIA →]       │  │                         │  │
-│  │ (bouton accent violet)      │  │                         │  │
-│  └─────────────────────────────┘  └─────────────────────────┘  │
-│        ↑ Carte 70%                      ↑ Carte 30%            │
-│        Bordure gradient animée          Style sobre            │
-│                                                                 │
-│  ═══════════════════════════════════════════════════════════   │
-│                                                                 │
-│           Un parcours immersif                                 │
-│  KymerIA est un cycle d'évolution constant...                  │
-│                                                                 │
-│                    [1] Définition                              │
-│                   ↗             ↘                              │
-│        [4] Progression   [ k ]   [2] Simulateur               │
-│                   ↖             ↙                              │
-│                    [3] Analyse                                 │
-│                                                                 │
-│  ───────────────────────────────────────────────────────────   │
-│  🔒 Hébergement suisse  🛡 Sécurité  ⚙ Déploiement sur mesure  │
-└────────────────────────────────────────────────────────────────┘
+```
+public/kymeria-k-icon-light.png ← web_kymeria_logo_squared_light_512.png
 ```
 
----
+Le logo light a un "k" sur fond blanc, parfaitement visible sur le fond sombre.
 
-## 3. Palette de Couleurs Dark Mode
+### 2. Welcome.tsx - Refonte Complete
 
-### Variables CSS à ajouter
+**Suppressions :**
+- Badge "Focus principal" (lignes 110-115)
+- Carte `.welcome-card-primary` avec son encadre
+- Carte `.welcome-card-secondary` avec son encadre
+- Layout orbital desktop (lignes 199-260)
+- Grille mobile des 4 cartes (lignes 262-279)
 
-```css
-/* Dark Premium Theme for Welcome */
---welcome-bg: 222 47% 6%;        /* #0F111A */
---welcome-surface: 222 35% 10%;  /* Cards légèrement plus claires */
---welcome-text: 210 40% 98%;     /* Blanc cassé */
---welcome-muted: 215 20% 65%;    /* Texte secondaire */
---welcome-accent: 250 70% 55%;   /* Violet KymerIA */
+**Nouvelle structure :**
+
+```tsx
+// Section Decouvrir - CENTREE, SANS ENCADRE
+<section className="text-center mb-16">
+  <h2 className="text-3xl font-bold text-white mb-4">
+    Decouvrir
+  </h2>
+  <p className="text-white/60 mb-8 max-w-md mx-auto">
+    La vision, le produit, l'equipe.
+    Entrez dans la nouvelle dimension de l'entrainement.
+  </p>
+  <Button asChild className="rounded-full bg-accent ...">
+    <Link to="/home">Decouvrir KymerIA →</Link>
+  </Button>
+</section>
+
+// Section Tester - CENTREE, PLUS PETITE
+<section className="text-center mb-16">
+  <h3 className="text-xl font-semibold text-white mb-2">
+    Tester
+  </h3>
+  <p className="text-xs uppercase text-white/40 mb-4">
+    Moments cles a maitriser
+  </p>
+  <div className="flex flex-wrap justify-center gap-3 mb-6">
+    {/* 4 items en ligne, petite police */}
+  </div>
+  <Button asChild variant="outline" className="rounded-full border-white/30 text-white ...">
+    <a href="https://kymeria.ch/">Choisir et tester →</a>
+  </Button>
+</section>
+
+// Section Parcours - TEXTE UNIQUEMENT
+<section className="text-center mb-12">
+  <h2 className="text-2xl font-serif italic text-white mb-4">
+    Un parcours immersif
+  </h2>
+  <p className="text-white/50 max-w-2xl mx-auto">
+    KymerIA est un cycle d'evolution constant...
+  </p>
+</section>
 ```
 
----
+### 3. index.css - Nettoyage
 
-## 4. Caractéristiques Design Clés
+Supprimer ou simplifier :
+- `.welcome-card-primary`
+- `.welcome-card-secondary`
+- `.welcome-focus-badge`
+- `.welcome-orbital-center`
+- `.welcome-orbital-point`
 
-### A) Carte "Découvrir" (70% - Primaire)
-
-- **Badge** : "● FOCUS PRINCIPAL" en vert accent
-- **Titre** : "Découvrir" en blanc, très grand (text-5xl)
-- **Description** : 
-  > "La vision, le produit, l'équipe.
-  > Entrez dans la nouvelle dimension de l'entraînement."
-- **CTA** : Bouton violet plein avec flèche → effet hover
-- **Bordure** : Gradient animé subtil (accent → purple)
-- **Décoration** : Grande icône conversation en arrière-plan (opacity 10%)
-
-### B) Carte "Tester" (30% - Secondaire)
-
-- **Header** : "Tester" + sous-titre "MOMENTS CLÉS À MAÎTRISER"
-- **Liste** : 4 items avec icônes, style liste verticale compacte
-- **CTA** : "Choisir & tester →" style outline
-- **Lien** : https://kymeria.ch/
-
-### C) Section Parcours Orbital
-
-- **Titre** : "Un parcours immersif" (style italique élégant)
-- **Description** : "KymerIA est un cycle d'évolution constant..."
-- **4 Étapes en cercle** :
-  1. **Définition** (12h) - Target icon
-  2. **Simulateur** (3h) - Play icon
-  3. **Analyse** (6h) - Activity icon
-  4. **Progression** (9h) - Zap icon
-- **Centre** : Lettre "k" avec animation breathing
-- **Orbite** : Cercle SVG pointillé animé (rotation lente)
-
-### D) Micro-interactions
-
-- **Grain texture** : Overlay 5% sur tout le site
-- **Gradients d'ambiance** : Blobs indigo/purple flous en arrière-plan
-- **Hover cards** : Légère élévation + glow
-- **Stagger animations** : Entrée décalée des éléments
+Garder :
+- `.welcome-dark`
+- `.welcome-gradient-mesh`
+- `.grain-texture`
+- `.welcome-badge`
 
 ---
 
-## 5. Fichiers à Modifier
+## 6. Recommandations Supplementaires
+
+En tant qu'expert design Suisse depuis 20 ans, voici mes recommandations pour un resultat encore plus elegant et moderne :
+
+### A) Hierarchie Typographique
+
+| Element | Actuel | Recommande |
+|---------|--------|------------|
+| Titre "Decouvrir" | text-3xl | text-4xl md:text-5xl |
+| Titre "Tester" | text-xl | text-2xl (plus petit que Decouvrir) |
+| Description | text-base | text-lg, line-height genereux |
+
+### B) Espacement Vertical (Breathing Room)
+
+- Augmenter l'espace entre les sections (mb-20 au lieu de mb-16)
+- Ajouter un separateur subtil (ligne fine ou gradient)
+
+### C) Micro-animations
+
+- **Bouton CTA principal** : Effet pulse subtil pour attirer l'attention
+- **Texte** : Fade-in en cascade (stagger) pour un effet premium
+
+### D) Elements Visuels Subtils
+
+- Conserver les blobs gradient en arriere-plan (deja presents)
+- Ajouter une ligne decorative entre sections (gradient accent)
+
+### E) Bouton "Choisir et tester" - Visibilite
+
+Le bouton actuel est quasi invisible (outline tres fin). Recommandation :
+- Bordure plus visible (`border-white/40` au lieu de `border-white/10`)
+- Couleur de texte pleine (`text-white` au lieu de `text-white/70`)
+- Taille legrement plus grande que l'actuel
+
+### F) Section 4 Moments Cles
+
+Au lieu des pills dans des encadres, afficher en ligne horizontale elegante :
+```
+Entretien delicat · Annoncer une decision · Gerer une tension · Convaincre/negocier
+```
+Ou en grille 2x2 ultra-compacte sur mobile.
+
+---
+
+## Fichiers a Modifier
 
 | Fichier | Action |
 |---------|--------|
-| `public/kymeria-k-icon.png` | Copier logo "k" carré |
-| `src/pages/Welcome.tsx` | **Refonte complète** - Dark theme, layout 70/30, section orbital |
-| `src/index.css` | Ajouter variables dark welcome + animations breathing |
-| `src/components/layout/Header.tsx` | Optionnel - Logo combiné k + texte |
+| `public/kymeria-k-icon-light.png` | Copier le logo light |
+| `src/pages/Welcome.tsx` | Refonte complete - layout centre, suppressions |
+| `src/index.css` | Nettoyer les classes inutilisees |
 
 ---
 
-## 6. Spécifications Techniques
+## Resume Visuel Final
 
-### Responsive Breakpoints
+La nouvelle landing page sera **epuree, aeree et elegante** avec :
 
-| Device | Layout Cards | Section Orbital |
-|--------|--------------|-----------------|
-| Mobile (<768px) | Stack vertical, full width | Grille 2x2 |
-| Tablet (768-1024px) | 60/40 | Orbital simplifié |
-| Desktop (>1024px) | 70/30 | Orbital complet avec SVG |
+1. Logo visible (version light)
+2. Hero centre avec titre + slogan
+3. Section Decouvrir : texte centre + CTA primaire
+4. Section Tester : texte plus petit + 4 moments en ligne + CTA secondaire visible
+5. Section Parcours : titre italique + description (SANS les 4 cartes)
+6. Badges de confiance
+7. Footer minimal
 
-### Animations
-
-```css
-/* Breathing effect pour le K central */
-@keyframes breathing {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.05); opacity: 0.9; }
-}
-
-/* Orbit rotation */
-@keyframes orbit-dash {
-  from { stroke-dashoffset: 0; }
-  to { stroke-dashoffset: 100; }
-}
-```
-
----
-
-## 7. Textes Finaux (du PDF)
-
-### Section Hero
-- **H1** : "Bienvenue sur KymerIA"
-- **Slogan** : "S'entraîner. Ajuster. Progresser."
-
-### Carte Découvrir
-- **Badge** : "FOCUS PRINCIPAL"
-- **Titre** : "Découvrir"
-- **Description** : "La vision, le produit, l'équipe. Entrez dans la nouvelle dimension de l'entraînement."
-- **CTA** : "Découvrir KymerIA"
-
-### Carte Tester
-- **Titre** : "Tester"
-- **Sous-titre** : "MOMENTS CLÉS À MAÎTRISER"
-- **Items** : Entretien délicat, Annoncer une décision, Gérer une tension, Convaincre / négocier
-- **CTA** : "Choisir & tester"
-
-### Section Parcours
-- **Titre** : "Un parcours immersif"
-- **Description** : "KymerIA est un cycle d'évolution constant, conçu pour ancrer durablement votre posture relationnelle par une pratique intensive et sécurisée."
-- **4 Étapes** :
-  1. Définition - "Contextes et compétences"
-  2. Simulateur - "Entraînement autonome"
-  3. Analyse - "Ajustement et suivi"
-  4. Progression - "Upskilling mesurable"
-
-### Badges Confiance
-- Hébergement suisse
-- Sécurité & gouvernance
-- Déploiement sur mesure
-
----
-
-## 8. Résumé Visuel
-
-La nouvelle landing page sera une **single-page immersive** avec :
-
-1. **Header flottant sombre** avec logo k + kymeria
-2. **Hero section** avec titre centré + deux cartes asymétriques
-3. **Section Parcours Orbital** avec le K central animé et 4 étapes en cercle
-4. **Footer minimal** avec badges de confiance
-
-Cette refonte applique exactement l'esthétique des mockups Gemini fournis, avec le thème sombre premium, les gradients subtils, et le diagramme orbital signature de KymerIA 2026.
+Cette approche respecte les codes du design suisse premium : clarte, hierarchie, espace, elegance.
