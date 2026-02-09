@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 const navigation = [
-  { name: "Accueil", href: "/" },
+  { name: "Accueil", href: "/home" },
   { name: "Pourquoi KymerIA", href: "/pourquoi" },
   { name: "La plateforme", href: "/plateforme" },
   { name: "Équipe & accompagnement", href: "/equipe" },
