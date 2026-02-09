@@ -1,201 +1,158 @@
 
-# Plan de mise à jour complète du site KymerIA
 
-## Résumé des modifications à apporter
+# Refonte Design Premium 2026 - Plan Amélioré
 
-D'après le PDF "Corrections_site_new.pdf" et les images uploadées, voici toutes les modifications à implémenter :
+## Corrections intégrées
 
----
+### 1. Landing Page Welcome - Hiérarchie et Innovation
 
-## 1. Page Accueil (Index.tsx) - Modifications
+**Corrections demandées :**
+- "Découvrir" = CTA PRINCIPAL (mis en avant visuellement)
+- Les variantes précédentes étaient trop banales
+- Les 4 moments clés en police PLUS PETITE (texte discret, secondaire)
 
-### Remplacer la section "Former ne suffit pas toujours"
-**Ancien texte :**
-> "Former ne suffit pas toujours. Les organisations forment. Mais elles disposent rarement d'un espace pour : Pratiquer, Répéter, Ajuster, Progresser dans un cadre sans enjeu réel."
+**Nouvelle approche : "Asymmetric Gateway"**
 
-**Nouveau texte complet :**
-- **Titre** : Et si vos moments clés étaient préparés ?
-- **Intro** : Avant l'entretien, la tension, la négociation : place à l'entraînement.
-- **Encadrés** :
-  - Pratiquer — Simuler la scène
-  - Répéter — Stabiliser la voix
-  - Ajuster — Calibrer le message
-  - Progresser — Gagner en confiance
-- **Micro-phrase** : Simulation réaliste. Cadre clair.
-
-
----
-
-## 2. Page Équipe (Equipe.tsx) - Photos
-
-Ajouter les photos de l'équipe fournies :
-- `Swann_hd.PNG` → Swann Asensio
-- `sasha.jpg` → Sasha Asensio  
-- `Soraya.png` → Soraya Koite
-- `Romain.png` → Romain Kohn
-- `Yann.png` → Yann Anspach
-
-### Actions :
-1. Copier les 5 images dans `public/team/`
-2. Mettre à jour le composant pour afficher les vraies photos (remplacer l'icône User)
-
----
-
-## 3. Nouvelle Landing Page (Welcome Page)
-
-Créer une page d'accueil attractive avec effet "Welcome Page moderne 2026" :
-
-### Contenu :
-- **H1** : Bienvenue sur KymerIA
-- **Slogan** : S'entraîner. Ajuster. Progresser.
-
-### Carte gauche (Découvrir) :
-- **Titre** : Découvrir
-- **Micro-texte** : La vision, le produit, l'équipe.
-- **CTA** : Découvrir KymerIA → vers /home (page actuelle renommée)
-
-### Carte droite (Tester) :
-- **Titre** : Tester
-- **Question** : Quel moment clé voulez-vous mieux maîtriser ?
-- **Options** :
-  - Entretien délicat
-  - Annoncer une décision
-  - Gérer une tension
-  - Convaincre / négocier
-- **CTA** : Choisir un moment clé & tester → https://kymeria.ch/
-
-### Badges de rassurance :
-Hébergement suisse · Sécurité & gouvernance · Déploiement sur mesure
-
----
-
-## 4. Page Plateforme - Module "Parcours en pratique"
-
-Ajouter un nouveau module avec 7 vignettes interactives :
-
-### Titre de section :
-"Et si une session de 3 minutes suffisait à progresser ?"
-**Sous-titre** : Un parcours simple, avec un cadre clair dès le départ.
-
-### Les 7 vignettes (avec tooltips) :
-
-| # | Titre | Micro-ligne | Tooltip |
-|---|-------|-------------|---------|
-| 1 | Cadrer | Critères, profils, règles d'usage et de partage. | Co-construction des critères d'évaluation, des profils, et des règles de visibilité (qui voit quoi). |
-| 2 | Accéder | Connexion simple, accès selon la séniorité. | Rôles et droits différenciés (utilisateur, manager, pilote, admin) selon votre organisation. |
-| 3 | Choisir | Scénario prêt à l'emploi, en quelques secondes. | Choix du scénario selon le contexte, l'objectif et le niveau attendu. |
-| 4 | Faire face | Personas variés, attitudes et objections réalistes. | Large palette de profils (coopératif, hésitant, opposant, émotionnel, etc.) paramétrable. |
-| 5 | S'entraîner | À voix haute, conversation 2–3 minutes. | Une mise en situation courte, concrète, centrée sur la pratique et la posture. |
-| 6 | Débriefer | Feedback immédiat + retranscription accessible. | À la fin de l'échange : feedback, points forts, axes d'ajustement, et trace de la session. |
-| 7 | Piloter | Recommencer, progresser, suivre, exporter, orienter. | Suivi dans le temps, exports d'évaluations, et lien possible vers vos catalogues internes de formation. |
-
-### Design et interactions :
-- Scroll-story : vignette active s'allume au scroll
-- Progress indicator vertical (7 points)
-- Desktop : tooltip au hover
-- Mobile : accordion au tap
-- Badges de rassurance : Hébergement suisse · Accès maîtrisés · Gouvernance claire
-
-### CTA du module :
-- Primaire : "Voir une session type"
-- Secondaire : "Tester un moment clé"
-
----
-
-## 5. Structure de fichiers modifiée
-
-```
-src/
-├── pages/
-│   ├── Welcome.tsx       ← NOUVELLE landing page (route /)
-│   ├── Index.tsx         ← Page actuelle (renommée en Home, route /home)
-│   └── ...
-public/
-├── team/
-│   ├── swann.png         ← Photo Swann
-│   ├── sasha.jpg         ← Photo Sasha
-│   ├── soraya.png        ← Photo Soraya
-│   ├── romain.png        ← Photo Romain
-│   └── yann.png          ← Photo Yann
+```text
++--------------------------------------------------+
+|                  [Logo KymerIA]                   |
+|                                                   |
+|           Bienvenue sur KymerIA                   |
+|        S'entraîner. Ajuster. Progresser.          |
+|                                                   |
+|  +---------------------------+                    |
+|  |                           |   +-----------+   |
+|  |       DÉCOUVRIR           |   |  TESTER   |   |
+|  |   [Grande carte,          |   |  (petite  |   |
+|  |    effet glow,            |   |  carte,   |   |
+|  |    CTA proéminent]        |   |  4 pills  |   |
+|  |                           |   |  xs text) |   |
+|  +---------------------------+   +-----------+   |
+|                                                   |
+|        [Badges confiance en micro-texte]          |
++--------------------------------------------------+
 ```
 
+**Caractéristiques innovantes :**
+- Layout asymétrique 65% / 35%
+- Carte "Découvrir" : 
+  - Plus grande
+  - Bordure gradient animée
+  - Effet "breathing glow"
+  - CTA avec micro-animation pulse
+- Carte "Tester" :
+  - Plus compacte
+  - 4 moments clés en `text-xs` (très petite police)
+  - Style secondaire, muted
+  - Lien vers kymeria.ch
+
+**Animations différenciatrices :**
+- Entrée "staggered" (Découvrir apparaît 200ms avant Tester)
+- Effet parallax subtil sur le fond au mouvement souris
+- Icônes avec micro-rotation au hover
+- Bordure gradient qui "pulse" sur la carte principale
+
 ---
 
-## 6. Modifications du Router (App.tsx)
+### 2. Page Plateforme - Variante C "Orbital Journey"
 
-```tsx
-<Routes>
-  <Route path="/" element={<Welcome />} />      {/* Nouvelle landing */}
-  <Route path="/home" element={<Index />} />    {/* Ancienne page d'accueil */}
-  <Route path="/pourquoi" element={<Pourquoi />} />
-  <Route path="/plateforme" element={<Plateforme />} />
-  <Route path="/equipe" element={<Equipe />} />
-  <Route path="/contact" element={<Contact />} />
-  <Route path="/cgu" element={<CGU />} />
-  <Route path="*" element={<NotFound />} />
-</Routes>
+**Position confirmée :** Section vignettes AVANT les 3 repères
+
+**Design "Orbital/Spiral" innovant :**
+
+```text
++--------------------------------------------------+
+|   Et si une session de 3 minutes suffisait ?      |
+|                                                   |
+|              [1]                                  |
+|           ↗       ↘                               |
+|        [7]          [2]                           |
+|         ↑    [K]     ↓       ← Logo KymerIA      |
+|        [6]          [3]          au centre        |
+|           ↖       ↙                               |
+|              [5]←[4]                              |
+|                                                   |
+|   +------------------------------------------+   |
+|   |  [Détail de l'étape active - compact]   |   |
+|   +------------------------------------------+   |
+|                                                   |
+|              [Badges confiance]                   |
++--------------------------------------------------+
 ```
 
----
+**Caractéristiques :**
+- 7 points en cercle/orbite autour du logo
+- Connexions SVG animées entre les points (lignes pointillées qui "marchent")
+- Clic sur un point = highlight + affichage détail en dessous
+- Animation "orbit" : les points effectuent une rotation très lente (60s/tour)
+- Mobile : transformation en accordion compact
+- Tablette : grille 4+3 avec navigation dots
 
-## 7. Tests à effectuer après implémentation
-
-- Navigation entre toutes les pages
-- Liens CTA externes (https://kymeria.ch/)
-- Animations au scroll
-- Tooltips/accordéons sur le module Plateforme
-- Affichage photos équipe
-- Responsive : desktop, tablette, mobile
-- Progress bar mobile
-- Section Nav desktop
-
----
-
-## 8. Recommandations UX/UI supplémentaires
-
-Pour un site encore plus moderne et engageant en 2026 :
-
-### A) Micro-interactions avancées
-- Curseur personnalisé avec effet "follow" sur les cartes
-- Effet "magnetic button" sur les CTAs
-- Parallax subtil sur les heroes
-
-### B) Accessibilité
-- Focus visible sur tous les éléments interactifs
-- Skip links pour navigation clavier
-- Aria-labels complets
-
-### C) Performance
-- Lazy loading des images
-- Preload des fonts critiques
-- Optimisation des animations (will-change)
-
-### D) Engagement
-- Indicateur de temps de lecture estimé
-- Barre de progression de lecture
-- Animation de confetti/celebration après soumission formulaire
-
-### E) SEO et partage
-- Meta tags Open Graph optimisés
-- Schema.org pour l'entreprise
-- Sitemap XML
+**Textes ajustés :**
+- Titres : `text-base font-semibold`
+- Micro-lignes : `text-sm text-muted-foreground`
+- Tooltips : `text-xs` en popover léger
 
 ---
 
-## Récapitulatif des fichiers à créer/modifier
+### 3. Page Équipe - AUCUN CHANGEMENT
+
+L'état actuel est conservé.
+
+---
+
+## Recommandations Expertes Supplémentaires
+
+En 20 ans de design pour institutions suisses, voici mes critiques et suggestions :
+
+### A) Critiques constructives du site actuel
+
+| Élément | Problème | Solution |
+|---------|----------|----------|
+| Contrastes | Certains textes muted trop légers | Augmenter à 55% opacity minimum |
+| Densité | Trop d'espace vide sur desktop | Réduire padding sections de 25% |
+| Vitesse | Animations trop lentes (800ms) | Réduire à 400-500ms |
+| CTAs | Tous les boutons se ressemblent | Différencier primaire/secondaire clairement |
+
+### B) Micro-interactions premium manquantes
+
+1. **Magnetic Buttons** - Les CTAs "suivent" légèrement le curseur
+2. **Scroll Progress Bar** - Barre de progression en haut de page
+3. **Section Reveal** - Les sections s'animent en cascade, pas ensemble
+4. **Hover States enrichis** - Effet "lift" plus prononcé sur les cartes
+
+### C) Originalité 2026 à ajouter
+
+1. **Cursor Trail** - Trainée subtile violette sur le curseur
+2. **Grain Texture** - Légère texture grain (film) pour effet premium
+3. **Color Shift** - Dégradé de couleur qui évolue selon le scroll
+4. **Skeleton Loading** - États de chargement animés
+5. **Easter Egg** - Konami code révèle une animation spéciale
+
+### D) Performance et accessibilité
+
+- **Preload** des fonts Inter et Source Serif
+- **Lazy loading** des images équipe
+- **Reduced motion** respecté pour accessibilité
+- **Focus states** bien visibles pour navigation clavier
+
+---
+
+## Fichiers à modifier
 
 | Fichier | Action |
 |---------|--------|
-| `src/pages/Welcome.tsx` | Créer |
-| `src/pages/Index.tsx` | Modifier (nouveau texte section "moments clés") |
-| `src/pages/Plateforme.tsx` | Ajouter module 7 vignettes |
-| `src/pages/Equipe.tsx` | Ajouter photos équipe |
-| `src/App.tsx` | Modifier routes |
-| `src/components/layout/Header.tsx` | Mettre à jour liens navigation |
-| `public/team/*.png` | Copier les 5 photos |
+| `src/pages/Welcome.tsx` | Refonte complète - Layout asymétrique, hiérarchie visuelle |
+| `src/components/plateforme/ParcoursEnPratique.tsx` | Refonte "Orbital Journey" |
+| `src/pages/Plateforme.tsx` | Réorganiser sections (vignettes avant repères) |
+| `src/index.css` | Nouvelles animations (orbit, magnetic, grain) |
 
 ---
 
-## Textes complets préservés du PDF
+## Résumé des priorités
 
-Tous les textes du PDF seront implémentés **mot pour mot** sans résumé ni suppression.
+1. **Landing Page** : Découvrir = GRAND, Tester = compact avec textes xs
+2. **Plateforme** : Layout orbital innovant, textes compacts
+3. **Équipe** : Inchangée
+4. **Global** : Micro-interactions premium, animations plus rapides
+
