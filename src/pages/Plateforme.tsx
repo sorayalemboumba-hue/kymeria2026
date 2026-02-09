@@ -7,6 +7,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { DecorativeBlobs, FloatingShapes, SectionCurve } from "@/components/ui/decorative-shapes";
 import { SectionNav } from "@/components/ui/section-nav";
 import { AnimatedSection } from "@/components/ui/animated-section";
+import { ParcoursEnPratique } from "@/components/plateforme/ParcoursEnPratique";
 import { 
   CheckCircle2, 
   ArrowRight,
@@ -31,6 +32,7 @@ import {
 
 const platformSections = [
   { id: "skills", label: "Compétences" },
+  { id: "parcours", label: "Parcours" },
   { id: "how-it-works", label: "Fonctionnement" },
   { id: "reperes", label: "3 repères" },
 ];
@@ -130,6 +132,12 @@ export default function Plateforme() {
             ))}
           </div>
         </AnimatedSection>
+      </Section>
+
+      {/* Parcours en pratique - Module 7 vignettes */}
+      <Section id="parcours" className="relative overflow-hidden">
+        <DecorativeBlobs variant="subtle" />
+        <ParcoursEnPratique />
       </Section>
 
       {/* Comment ça marche - Section principale */}

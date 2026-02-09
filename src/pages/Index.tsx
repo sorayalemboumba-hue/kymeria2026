@@ -123,35 +123,41 @@ export default function Index() {
         </div>
       </Section>
 
-      {/* Training Gap Section */}
+      {/* Et si vos moments clés étaient préparés ? */}
       <Section variant="muted" className="relative">
         <DecorativeBlobs variant="section" />
         <AnimatedSection animation="fade-up">
           <SectionHeader 
-            title="Former ne suffit pas toujours"
+            title="Et si vos moments clés étaient préparés ?"
           />
         </AnimatedSection>
-        <div className="max-w-3xl mx-auto text-center">
+        <div className="max-w-4xl mx-auto text-center">
           <AnimatedSection animation="fade-up" delay={100}>
-            <p className="text-lg text-foreground mb-8 leading-relaxed">
-              Les organisations forment. Mais elles disposent rarement d'un espace pour :
+            <p className="text-lg text-foreground mb-10 leading-relaxed">
+              Avant l'entretien, la tension, la négociation : place à l'entraînement.
             </p>
           </AnimatedSection>
           <AnimatedSection animation="scale-in" delay={200}>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-              {["Pratiquer", "Répéter", "Ajuster", "Progresser"].map((item, index) => (
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
+              {[
+                { title: "Pratiquer", subtitle: "Simuler la scène" },
+                { title: "Répéter", subtitle: "Stabiliser la voix" },
+                { title: "Ajuster", subtitle: "Calibrer le message" },
+                { title: "Progresser", subtitle: "Gagner en confiance" }
+              ].map((item, index) => (
                 <div 
                   key={index} 
                   className="organic-card organic-card-3d p-6 text-center"
                 >
-                  <span className="text-lg font-semibold text-primary">{item}</span>
+                  <span className="text-lg font-semibold text-primary block mb-1">{item.title}</span>
+                  <span className="text-sm text-muted-foreground">— {item.subtitle}</span>
                 </div>
               ))}
             </div>
           </AnimatedSection>
           <AnimatedSection animation="fade-in" delay={400}>
-            <p className="text-lg text-muted-foreground italic">
-              dans un cadre sans enjeu réel.
+            <p className="text-lg text-muted-foreground font-medium">
+              Simulation réaliste. Cadre clair.
             </p>
           </AnimatedSection>
         </div>

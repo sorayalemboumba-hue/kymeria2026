@@ -25,6 +25,7 @@ export default function Equipe() {
     {
       name: "Swann Asensio",
       role: "COFONDATEUR – DIRECTION & VISION PRODUIT",
+      photo: "/team/swann.png",
       description: "À l'origine de la vision KymerIA, Swann pilote la cohérence globale du dispositif : technologie, pédagogie, usages et cadre éthique.",
       points: [
         "Pertinente pour les organisations",
@@ -36,6 +37,7 @@ export default function Equipe() {
     {
       name: "Sasha Asensio",
       role: "COFONDATEUR – DÉVELOPPEMENT COMMERCIAL & PARTENARIATS",
+      photo: "/team/sasha.jpg",
       description: "Sasha accompagne les entreprises, institutions et centres de formation dans l'exploration des usages KymerIA.",
       points: [
         "Comprendre les enjeux spécifiques des organisations",
@@ -46,6 +48,7 @@ export default function Equipe() {
     {
       name: "Soraya Koite",
       role: "RESPONSABLE PÉDAGOGIQUE & ACCOMPAGNEMENT",
+      photo: "/team/soraya.png",
       description: "Au cœur du dispositif KymerIA, Soraya intervient à l'interface entre les utilisateurs, les formateurs et la plateforme.",
       points: [
         "Cohérence pédagogique des scénarios",
@@ -56,6 +59,7 @@ export default function Equipe() {
     {
       name: "Romain Kohn",
       role: "DÉVELOPPEUR IA & ARCHITECTURE",
+      photo: "/team/romain.png",
       description: "Romain est responsable de la fiabilité technique et de la robustesse de la plateforme KymerIA.",
       points: [
         "Stabilité de l'architecture",
@@ -67,6 +71,7 @@ export default function Equipe() {
     {
       name: "Yann Anspach",
       role: "DÉVELOPPEUR IA, UX & CONFORMITÉ",
+      photo: "/team/yann.png",
       description: "Yann veille à ce que la plateforme reste intuitive, conforme et adaptable.",
       points: [
         "Intuitive pour les utilisateurs",
@@ -165,10 +170,14 @@ export default function Equipe() {
                   <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   
                   <div className="relative flex flex-col md:flex-row gap-6 p-8">
-                    {/* Photo placeholder */}
+                    {/* Photo */}
                     <div className="flex-shrink-0 flex justify-center md:justify-start">
                       <div className="w-28 h-28 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center overflow-hidden ring-4 ring-background shadow-lg">
-                        <User className="w-14 h-14 text-muted-foreground/50" />
+                        <img 
+                          src={member.photo} 
+                          alt={member.name}
+                          className="w-full h-full object-cover"
+                        />
                       </div>
                     </div>
                     
