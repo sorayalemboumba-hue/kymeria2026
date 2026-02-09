@@ -118,8 +118,7 @@ export default function Welcome() {
               <Button 
                 asChild 
                 size="lg"
-                variant="outline"
-                className="rounded-full border-white/40 text-white hover:bg-white/10 hover:text-white hover:border-white/50 font-semibold px-8 py-5 transition-all group"
+                className="rounded-full bg-white/10 border border-white/30 text-white hover:bg-white/20 hover:border-white/50 font-semibold px-8 py-5 transition-all group"
               >
                 <a 
                   href="https://kymeria.ch/" 
