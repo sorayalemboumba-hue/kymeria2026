@@ -700,4 +700,108 @@
   .text-underline-hover:hover {
     background-size: 100% 2px;
   }
+
+  /* ============================================
+     GATEWAY CARD - Welcome Page Premium
+     ============================================ */
+  
+  .gateway-card-primary {
+    border-radius: 24px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .gateway-card-primary:hover {
+    transform: translateY(-4px);
+  }
+
+  /* ============================================
+     BREATHING GLOW ANIMATION
+     ============================================ */
+  
+  @keyframes breathing-glow {
+    0%, 100% { 
+      box-shadow: 0 0 20px -5px hsl(var(--accent) / 0.3),
+                  inset 0 0 20px -10px hsl(var(--accent) / 0.1);
+    }
+    50% { 
+      box-shadow: 0 0 35px -5px hsl(var(--accent) / 0.5),
+                  inset 0 0 30px -10px hsl(var(--accent) / 0.15);
+    }
+  }
+
+  .animate-breathing-glow {
+    animation: breathing-glow 3s ease-in-out infinite;
+  }
+
+  /* ============================================
+     ORBIT ANIMATIONS
+     ============================================ */
+  
+  @keyframes orbit {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  .animate-orbit {
+    animation: orbit 60s linear infinite;
+  }
+
+  @keyframes orbit-reverse {
+    from { transform: rotate(360deg); }
+    to { transform: rotate(0deg); }
+  }
+
+  .animate-orbit-reverse {
+    animation: orbit-reverse 45s linear infinite;
+  }
+
+  /* ============================================
+     STAGGER ENTRANCE ANIMATIONS
+     ============================================ */
+  
+  .stagger-1 { animation-delay: 0ms; }
+  .stagger-2 { animation-delay: 50ms; }
+  .stagger-3 { animation-delay: 100ms; }
+  .stagger-4 { animation-delay: 150ms; }
+  .stagger-5 { animation-delay: 200ms; }
+  .stagger-6 { animation-delay: 250ms; }
+  .stagger-7 { animation-delay: 300ms; }
+
+  /* ============================================
+     GRAIN TEXTURE (Premium 2026)
+     ============================================ */
+  
+  .grain-texture {
+    position: relative;
+  }
+
+  .grain-texture::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    opacity: 0.03;
+    pointer-events: none;
+    mix-blend-mode: overlay;
+  }
+
+  /* ============================================
+     MAGNETIC BUTTON (Micro-interaction)
+     ============================================ */
+  
+  .btn-magnetic {
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* ============================================
+     FASTER ANIMATIONS (Performance)
+     ============================================ */
+  
+  .fast-transition {
+    transition-duration: 250ms !important;
+  }
+
+  .faster-transition {
+    transition-duration: 150ms !important;
+  }
 }
