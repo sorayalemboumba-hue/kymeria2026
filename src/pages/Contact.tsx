@@ -31,6 +31,11 @@ export default function Contact() {
     const formData = new FormData(form);
     formData.append("_subject", "Demande de démo — kymeria");
     formData.append("source", "site kymeria2026");
+    
+    const emailValue = formData.get("email");
+    if (emailValue) {
+      formData.append("_replyto", emailValue.toString());
+    }
 
     try {
       const response = await fetch("https://formspree.io/f/mbdadbpv", {
@@ -46,9 +51,12 @@ export default function Contact() {
         });
         form.reset();
       } else {
+        const errorBody = await response.text().catch(() => "N/A");
+        console.error(`Formspree error: status=${response.status}, body=${errorBody}`);
         throw new Error("Erreur serveur");
       }
-    } catch {
+    } catch (err) {
+      console.error("Contact form submission error:", err);
       toast({
         title: "Erreur d'envoi",
         description: "Réessayez ou écrivez à contact@kymeria.ch.",
@@ -163,7 +171,7 @@ export default function Contact() {
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <Label htmlFor="firstName">Prénom</Label>
+                      <Label htmlFor="firstName">Prénom*</Label>
                       <Input 
                         id="firstName" 
                         name="firstName"
@@ -173,7 +181,7 @@ export default function Contact() {
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="lastName">Nom</Label>
+                      <Label htmlFor="lastName">Nom*</Label>
                       <Input 
                         id="lastName" 
                         name="lastName"
@@ -185,7 +193,7 @@ export default function Contact() {
                   </div>
                   
                   <div className="space-y-2">
-                    <Label htmlFor="email">Email professionnel</Label>
+                    <Label htmlFor="email">Email professionnel*</Label>
                     <Input 
                       id="email" 
                       name="email"
@@ -197,7 +205,7 @@ export default function Contact() {
                   </div>
                   
                   <div className="space-y-2">
-                    <Label htmlFor="organization">Organisation</Label>
+                    <Label htmlFor="organization">Organisation*</Label>
                     <Input 
                       id="organization" 
                       name="organization"
@@ -218,7 +226,7 @@ export default function Contact() {
                   </div>
                   
                   <div className="space-y-2">
-                    <Label htmlFor="message">Message</Label>
+                    <Label htmlFor="message">Message*</Label>
                     <Textarea 
                       id="message" 
                       name="message"
@@ -244,9 +252,6 @@ export default function Contact() {
                     )}
                   </Button>
 
-                  <p className="text-xs text-muted-foreground text-center mt-3">
-                    Cadre suisse · Accès maîtrisés · Démo ou pilote, selon vos enjeux.
-                  </p>
                 </form>
               </CardContent>
             </Card>
@@ -264,7 +269,7 @@ export default function Contact() {
             </h2>
             <div className="grid sm:grid-cols-3 gap-6">
               {[
-                { icon: Clock, text: "Retour contextualisé" },
+                { icon: Clock, text: "Démo ou pilote, selon vos enjeux" },
                 { icon: MessageSquare, text: "Échange sans engagement" },
                 { icon: Shield, text: "Confidentialité assurée" }
               ].map((item, index) => (

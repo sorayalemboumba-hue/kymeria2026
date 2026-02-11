@@ -122,9 +122,6 @@ export default function Equipe() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4 text-primary-foreground animate-fade-in">
               Une équipe engagée, responsable et complémentaire
             </h1>
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-foreground/10 backdrop-blur-sm animate-fade-in" style={{ animationDelay: '0.1s' }}>
-              <span className="text-sm text-primary-foreground/70 font-medium">Équipe suisse — déploiement & gouvernance</span>
-            </div>
           </div>
         </div>
 
@@ -137,7 +134,7 @@ export default function Equipe() {
         <AnimatedSection animation="fade-up">
           <div className="max-w-4xl mx-auto text-center">
             <p className="text-xl text-muted-foreground leading-relaxed mb-12">
-              Chez kymeria, la technologie n'est jamais une finalité. Ce qui fait la différence, c'est la manière dont elle est conçue, encadrée et mise au service des organisations.
+              Chez kymeria, la technologie est un moyen : elle structure un dispositif fiable, encadré et utile aux organisations.
             </p>
           </div>
         </AnimatedSection>
@@ -261,8 +258,10 @@ export default function Equipe() {
       </Section>
 
       {/* Human Supervision */}
-      <Section className="relative overflow-hidden">
-        <DecorativeBlobs variant="section" />
+      <Section className="relative">
+        <div className="absolute inset-0 overflow-hidden">
+          <DecorativeBlobs variant="section" />
+        </div>
         <div className="max-w-4xl mx-auto">
           <AnimatedSection animation="fade-up">
             <div className="text-center mb-10">
@@ -302,8 +301,8 @@ export default function Equipe() {
 
           {/* Circular diagram - IA supervisée */}
           <AnimatedSection animation="scale-in" delay={250}>
-            <div className="flex justify-center mb-10">
-              <div className="relative w-64 h-64">
+            <div className="flex justify-center mb-10 py-6">
+              <div className="relative w-52 h-52 sm:w-64 sm:h-64 md:w-72 md:h-72">
                 {/* Outer ring */}
                 <svg className="absolute inset-0 w-full h-full" viewBox="0 0 256 256">
                   <circle
