@@ -72,12 +72,12 @@ export function Header() {
             ))}
           </div>
 
-          {/* CTA Desktop */}
-          <div className="hidden lg:block">
+          {/* CTA Desktop (visible from md) */}
+          <div className="hidden md:block">
             <Button 
               asChild 
               size="sm"
-              className="rounded-full bg-gradient-to-r from-accent to-accent/85 text-white font-semibold shadow-lg shadow-accent/20 hover:shadow-xl hover:shadow-accent/30 transition-all duration-300 hover:scale-105"
+              className="rounded-full bg-gradient-to-r from-accent to-accent/85 text-white font-semibold shadow-lg shadow-accent/20 hover:shadow-xl hover:shadow-accent/30 transition-all duration-300 hover:scale-105 md:text-xs md:px-4 lg:text-sm lg:px-6"
             >
               <Link to="/contact" className="flex items-center gap-2">
                 Demander une démo
@@ -86,19 +86,30 @@ export function Header() {
             </Button>
           </div>
 
-          {/* Mobile menu button */}
-          <button
-            type="button"
-            className="lg:hidden p-2 rounded-full text-muted-foreground hover:text-foreground hover:bg-secondary transition-all"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          >
-            <span className="sr-only">Ouvrir le menu</span>
-            {mobileMenuOpen ? (
-              <X className="h-6 w-6" aria-hidden="true" />
-            ) : (
-              <Menu className="h-6 w-6" aria-hidden="true" />
-            )}
-          </button>
+          {/* Mobile CTA + hamburger */}
+          <div className="flex items-center gap-2 md:hidden">
+            <Button 
+              asChild 
+              size="sm"
+              className="rounded-full bg-gradient-to-r from-accent to-accent/85 text-white font-semibold text-xs px-3 py-1 h-8 shadow-md"
+            >
+              <Link to="/contact">
+                Démo
+              </Link>
+            </Button>
+            <button
+              type="button"
+              className="p-2 rounded-full text-muted-foreground hover:text-foreground hover:bg-secondary transition-all"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            >
+              <span className="sr-only">Ouvrir le menu</span>
+              {mobileMenuOpen ? (
+                <X className="h-6 w-6" aria-hidden="true" />
+              ) : (
+                <Menu className="h-6 w-6" aria-hidden="true" />
+              )}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}

@@ -299,69 +299,60 @@ export default function Equipe() {
             </p>
           </AnimatedSection>
 
-          {/* Circular diagram - IA supervisée */}
+          {/* Diagram - L'humain au centre */}
           <AnimatedSection animation="scale-in" delay={250}>
-            <div className="flex justify-center mb-10 py-6">
-              <div className="relative w-52 h-52 sm:w-64 sm:h-64 md:w-72 md:h-72">
-                {/* Outer ring */}
-                <svg className="absolute inset-0 w-full h-full" viewBox="0 0 256 256">
-                  <circle
-                    cx="128"
-                    cy="128"
-                    r="110"
-                    fill="none"
-                    stroke="hsl(var(--accent) / 0.2)"
-                    strokeWidth="2"
-                    strokeDasharray="6 6"
-                  />
-                  {/* Arrow path segments */}
-                  <path
-                    d="M 128 18 A 110 110 0 0 1 238 128"
-                    fill="none"
-                    stroke="hsl(var(--accent) / 0.4)"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                  />
-                  <path
-                    d="M 238 128 A 110 110 0 0 1 128 238"
-                    fill="none"
-                    stroke="hsl(var(--primary) / 0.4)"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                  />
-                  <path
-                    d="M 128 238 A 110 110 0 0 1 18 128"
-                    fill="none"
-                    stroke="hsl(var(--accent) / 0.3)"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                  />
-                  <path
-                    d="M 18 128 A 110 110 0 0 1 128 18"
-                    fill="none"
-                    stroke="hsl(var(--primary) / 0.3)"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                  />
-                </svg>
-                
-                {/* Center */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center px-4">
-                    <p className="text-sm font-bold text-foreground">L'humain</p>
-                    <p className="text-sm font-bold text-foreground">au centre</p>
+            <div className="flex justify-center mb-10 py-8 overflow-visible">
+              {/* Mobile: vertical stack */}
+              <div className="flex flex-col items-center gap-5 sm:hidden">
+                <div className="organic-card px-6 py-3 text-center border-2 border-accent/20">
+                  <span className="text-sm font-semibold text-accent">Usage client</span>
+                </div>
+                <div className="w-px h-6 bg-gradient-to-b from-accent/30 to-transparent" />
+                <div className="w-36 h-36 rounded-full bg-gradient-to-br from-primary/10 to-accent/10 border-2 border-primary/20 flex items-center justify-center shadow-lg">
+                  <div className="text-center">
+                    <p className="text-base font-bold text-foreground">L'humain</p>
+                    <p className="text-base font-bold text-foreground">au centre</p>
+                  </div>
+                </div>
+                <div className="w-px h-6 bg-gradient-to-b from-transparent to-primary/30" />
+                <div className="organic-card px-6 py-3 text-center border-2 border-primary/20">
+                  <span className="text-sm font-semibold text-primary">Supervision kymeria</span>
+                </div>
+                <div className="organic-card px-6 py-3 text-center border-2 border-accent/20">
+                  <span className="text-sm font-semibold text-accent/80">Ajustements</span>
+                </div>
+              </div>
+
+              {/* Desktop: triangle layout */}
+              <div className="hidden sm:flex flex-col items-center gap-0 relative" style={{ minWidth: '420px', minHeight: '320px' }}>
+                {/* Top pole */}
+                <div className="organic-card px-6 py-3 text-center border-2 border-accent/20">
+                  <span className="text-sm font-semibold text-accent">Usage client</span>
+                </div>
+                <div className="w-px h-8 bg-gradient-to-b from-accent/30 to-accent/10" />
+
+                {/* Center circle */}
+                <div className="w-40 h-40 md:w-44 md:h-44 rounded-full bg-gradient-to-br from-primary/10 to-accent/10 border-2 border-primary/20 flex items-center justify-center shadow-lg z-10">
+                  <div className="text-center">
+                    <p className="text-base font-bold text-foreground">L'humain</p>
+                    <p className="text-base font-bold text-foreground">au centre</p>
                   </div>
                 </div>
 
-                {/* Labels */}
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1">
-                  <span className="text-[11px] font-semibold text-accent bg-background px-2 py-1 rounded-full whitespace-nowrap">Usage client</span>
+                {/* Left pole - absolute */}
+                <div className="absolute top-1/2 -translate-y-1/2 right-[calc(50%+110px)] flex items-center gap-2">
+                  <div className="organic-card px-5 py-3 text-center border-2 border-primary/20 whitespace-nowrap">
+                    <span className="text-sm font-semibold text-primary">Supervision kymeria</span>
+                  </div>
+                  <div className="w-6 h-px bg-gradient-to-r from-primary/10 to-primary/30" />
                 </div>
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1">
-                  <span className="text-[11px] font-semibold text-primary bg-background px-2 py-1 rounded-full whitespace-nowrap">Ajustements</span>
-                </div>
-                <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1">
-                  <span className="text-[11px] font-semibold text-accent/80 bg-background px-2 py-1 rounded-full whitespace-nowrap">Supervision kymeria</span>
+
+                {/* Right pole - absolute */}
+                <div className="absolute top-1/2 -translate-y-1/2 left-[calc(50%+110px)] flex items-center gap-2">
+                  <div className="w-6 h-px bg-gradient-to-r from-accent/30 to-accent/10" />
+                  <div className="organic-card px-5 py-3 text-center border-2 border-accent/20 whitespace-nowrap">
+                    <span className="text-sm font-semibold text-accent/80">Ajustements</span>
+                  </div>
                 </div>
               </div>
             </div>
