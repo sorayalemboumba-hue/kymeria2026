@@ -62,7 +62,7 @@ export default function Pourquoi() {
           </AnimatedSection>
           <AnimatedSection animation="fade-in" delay={200}>
             <p className="text-lg text-muted-foreground leading-relaxed text-center italic">
-              Ils sont constants, souvent complexes, parfois sensibles — et rarement préparés.
+              Ils sont constants, souvent complexes, parfois sensibles, et rarement préparés.
             </p>
           </AnimatedSection>
         </div>
@@ -84,7 +84,7 @@ export default function Pourquoi() {
           </AnimatedSection>
           <div className="space-y-4 max-w-lg mx-auto">
             {[
-              "Ne se consolident pas par la théorie seule",
+              "Se renforcent au-delà de la théorie",
               "Se développent par la pratique",
               "Nécessitent répétition et feedback"
             ].map((item, index) => (
@@ -117,19 +117,19 @@ export default function Pourquoi() {
             {[
               {
                 icon: Target,
-                text: "Les soft skills se travaillent"
+                text: "Les soft skills se travaillent par la pratique."
               },
               {
                 icon: Heart,
-                text: "L'évaluation peut être constructive, encourageante et utile — lorsqu'elle est cadrée par une finalité claire et des droits d'accès explicites."
+                text: "L'évaluation est utile quand elle est cadrée et constructive."
               },
               {
                 icon: Lightbulb,
-                text: "La technologie doit rester au service de l'humain"
+                text: "La technologie doit rester au service de l'humain."
               },
               {
                 icon: Shield,
-                text: "L'éthique et la responsabilité sont indissociables de l'innovation"
+                text: "L'éthique et la responsabilité accompagnent l'innovation."
               }
             ].map((item, index) => (
               <AnimatedSection key={index} animation="scale-in" delay={index * 100}>
@@ -196,9 +196,6 @@ export default function Pourquoi() {
         <DecorativeBlobs variant="hero" />
         <AnimatedSection animation="scale-in">
           <div className="text-center max-w-2xl mx-auto relative z-10">
-            <p className="text-lg text-primary-foreground/80 mb-6">
-              Notre vision, notre cadre, nos responsabilités.
-            </p>
             <Button 
               asChild 
               size="lg" 

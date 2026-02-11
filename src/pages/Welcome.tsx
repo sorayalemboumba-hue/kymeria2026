@@ -78,6 +78,13 @@ export default function Welcome() {
                   <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
                 </Link>
               </Button>
+              <Link 
+                to="/plateforme" 
+                className="inline-flex items-center gap-2 mt-4 text-sm text-white/40 hover:text-white/70 transition-colors font-medium"
+              >
+                Découvrir la plateforme
+                <ArrowRight className="h-3.5 w-3.5" />
+              </Link>
             </section>
           </AnimatedSection>
 
@@ -90,7 +97,7 @@ export default function Welcome() {
           <AnimatedSection animation="fade-up" delay={300}>
             <section className="text-center mb-16 md:mb-20">
               <h3 className="text-2xl md:text-3xl font-semibold text-white mb-6">
-                Espace entreprise
+                Espace entreprises
               </h3>
               
               <Button 
@@ -120,10 +127,10 @@ export default function Welcome() {
           <AnimatedSection animation="fade-up" delay={400}>
             <section className="text-center mb-16 md:mb-20">
               <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 font-serif italic">
-                La précision du terrain
+                Répéter. Ajuster. Maîtriser.
               </h2>
               <p className="text-base md:text-lg text-white/50 max-w-2xl mx-auto leading-relaxed">
-                kymeria est une plateforme en ligne (SaaS) qui s'appuie sur l'IA pour vous faire pratiquer des échanges clés, recevoir un feedback structuré et consolider une posture durable — sans complexifier vos équipes.
+                kymeria entraîne la posture relationnelle par la pratique, avec une IA supervisée et un cadre maîtrisé.
               </p>
             </section>
           </AnimatedSection>

@@ -18,9 +18,7 @@ import {
   Target,
   TrendingUp,
   Handshake,
-  MapPin,
-  Lock,
-  UserCheck
+  Lock
 } from "lucide-react";
 
 export default function Index() {
@@ -47,7 +45,7 @@ export default function Index() {
         <DecorativeBlobs variant="hero" />
         
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-4xl">
+           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-8 leading-tight animate-fade-in">
               Développer, entraîner et mesurer les{" "}
               <span className="text-gradient-hero">compétences humaines</span>{" "}
@@ -61,28 +59,14 @@ export default function Index() {
               la qualité des échanges humains, la posture professionnelle et la performance relationnelle.
             </p>
 
-            {/* Trust header */}
-            <div className="flex flex-wrap gap-4 mb-10 animate-fade-in" style={{ animationDelay: '0.25s' }}>
-              {[
-                { icon: MapPin, text: "Hébergement suisse" },
-                { icon: Lock, text: "Aucune donnée client pour entraîner l'IA" },
-                { icon: UserCheck, text: "Supervision humaine" }
-              ].map((item, index) => (
-                <div key={index} className="flex items-center gap-2 px-4 py-2 rounded-full bg-primary-foreground/10 backdrop-blur-sm">
-                  <item.icon className="h-4 w-4 text-accent" />
-                  <span className="text-sm text-primary-foreground/80 font-medium">{item.text}</span>
-                </div>
-              ))}
-            </div>
-
-            <div className="animate-fade-in" style={{ animationDelay: '0.3s' }}>
+            <div className="animate-fade-in mt-10" style={{ animationDelay: '0.25s' }}>
               <Button 
                 asChild 
                 size="lg" 
                 className="btn-organic btn-pulse text-base px-8 py-6 text-white group"
               >
-                <Link to="/contact" className="flex items-center gap-3">
-                  Demander une démo
+                <Link to="/plateforme" className="flex items-center gap-3">
+                  Découvrir la plateforme
                   <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
                 </Link>
               </Button>
@@ -168,15 +152,10 @@ export default function Index() {
                   className="organic-card organic-card-3d p-6 text-center"
                 >
                   <span className="text-lg font-semibold text-primary block mb-1">{item.title}</span>
-                  <span className="text-sm text-muted-foreground">— {item.subtitle}</span>
+                  <span className="text-sm text-muted-foreground">{item.subtitle}</span>
                 </div>
               ))}
             </div>
-          </AnimatedSection>
-          <AnimatedSection animation="fade-in" delay={400}>
-            <p className="text-lg text-muted-foreground font-medium">
-              Simulation réaliste. Cadre clair.
-            </p>
           </AnimatedSection>
         </div>
       </Section>

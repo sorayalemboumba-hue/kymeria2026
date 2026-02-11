@@ -422,52 +422,6 @@ export function ParcoursEnPratique() {
         </Accordion>
       </div>
 
-      {/* Trust Badges */}
-      <AnimatedSection animation="scale-in" delay={200}>
-        <div className="flex flex-wrap justify-center gap-3 mt-8 mb-8">
-          {badges.map((badge, index) => (
-            <div 
-              key={index}
-              className="organic-badge flex items-center gap-1.5 px-4 py-2"
-            >
-              <badge.icon className="h-3.5 w-3.5 text-accent" />
-              <span className="text-xs font-medium">{badge.label}</span>
-            </div>
-          ))}
-        </div>
-      </AnimatedSection>
-
-      {/* CTAs */}
-      <AnimatedSection animation="fade-up" delay={300}>
-        <div className="flex flex-col sm:flex-row gap-3 justify-center">
-          <Button 
-            asChild 
-            size="default"
-            className="rounded-full bg-gradient-to-r from-primary to-primary/85 text-primary-foreground font-semibold shadow-lg hover:shadow-xl transition-all hover:scale-105 px-6 group"
-          >
-            <a href="/contact" className="flex items-center gap-2">
-              Voir une session type
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </a>
-          </Button>
-          <Button 
-            asChild 
-            size="default"
-            variant="outline"
-            className="rounded-full font-semibold hover:scale-105 transition-all px-6 group"
-          >
-            <a 
-              href="https://kymeria.ch/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="flex items-center gap-2"
-            >
-              Tester un scénario
-              <ExternalLink className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </a>
-          </Button>
-        </div>
-      </AnimatedSection>
     </div>
   );
 }
