@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Shield, MapPin, Lock } from "lucide-react";
+import { Shield, MapPin, Lock, Linkedin } from "lucide-react";
 import { SectionCurveWave } from "@/components/ui/decorative-shapes";
 
 export function Footer() {
@@ -35,7 +35,7 @@ export function Footer() {
             <Link to="/" className="inline-block mb-6 transition-transform hover:scale-105">
               <img 
                 src="/kymeria-logo-light.png" 
-                alt="KymerIA" 
+                alt="kymeria" 
                 className="h-14 w-auto"
               />
             </Link>
@@ -53,7 +53,7 @@ export function Footer() {
             <ul className="space-y-3">
               {[
                 { name: "Accueil", href: "/" },
-                { name: "Pourquoi KymerIA", href: "/pourquoi" },
+                { name: "Pourquoi kymeria", href: "/pourquoi" },
                 { name: "La plateforme", href: "/plateforme" },
                 { name: "Équipe & accompagnement", href: "/equipe" },
                 { name: "Contact", href: "/contact" }
@@ -88,6 +88,17 @@ export function Footer() {
               </li>
               <li>
                 <a 
+                  href="https://www.linkedin.com/company/kymeria-platform/?viewAsMember=true"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors inline-flex items-center gap-2 group"
+                >
+                  <Linkedin className="h-4 w-4" />
+                  LinkedIn
+                </a>
+              </li>
+              <li>
+                <a 
                   href="mailto:contact@kymeria.ch" 
                   className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors inline-flex items-center gap-2 group"
                 >
@@ -103,7 +114,7 @@ export function Footer() {
         <div className="py-8 border-t border-primary-foreground/10">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
             <p className="text-xs text-primary-foreground/50">
-              © {new Date().getFullYear()} KymerIA. Tous droits réservés.
+              © {new Date().getFullYear()} kymeria. Tous droits réservés.
             </p>
             <p className="text-xs text-primary-foreground/50 flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-accent/60" />

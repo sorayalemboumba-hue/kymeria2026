@@ -19,7 +19,10 @@ import {
   ExternalLink,
   Shield,
   Lock,
-  Eye
+  Eye,
+  Crosshair,
+  MessagesSquare,
+  FileCheck
 } from "lucide-react";
 
 const steps = [
@@ -80,9 +83,29 @@ const badges = [
   { icon: Eye, label: "Gouvernance claire" },
 ];
 
+const timelineMoments = [
+  {
+    id: "cadrer",
+    title: "Cadrer",
+    icon: Crosshair,
+    detail: "objectif, règles de visibilité, critères"
+  },
+  {
+    id: "converser",
+    title: "Converser",
+    icon: MessagesSquare,
+    detail: "mise en situation courte, centrée sur la posture"
+  },
+  {
+    id: "feedback",
+    title: "Feedback",
+    icon: FileCheck,
+    detail: "retour structuré, actionnable, traçable"
+  }
+];
+
 // Calculate position on orbit
 function getOrbitPosition(index: number, total: number, radius: number) {
-  // Start from top (-90°) and go clockwise
   const angle = ((index / total) * 360 - 90) * (Math.PI / 180);
   const x = Math.cos(angle) * radius;
   const y = Math.sin(angle) * radius;
@@ -91,7 +114,8 @@ function getOrbitPosition(index: number, total: number, radius: number) {
 
 export function ParcoursEnPratique() {
   const [activeStep, setActiveStep] = useState(0);
-  const orbitRadius = 140; // radius in pixels
+  const [activeTimeline, setActiveTimeline] = useState(0);
+  const orbitRadius = 140;
 
   return (
     <div className="relative">
@@ -105,6 +129,66 @@ export function ParcoursEnPratique() {
             Un parcours simple, un cadre clair.
           </p>
         </div>
+      </AnimatedSection>
+
+      {/* Timeline 180s */}
+      <AnimatedSection animation="scale-in" delay={50}>
+        <div className="max-w-2xl mx-auto mb-14">
+          <p className="text-center text-sm font-semibold text-accent/80 uppercase tracking-widest mb-6">
+            En 180 secondes, 3 moments
+          </p>
+          
+          {/* Stepper */}
+          <div className="flex items-center justify-center gap-0 mb-6">
+            {timelineMoments.map((moment, index) => (
+              <div key={moment.id} className="flex items-center">
+                <button
+                  onClick={() => setActiveTimeline(index)}
+                  className={`relative flex flex-col items-center gap-2 px-4 py-3 rounded-2xl transition-all duration-300 group ${
+                    activeTimeline === index
+                      ? 'bg-accent/10'
+                      : 'hover:bg-muted/50'
+                  }`}
+                >
+                  <div className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 ${
+                    activeTimeline === index
+                      ? 'bg-accent text-white shadow-lg shadow-accent/30'
+                      : 'bg-muted text-muted-foreground group-hover:text-accent'
+                  }`}>
+                    <moment.icon className="h-5 w-5" />
+                  </div>
+                  <span className={`text-xs font-semibold transition-colors ${
+                    activeTimeline === index ? 'text-accent' : 'text-muted-foreground'
+                  }`}>
+                    {moment.title}
+                  </span>
+                </button>
+                {index < timelineMoments.length - 1 && (
+                  <div className={`w-8 md:w-12 h-0.5 rounded-full transition-colors duration-300 ${
+                    index < activeTimeline ? 'bg-accent/40' : 'bg-border'
+                  }`} />
+                )}
+              </div>
+            ))}
+          </div>
+
+          {/* Detail */}
+          <div className="text-center">
+            <p 
+              key={activeTimeline}
+              className="text-sm md:text-base text-muted-foreground animate-fade-in px-4 py-3 rounded-xl bg-muted/30 inline-block"
+            >
+              {timelineMoments[activeTimeline].detail}
+            </p>
+          </div>
+        </div>
+      </AnimatedSection>
+
+      {/* 7 repères intro */}
+      <AnimatedSection animation="fade-up" delay={100}>
+        <p className="text-center text-lg font-semibold text-foreground mb-8">
+          7 repères pour cadrer une session de 3 minutes :
+        </p>
       </AnimatedSection>
 
       {/* Desktop: Orbital Layout */}
@@ -180,7 +264,6 @@ export function ParcoursEnPratique() {
                       transform: 'translate(-50%, -50%)'
                     }}
                   >
-                    {/* Point with icon */}
                     <div 
                       className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 ${
                         isActive 
@@ -191,7 +274,6 @@ export function ParcoursEnPratique() {
                       <step.icon className="h-5 w-5" />
                     </div>
                     
-                    {/* Number badge */}
                     <span 
                       className={`absolute -top-1 -right-1 w-5 h-5 rounded-full text-[10px] font-bold flex items-center justify-center transition-all ${
                         isActive 
@@ -202,7 +284,6 @@ export function ParcoursEnPratique() {
                       {step.number}
                     </span>
 
-                    {/* Hover label */}
                     <span 
                       className={`absolute whitespace-nowrap text-xs font-medium transition-all duration-200 ${
                         isActive 
@@ -296,7 +377,6 @@ export function ParcoursEnPratique() {
             </button>
           ))}
         </div>
-        {/* Detail */}
         <div className="organic-card p-5 text-center">
           <h3 className="text-base font-bold mb-2">{steps[activeStep].title}</h3>
           <p className="text-sm text-muted-foreground">{steps[activeStep].tooltip}</p>
@@ -382,7 +462,7 @@ export function ParcoursEnPratique() {
               rel="noopener noreferrer"
               className="flex items-center gap-2"
             >
-              Tester un moment clé
+              Tester un scénario
               <ExternalLink className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </a>
           </Button>

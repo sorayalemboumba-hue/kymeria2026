@@ -105,7 +105,7 @@ export default function Plateforme() {
               <span className="text-gradient-hero">compétences humaines</span>
             </h1>
             <p className="text-xl text-primary-foreground/80 animate-fade-in leading-relaxed" style={{ animationDelay: '0.1s' }}>
-              KymerIA permet de travailler l'ensemble des compétences humaines mobilisées dans les échanges professionnels.
+              kymeria permet de travailler l'ensemble des compétences humaines mobilisées dans les échanges professionnels.
             </p>
           </div>
         </div>
@@ -161,7 +161,7 @@ export default function Plateforme() {
                     Une plateforme simple, prête à l'emploi
                   </h3>
                   <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-                    KymerIA est une plateforme intuitive, user-friendly et immédiatement opérationnelle.
+                    kymeria est une plateforme intuitive, user-friendly et immédiatement opérationnelle.
                   </p>
                   <p className="text-foreground/80 leading-relaxed">
                     Elle propose différents niveaux d'accès selon les usages : utilisateurs, managers, formateurs et organisations.
@@ -212,7 +212,7 @@ export default function Plateforme() {
               </div>
               <div className="p-6 rounded-2xl bg-gradient-to-br from-accent/5 to-primary/5 border border-accent/10 ml-0 lg:ml-24">
                 <p className="text-lg text-foreground italic text-center">
-                  « La plateforme et l'équipe KymerIA s'adaptent aux utilisateurs, jamais l'inverse. »
+                  « La plateforme et l'équipe kymeria s'adaptent aux utilisateurs, jamais l'inverse. »
                 </p>
               </div>
             </div>
@@ -376,7 +376,7 @@ export default function Plateforme() {
                     Continuité avec les dispositifs existants
                   </h3>
                   <p className="text-lg text-muted-foreground leading-relaxed">
-                    KymerIA s'intègre aux dispositifs de formation existants pour renforcer leur impact sans les remplacer.
+                    kymeria s'intègre aux dispositifs de formation existants pour renforcer leur impact sans les remplacer.
                   </p>
                 </div>
               </div>
@@ -401,7 +401,7 @@ export default function Plateforme() {
                     { icon: Eye, text: "Corrections immédiates en cas d'erreur ou d'hallucination" },
                     { icon: Users, text: "Supervision humaine continue" },
                     { icon: Lock, text: "Données protégées et anonymisées" },
-                    { icon: Clock, text: "Conservation maximale des données : 1 an" }
+                    { icon: Clock, text: "Conservation des données : selon politique client (paramétrable)" }
                   ].map((item, index) => (
                     <div key={index} className="organic-card organic-card-3d flex flex-col items-center text-center p-6 bg-card/80">
                       <item.icon className="h-8 w-8 text-accent mb-3" />
@@ -420,7 +420,7 @@ export default function Plateforme() {
         <FloatingShapes variant="section" />
         <AnimatedSection animation="fade-up">
           <SectionHeader 
-            title="3 repères pour comprendre KymerIA"
+            title="3 repères pour comprendre kymeria"
             className="mb-12"
           />
         </AnimatedSection>
@@ -464,16 +464,16 @@ export default function Plateforme() {
         <div className="absolute inset-0 dot-grid-light opacity-30" />
         <AnimatedSection animation="scale-in">
           <div className="text-center max-w-2xl mx-auto relative z-10">
-            <Button 
-              asChild 
-              size="lg" 
-              variant="secondary" 
-              className="rounded-full text-base font-semibold shadow-lg hover:shadow-xl transition-all hover:scale-105 px-8 group"
-            >
-              <Link to="/contact" className="flex items-center gap-2">
-                Découvrir la plateforme en situation réelle
-                <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
-              </Link>
+              <Button 
+                asChild 
+                size="lg" 
+                variant="secondary" 
+                className="rounded-full text-base font-semibold shadow-lg hover:shadow-xl transition-all hover:scale-105 px-8 group"
+              >
+                <Link to="/contact" className="flex items-center gap-2">
+                  Demander une démo
+                  <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+                </Link>
             </Button>
           </div>
         </AnimatedSection>

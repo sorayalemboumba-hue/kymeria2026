@@ -27,7 +27,6 @@ export default function Contact() {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
     await new Promise(resolve => setTimeout(resolve, 1000));
     
     toast({
@@ -43,34 +42,29 @@ export default function Contact() {
     <Layout>
       {/* Hero */}
       <section className="relative overflow-hidden pt-24 pb-20 md:pt-32 md:pb-28">
-        {/* Gradient background */}
         <div 
           className="absolute inset-0"
           style={{ background: "var(--gradient-hero-organic)" }}
         />
-        
-        {/* Gradient mesh overlay */}
         <div className="absolute inset-0 gradient-mesh" />
-        
-        {/* Dot grid */}
         <div className="absolute inset-0 dot-grid-light opacity-40" />
-        
-        {/* Floating shapes */}
         <FloatingShapes variant="hero" />
         
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 text-primary-foreground animate-fade-in">
-              Discuter d'un projet pilote KymerIA
+              Demander une démo
             </h1>
-            <p className="text-xl text-primary-foreground/80 animate-fade-in leading-relaxed max-w-2xl mx-auto" style={{ animationDelay: '0.1s' }}>
+            <p className="text-xl text-primary-foreground/80 animate-fade-in leading-relaxed max-w-2xl mx-auto mb-4" style={{ animationDelay: '0.1s' }}>
               Chaque organisation a ses réalités, ses contraintes et ses objectifs.
-              KymerIA privilégie des échanges clairs, progressifs et contextualisés.
+              kymeria privilégie des échanges clairs, progressifs et contextualisés.
+            </p>
+            <p className="text-base text-primary-foreground/60 animate-fade-in max-w-xl mx-auto" style={{ animationDelay: '0.15s' }}>
+              Vous souhaitez plutôt cadrer un pilote ? Nous le construisons avec vous, selon vos contraintes.
             </p>
           </div>
         </div>
 
-        {/* Organic curve */}
         <SectionCurve />
       </section>
 
@@ -93,8 +87,8 @@ export default function Contact() {
                   },
                   {
                     icon: Building2,
-                    title: "Explorer une démonstration ou un projet pilote",
-                    description: "Découvrez KymerIA à travers une démonstration personnalisée."
+                    title: "Explorer une démo ou un projet pilote kymeria",
+                    description: "Découvrez kymeria à travers une démonstration personnalisée."
                   },
                   {
                     icon: Users,
@@ -209,7 +203,7 @@ export default function Contact() {
                       name="message"
                       required
                       rows={4}
-                      placeholder="Décrivez brièvement vos enjeux ou votre intérêt pour KymerIA..."
+                      placeholder="Décrivez brièvement vos enjeux ou votre intérêt pour kymeria..."
                       className="resize-none rounded-xl input-enhanced border-2 border-border/50 focus:border-accent/50"
                     />
                   </div>
@@ -223,11 +217,15 @@ export default function Contact() {
                       <>Envoi en cours...</>
                     ) : (
                       <>
-                        Envoyer
+                        Demander une démo
                         <Send className="ml-2 h-5 w-5" />
                       </>
                     )}
                   </Button>
+
+                  <p className="text-xs text-muted-foreground text-center mt-3">
+                    Cadre suisse · Accès maîtrisés · Démo ou pilote, selon vos enjeux.
+                  </p>
                 </form>
               </CardContent>
             </Card>

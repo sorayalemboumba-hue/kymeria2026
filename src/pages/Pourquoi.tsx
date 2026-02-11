@@ -104,7 +104,7 @@ export default function Pourquoi() {
         <DecorativeBlobs variant="section" />
         <AnimatedSection animation="fade-up">
           <SectionHeader 
-            title="La conviction KymerIA"
+            title="La conviction kymeria"
           />
         </AnimatedSection>
         <div className="max-w-4xl mx-auto mb-12">
@@ -121,7 +121,7 @@ export default function Pourquoi() {
               },
               {
                 icon: Heart,
-                text: "L'évaluation peut être constructive"
+                text: "L'évaluation peut être constructive, encourageante et utile — lorsqu'elle est cadrée par une finalité claire et des droits d'accès explicites."
               },
               {
                 icon: Lightbulb,
@@ -162,14 +162,15 @@ export default function Pourquoi() {
         <div className="max-w-3xl mx-auto">
           <AnimatedSection animation="fade-up" delay={100}>
             <p className="text-lg text-foreground mb-8 text-center">
-              KymerIA propose un cadre :
+              kymeria propose un cadre :
             </p>
           </AnimatedSection>
           <div className="space-y-4 max-w-xl mx-auto mb-10">
             {[
               "Où l'on peut s'entraîner sans exposer inutilement les personnes",
               "Où l'évaluation est paramétrable et contextualisée",
-              "Où l'IA est encadrée, supervisée et jamais autonome"
+              "Où l'IA est encadrée, supervisée et jamais autonome",
+              "Où les droits d'accès et la traçabilité sont explicitement définis (qui voit quoi, et pourquoi)"
             ].map((item, index) => (
               <AnimatedSection key={index} animation="fade-right" delay={150 + index * 100}>
                 <div className="organic-card organic-card-3d flex items-start gap-4 p-5">
@@ -205,7 +206,7 @@ export default function Pourquoi() {
               className="rounded-full text-base font-semibold shadow-lg hover:shadow-xl transition-all hover:scale-105 px-8"
             >
               <Link to="/equipe" className="flex items-center gap-2">
-                Découvrir l'équipe derrière KymerIA
+                Découvrir l'équipe derrière kymeria
                 <ArrowRight className="h-5 w-5" />
               </Link>
             </Button>

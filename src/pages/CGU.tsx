@@ -22,7 +22,7 @@ export default function CGU() {
           <h2>1. Objet</h2>
           <p>
             Les présentes Conditions Générales d'Utilisation (CGU) régissent l'accès et l'utilisation 
-            de la plateforme KymerIA, une solution d'entraînement et d'évaluation des compétences 
+            de la plateforme kymeria, une solution en ligne (SaaS) d'entraînement et d'évaluation des compétences 
             humaines développée et exploitée par KymerIA Sàrl, société de droit suisse.
           </p>
 
@@ -34,7 +34,7 @@ export default function CGU() {
 
           <h2>3. Description des services</h2>
           <p>
-            KymerIA propose une plateforme permettant :
+            kymeria propose une plateforme permettant :
           </p>
           <ul>
             <li>L'entraînement aux compétences relationnelles et communicationnelles</li>
@@ -44,7 +44,7 @@ export default function CGU() {
 
           <h2>4. Protection des données</h2>
           <p>
-            KymerIA s'engage à protéger les données personnelles de ses utilisateurs conformément 
+            kymeria s'engage à protéger les données personnelles de ses utilisateurs conformément 
             à la législation suisse en vigueur (LPD) et au RGPD le cas échéant.
           </p>
           <ul>
@@ -55,7 +55,7 @@ export default function CGU() {
 
           <h2>5. Utilisation de l'IA</h2>
           <p>
-            L'intelligence artificielle utilisée par KymerIA est :
+            L'intelligence artificielle utilisée par kymeria est :
           </p>
           <ul>
             <li>Supervisée par notre équipe</li>
@@ -66,14 +66,14 @@ export default function CGU() {
 
           <h2>6. Propriété intellectuelle</h2>
           <p>
-            L'ensemble des éléments de la plateforme KymerIA (logiciels, contenus, interfaces, 
+            L'ensemble des éléments de la plateforme kymeria (logiciels, contenus, interfaces, 
             méthodologies) sont protégés par le droit de la propriété intellectuelle et restent 
             la propriété exclusive de KymerIA Sàrl.
           </p>
 
           <h2>7. Responsabilités</h2>
           <p>
-            KymerIA s'efforce d'assurer la disponibilité et la fiabilité de sa plateforme, 
+            kymeria s'efforce d'assurer la disponibilité et la fiabilité de sa plateforme, 
             sans pouvoir garantir une disponibilité permanente. L'utilisateur reconnaît utiliser 
             la plateforme sous sa propre responsabilité.
           </p>

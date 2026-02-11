@@ -10,13 +10,6 @@ import {
 } from "lucide-react";
 
 export default function Welcome() {
-  const momentsCles = [
-    "Entretien délicat",
-    "Annoncer une décision",
-    "Gérer une tension",
-    "Convaincre / négocier",
-  ];
-
   const badges = [
     { icon: Shield, label: "Hébergement suisse" },
     { icon: Lock, label: "Sécurité & gouvernance" },
@@ -48,7 +41,7 @@ export default function Welcome() {
                 className="h-12 md:h-14 w-auto rounded-xl shadow-lg"
               />
               <span className="text-2xl md:text-3xl font-bold text-white tracking-tight">
-                kymer<span className="text-accent">IA</span>
+                kymer<span className="text-accent">ia</span>
               </span>
             </div>
           </AnimatedSection>
@@ -57,7 +50,7 @@ export default function Welcome() {
           <AnimatedSection animation="fade-up" delay={100}>
             <div className="text-center mb-16 md:mb-20">
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-                Bienvenue sur KymerIA
+                Bienvenue sur kymeria
               </h1>
               <p className="text-lg md:text-xl text-white/60 font-medium">
                 S'entraîner. Ajuster. Progresser.
@@ -81,7 +74,7 @@ export default function Welcome() {
                 className="rounded-full bg-accent hover:bg-accent/90 text-white font-semibold px-10 py-6 text-base shadow-lg shadow-accent/30 hover:shadow-xl hover:shadow-accent/40 transition-all hover:scale-[1.02] group"
               >
                 <Link to="/home" className="flex items-center gap-3">
-                  Découvrir KymerIA
+                  Découvrir kymeria
                   <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
                 </Link>
               </Button>
@@ -93,27 +86,12 @@ export default function Welcome() {
             <div className="w-24 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent mx-auto mb-16 md:mb-20" />
           </AnimatedSection>
 
-          {/* Section Tester - CENTERED, SMALLER */}
+          {/* Section Espace entreprise */}
           <AnimatedSection animation="fade-up" delay={300}>
             <section className="text-center mb-16 md:mb-20">
-              <h3 className="text-2xl md:text-3xl font-semibold text-white mb-2">
-                Tester
+              <h3 className="text-2xl md:text-3xl font-semibold text-white mb-6">
+                Espace entreprise
               </h3>
-              <p className="text-xs uppercase tracking-wider text-white/40 font-medium mb-6">
-                Moments clés à maîtriser
-              </p>
-              
-              {/* 4 Moments in horizontal line with separators */}
-              <div className="flex flex-wrap justify-center gap-x-3 gap-y-2 mb-8 max-w-xl mx-auto">
-                {momentsCles.map((item, index) => (
-                  <span key={index} className="flex items-center gap-3 text-sm text-white/50">
-                    <span>{item}</span>
-                    {index < momentsCles.length - 1 && (
-                      <span className="text-white/20">·</span>
-                    )}
-                  </span>
-                ))}
-              </div>
               
               <Button 
                 asChild 
@@ -126,7 +104,7 @@ export default function Welcome() {
                   rel="noopener noreferrer"
                   className="flex items-center gap-3"
                 >
-                  Choisir et tester
+                  Log-in espace entreprise
                   <ExternalLink className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
                 </a>
               </Button>
@@ -142,10 +120,10 @@ export default function Welcome() {
           <AnimatedSection animation="fade-up" delay={400}>
             <section className="text-center mb-16 md:mb-20">
               <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 font-serif italic">
-                Un parcours immersif
+                La précision du terrain
               </h2>
               <p className="text-base md:text-lg text-white/50 max-w-2xl mx-auto leading-relaxed">
-                KymerIA est un cycle d'évolution constant, conçu pour ancrer durablement votre posture relationnelle par une pratique intensive et sécurisée.
+                kymeria est une plateforme en ligne (SaaS) qui s'appuie sur l'IA pour vous faire pratiquer des échanges clés, recevoir un feedback structuré et consolider une posture durable — sans complexifier vos équipes.
               </p>
             </section>
           </AnimatedSection>
@@ -167,7 +145,7 @@ export default function Welcome() {
       {/* Footer minimal */}
       <footer className="relative z-10 py-6 text-center">
         <p className="text-xs text-white/30">
-          © {new Date().getFullYear()} KymerIA · Tous droits réservés
+          © {new Date().getFullYear()} kymeria · Tous droits réservés
         </p>
       </footer>
     </div>
