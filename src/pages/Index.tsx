@@ -17,7 +17,10 @@ import {
   ArrowRight,
   Target,
   TrendingUp,
-  Handshake
+  Handshake,
+  MapPin,
+  Lock,
+  UserCheck
 } from "lucide-react";
 
 export default function Index() {
@@ -50,13 +53,28 @@ export default function Index() {
               <span className="text-gradient-hero">compétences humaines</span>{" "}
               qui font la différence.
             </h1>
-            <p className="text-xl md:text-2xl text-primary-foreground/90 mb-6 max-w-3xl leading-relaxed animate-fade-in" style={{ animationDelay: '0.1s' }}>
-              KymerIA est une plateforme suisse d'entraînement et d'évaluation continue des soft skills.
+            <p className="text-xl md:text-2xl text-primary-foreground/90 mb-4 max-w-3xl leading-relaxed animate-fade-in" style={{ animationDelay: '0.1s' }}>
+              kymeria est une plateforme en ligne (SaaS) suisse d'entraînement et d'évaluation continue des soft skills, qui s'appuie sur l'IA.
             </p>
-            <p className="text-lg text-primary-foreground/75 mb-10 max-w-3xl leading-relaxed animate-fade-in" style={{ animationDelay: '0.2s' }}>
-              Elle accompagne les organisations publiques et privées qui souhaitent renforcer durablement 
+            <p className="text-lg text-primary-foreground/75 mb-6 max-w-3xl leading-relaxed animate-fade-in" style={{ animationDelay: '0.2s' }}>
+              Elle accompagne les organisations publiques et privées qui souhaitent renforcer 
               la qualité des échanges humains, la posture professionnelle et la performance relationnelle.
             </p>
+
+            {/* Trust header */}
+            <div className="flex flex-wrap gap-4 mb-10 animate-fade-in" style={{ animationDelay: '0.25s' }}>
+              {[
+                { icon: MapPin, text: "Hébergement suisse" },
+                { icon: Lock, text: "Aucune donnée client pour entraîner l'IA" },
+                { icon: UserCheck, text: "Supervision humaine" }
+              ].map((item, index) => (
+                <div key={index} className="flex items-center gap-2 px-4 py-2 rounded-full bg-primary-foreground/10 backdrop-blur-sm">
+                  <item.icon className="h-4 w-4 text-accent" />
+                  <span className="text-sm text-primary-foreground/80 font-medium">{item.text}</span>
+                </div>
+              ))}
+            </div>
+
             <div className="animate-fade-in" style={{ animationDelay: '0.3s' }}>
               <Button 
                 asChild 
@@ -64,7 +82,7 @@ export default function Index() {
                 className="btn-organic btn-pulse text-base px-8 py-6 text-white group"
               >
                 <Link to="/contact" className="flex items-center gap-3">
-                  Demander une démonstration personnalisée
+                  Demander une démo
                   <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
                 </Link>
               </Button>
@@ -116,7 +134,7 @@ export default function Index() {
                 Ces compétences sont essentielles.
               </p>
               <p className="text-lg text-muted-foreground">
-                Elles sont pourtant rarement entraînées dans la durée.
+                Elles gagnent à être entraînées dans la durée.
               </p>
             </div>
           </AnimatedSection>
@@ -168,8 +186,8 @@ export default function Index() {
         <DecorativeBlobs variant="section" />
         <AnimatedSection animation="fade-up">
           <SectionHeader 
-            title="La réponse KymerIA"
-            subtitle="KymerIA complète les dispositifs existants en apportant :"
+            title="La réponse kymeria"
+            subtitle="kymeria complète les dispositifs existants en apportant :"
           />
         </AnimatedSection>
         <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
@@ -226,7 +244,7 @@ export default function Index() {
             {
               icon: UserCog,
               title: "Managers",
-              description: "Accompagner les compétences relationnelles sans contrôle ni jugement."
+              description: "Accompagner les compétences relationnelles avec cadre, clarté et progression."
             },
             {
               icon: GraduationCap,
@@ -281,8 +299,8 @@ export default function Index() {
               title: "IA encadrée et supervisée"
             },
             {
-              icon: Building2,
-              title: "Compatible avec des environnements publics et privés"
+              icon: Lock,
+              title: "Droits d'accès définis selon vos règles"
             }
           ].map((item, index) => (
             <AnimatedSection key={index} animation="fade-up" delay={index * 100}>
@@ -303,10 +321,10 @@ export default function Index() {
         <AnimatedSection animation="scale-in">
           <div className="text-center max-w-3xl mx-auto relative z-10">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Prêt à explorer KymerIA ?
+              Prêt à explorer kymeria ?
             </h2>
             <p className="text-lg text-primary-foreground/80 mb-10 leading-relaxed">
-              Découvrez comment KymerIA peut accompagner votre organisation dans le développement des compétences humaines.
+              Découvrez comment kymeria peut accompagner votre organisation dans le développement des compétences humaines.
             </p>
             <Button 
               asChild 
@@ -314,8 +332,8 @@ export default function Index() {
               variant="secondary" 
               className="rounded-full text-base font-semibold shadow-lg hover:shadow-xl transition-all hover:scale-105 px-8"
             >
-              <Link to="/contact" className="flex items-center gap-2">
-                Demander une démonstration personnalisée
+              <Link to="/plateforme" className="flex items-center gap-2">
+                Découvrir la plateforme
                 <ArrowRight className="h-5 w-5" />
               </Link>
             </Button>
