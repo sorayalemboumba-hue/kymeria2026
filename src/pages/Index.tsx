@@ -45,8 +45,8 @@ export default function Index() {
         <DecorativeBlobs variant="hero" />
         
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-           <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-10 leading-tight animate-fade-in">
+           <div className="w-full">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-10 leading-tight animate-fade-in max-w-3xl">
               Développer, entraîner et mesurer les{" "}
               <span className="text-gradient-hero">compétences humaines</span>{" "}
               qui font la différence.

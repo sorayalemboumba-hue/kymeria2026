@@ -53,7 +53,7 @@ export default function Welcome() {
                 Bienvenue sur kymeria
               </h1>
               <p className="text-lg md:text-xl text-white/60 font-medium">
-                S'entraîner. Ajuster. Progresser.
+                S'entraîner. Répéter. Ajuster. Maîtriser.
               </p>
             </div>
           </AnimatedSection>
@@ -78,13 +78,6 @@ export default function Welcome() {
                   <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
                 </Link>
               </Button>
-              <Link 
-                to="/plateforme" 
-                className="inline-flex items-center gap-2 mt-4 text-sm text-white/40 hover:text-white/70 transition-colors font-medium"
-              >
-                Découvrir la plateforme
-                <ArrowRight className="h-3.5 w-3.5" />
-              </Link>
             </section>
           </AnimatedSection>
 
@@ -111,7 +104,7 @@ export default function Welcome() {
                   rel="noopener noreferrer"
                   className="flex items-center gap-3"
                 >
-                  Log-in espace entreprise
+                  Log-in
                   <ExternalLink className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
                 </a>
               </Button>
@@ -127,7 +120,7 @@ export default function Welcome() {
           <AnimatedSection animation="fade-up" delay={400}>
             <section className="text-center mb-16 md:mb-20">
               <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 font-serif italic">
-                Répéter. Ajuster. Maîtriser.
+                S'entraîner. Répéter. Ajuster. Maîtriser.
               </h2>
               <p className="text-base md:text-lg text-white/50 max-w-2xl mx-auto leading-relaxed">
                 kymeria entraîne la posture relationnelle par la pratique, avec une IA supervisée et un cadre maîtrisé.

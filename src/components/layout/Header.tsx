@@ -87,7 +87,7 @@ export function Header() {
           </div>
 
           {/* Mobile CTA + hamburger */}
-          <div className="flex items-center gap-2 md:hidden">
+          <div className="flex items-center gap-2 lg:hidden">
             <Button 
               asChild 
               size="sm"
