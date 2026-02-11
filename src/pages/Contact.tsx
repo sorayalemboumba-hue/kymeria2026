@@ -26,16 +26,37 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    toast({
-      title: "Message envoyé",
-      description: "Nous reviendrons vers vous dans les meilleurs délais.",
-    });
-    
-    setIsSubmitting(false);
-    (e.target as HTMLFormElement).reset();
+
+    const form = e.target as HTMLFormElement;
+    const formData = new FormData(form);
+    formData.append("_subject", "Demande de démo — kymeria");
+    formData.append("source", "site kymeria2026");
+
+    try {
+      const response = await fetch("https://formspree.io/f/mbdadbpv", {
+        method: "POST",
+        body: formData,
+        headers: { Accept: "application/json" },
+      });
+
+      if (response.ok) {
+        toast({
+          title: "Message envoyé",
+          description: "Nous reviendrons vers vous dans les meilleurs délais.",
+        });
+        form.reset();
+      } else {
+        throw new Error("Erreur serveur");
+      }
+    } catch {
+      toast({
+        title: "Erreur d'envoi",
+        description: "Réessayez ou écrivez à contact@kymeria.ch.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -243,7 +264,7 @@ export default function Contact() {
             </h2>
             <div className="grid sm:grid-cols-3 gap-6">
               {[
-                { icon: Clock, text: "Réponse sous 48 h" },
+                { icon: Clock, text: "Retour contextualisé" },
                 { icon: MessageSquare, text: "Échange sans engagement" },
                 { icon: Shield, text: "Confidentialité assurée" }
               ].map((item, index) => (

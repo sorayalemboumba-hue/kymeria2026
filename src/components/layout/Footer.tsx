@@ -52,7 +52,7 @@ export function Footer() {
             </h4>
             <ul className="space-y-3">
               {[
-                { name: "Accueil", href: "/" },
+                { name: "Accueil", href: "/home" },
                 { name: "Pourquoi kymeria", href: "/pourquoi" },
                 { name: "La plateforme", href: "/plateforme" },
                 { name: "Équipe & accompagnement", href: "/equipe" },

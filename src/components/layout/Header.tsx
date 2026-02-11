@@ -40,7 +40,7 @@ export function Header() {
           <Link to="/" className="flex items-center group">
             <img 
               src="/kymeria-logo-dark.png" 
-              alt="KymerIA" 
+              alt="kymeria" 
               className="h-10 w-auto transition-transform duration-300 group-hover:scale-105"
             />
           </Link>
