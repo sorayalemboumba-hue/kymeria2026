@@ -82,7 +82,7 @@ export default function Index() {
             </p>
           </AnimatedSection>
           <AnimatedSection animation="scale-in" delay={200}>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-10">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-10 [&>*:last-child:nth-child(odd)]:sm:col-span-2 [&>*:last-child:nth-child(odd)]:sm:max-w-[50%] [&>*:last-child:nth-child(odd)]:sm:mx-auto [&>*:last-child:nth-child(odd)]:lg:col-span-1 [&>*:last-child:nth-child(odd)]:lg:max-w-none [&>*:last-child:nth-child(odd)]:lg:mx-0">
               {[
                 "Expliquer",
                 "Écouter",
