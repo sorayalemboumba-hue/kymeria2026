@@ -38,15 +38,15 @@ export default function Contact() {
     }
 
     try {
-      const params = new URLSearchParams();
-      formData.forEach((value, key) => params.append(key, value.toString()));
+      const jsonBody: Record<string, string> = {};
+      formData.forEach((value, key) => { jsonBody[key] = value.toString(); });
 
       const response = await fetch("https://formspree.io/f/mbdadbpv", {
         method: "POST",
-        body: params,
+        body: JSON.stringify(jsonBody),
         headers: { 
           Accept: "application/json",
-          "Content-Type": "application/x-www-form-urlencoded",
+          "Content-Type": "application/json",
         },
       });
 

@@ -73,7 +73,7 @@ export function Header() {
           </div>
 
           {/* CTA Desktop (visible from md) */}
-          <div className="hidden md:block">
+          <div className="hidden lg:block">
             <Button 
               asChild 
               size="sm"
