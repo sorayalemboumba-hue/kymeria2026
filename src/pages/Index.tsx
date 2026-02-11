@@ -46,30 +46,19 @@ export default function Index() {
         
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
            <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-8 leading-tight animate-fade-in">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-10 leading-tight animate-fade-in">
               Développer, entraîner et mesurer les{" "}
               <span className="text-gradient-hero">compétences humaines</span>{" "}
               qui font la différence.
             </h1>
-            <p className="text-xl md:text-2xl text-primary-foreground/90 mb-4 max-w-3xl leading-relaxed animate-fade-in" style={{ animationDelay: '0.1s' }}>
-              kymeria est une plateforme en ligne (SaaS) suisse d'entraînement et d'évaluation continue des soft skills, qui s'appuie sur l'IA.
-            </p>
-            <p className="text-lg text-primary-foreground/75 mb-6 max-w-3xl leading-relaxed animate-fade-in" style={{ animationDelay: '0.2s' }}>
-              Elle accompagne les organisations publiques et privées qui souhaitent renforcer 
-              la qualité des échanges humains, la posture professionnelle et la performance relationnelle.
-            </p>
-
-            <div className="animate-fade-in mt-10" style={{ animationDelay: '0.25s' }}>
-              <Button 
-                asChild 
-                size="lg" 
-                className="btn-organic btn-pulse text-base px-8 py-6 text-white group"
-              >
-                <Link to="/plateforme" className="flex items-center gap-3">
-                  Découvrir la plateforme
-                  <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
-                </Link>
-              </Button>
+            <div className="max-w-2xl ml-auto">
+              <p className="text-xl md:text-2xl text-primary-foreground/90 mb-6 leading-relaxed text-right animate-fade-in" style={{ animationDelay: '0.1s' }}>
+                kymeria est une plateforme en ligne (SaaS) suisse d'entraînement et d'évaluation continue des soft skills, qui s'appuie sur l'IA.
+              </p>
+              <p className="text-lg text-primary-foreground/70 leading-relaxed text-right animate-fade-in" style={{ animationDelay: '0.2s' }}>
+                Elle accompagne les organisations publiques et privées qui souhaitent renforcer 
+                la qualité des échanges humains, la posture professionnelle et la performance relationnelle.
+              </p>
             </div>
           </div>
         </div>
