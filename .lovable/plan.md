@@ -1,50 +1,43 @@
 
+# Patch correctif (3 points)
 
-# Patch cible (5 corrections)
+## 1. Header : Supprimer le doublon CTA entre 768px et 1024px
 
-## 1. Welcome (/) : Supprimer le CTA secondaire "Decouvrir la plateforme"
+**Probleme** : Entre 768px et 1024px, deux blocs CTA sont visibles simultanement :
+- Le CTA desktop "Demander une demo" (`hidden md:block`, visible des 768px)
+- Le CTA mobile "Demo" + hamburger (`lg:hidden`, visible sous 1024px)
 
-**Fichier : `src/pages/Welcome.tsx`** (lignes 81-87)
+**Correction** : Remonter le CTA desktop a `hidden lg:block` (visible seulement avec la nav desktop, des 1024px). Le bloc mobile+hamburger (`lg:hidden`) reste inchange et couvre tout ce qui est en dessous de 1024px, avec le bouton "Demo" compact et le hamburger.
 
-Supprimer le lien discret "Decouvrir la plateforme" sous le bouton "Decouvrir kymeria".
+**Fichier : `src/components/layout/Header.tsx`** (ligne 76)
 
-## 2. Welcome (/) : Unifier la formule dans les deux sections
+`hidden md:block` devient `hidden lg:block`
 
-Remplacer les deux formules differentes par une seule identique :
+## 2. Contact : Corriger la soumission Formspree
 
-- Ligne 56 : "S'entrainer. Ajuster. Progresser." devient **"S'entrainer. Repeter. Ajuster. Maitriser."**
-- Ligne 130 : "Repeter. Ajuster. Maitriser." devient **"S'entrainer. Repeter. Ajuster. Maitriser."**
+**Analyse** : Le PDF Formspree confirme l'endpoint `mbdadbpv`. Le code actuel envoie en `application/x-www-form-urlencoded` avec un header `Accept: application/json`, ce qui peut creer un conflit. Formspree recommande soit un envoi HTML classique (form-encoded sans header Accept), soit un envoi AJAX en JSON pur.
 
-## 3. Welcome (/) : Simplifier le CTA entreprise
+**Correction** : Passer a l'envoi JSON (recommande par Formspree pour les apps React) :
+- Construire un objet JSON a partir des champs du formulaire
+- Envoyer avec `Content-Type: application/json` et `Accept: application/json`
+- Conserver le logging d'erreur detaille (status + body)
 
-Ligne 114 : remplacer "Log-in espace entreprise" par **"Log-in"**.
+**Fichier : `src/pages/Contact.tsx`** (lignes 40-51)
 
-## 4. Home (/home) : Aerer les sous-titres du hero
+```text
+Avant : URLSearchParams + Content-Type: x-www-form-urlencoded
+Apres : JSON.stringify({...fields}) + Content-Type: application/json
+```
 
-Les sous-titres sont deja alignes a droite (`text-right`) dans un `max-w-2xl ml-auto`. Pour les aligner completement a droite de la page (au meme niveau que le titre "quotidien" de la section suivante), ajuster le conteneur :
+## 3. Aucun changement sur le diagramme equipe ni la landing
 
-- Retirer `max-w-3xl` du wrapper parent pour que le bloc de sous-titres puisse aller plus a droite
-- Ou augmenter le `max-w-2xl` du bloc sous-titres et ajuster `ml-auto` pour pousser le texte vers le bord droit
-
-Approche : elargir le conteneur hero principal et garder `ml-auto` sur le bloc sous-titres pour qu'il colle au bord droit, donnant plus de respiration entre le titre (gauche) et les sous-titres (droite).
-
-## 5. Header : Corriger la navigation invisible entre 768px et 1024px
-
-**Probleme identifie** : Les liens de navigation utilisent `hidden lg:flex` (visibles a partir de 1024px). Le hamburger utilise `md:hidden` (visible en dessous de 768px). Entre 768px et 1024px, ni les liens ni le hamburger ne sont affiches, seuls le logo et le CTA "Demander une demo" sont visibles.
-
-**Correction** : Afficher le hamburger pour tous les ecrans ou les liens de nav ne sont pas visibles. Changer `md:hidden` en `lg:hidden` pour le bloc hamburger, afin qu'il apparaisse entre 768px et 1024px aussi.
-
-- Bloc hamburger (ligne 90) : `flex items-center gap-2 md:hidden` devient `flex items-center gap-2 lg:hidden`
-- Garder le CTA desktop `hidden md:block` (visible des 768px)
-- Le menu deroulant mobile (ligne 117) est deja `lg:hidden`, donc il fonctionnera correctement
+Ces elements ont deja ete corriges dans les patches precedents et ne sont pas concernes ici.
 
 ---
 
-## Fichiers modifies (3)
+## Fichiers modifies (2)
 
-| Fichier | Modifications |
-|---------|--------------|
-| `src/pages/Welcome.tsx` | Supprimer CTA secondaire, unifier formule, simplifier "Log-in" |
-| `src/pages/Index.tsx` | Elargir conteneur hero, pousser sous-titres a droite |
-| `src/components/layout/Header.tsx` | Hamburger visible entre md et lg |
-
+| Fichier | Modification |
+|---------|-------------|
+| `src/components/layout/Header.tsx` | CTA desktop passe de `md:block` a `lg:block` pour supprimer le doublon |
+| `src/pages/Contact.tsx` | Envoi Formspree converti en JSON pour compatibilite React/AJAX |
