@@ -1,86 +1,50 @@
-# Patch d'optimisation -- Corrections ciblees
 
-## 1. Home (/home) -- Supprimer le CTA hero + aerer les sous-titres
 
-**Fichier : `src/pages/Index.tsx**`
+# Patch cible (5 corrections)
 
-&nbsp;
+## 1. Welcome (/) : Supprimer le CTA secondaire "Decouvrir la plateforme"
 
-- Aligner les deux paragraphes de sous-titres a droite (`text-right`) pour un rendu elegant et aere
-- Augmenter le spacing : `mb-6` entre les deux paragraphes, `max-w-2xl` pour le deuxieme paragraphe
-- Ajouter plus de `leading-relaxed` et de respiration verticale avant la transition
+**Fichier : `src/pages/Welcome.tsx`** (lignes 81-87)
 
-## 2. Page Equipe (/equipe) -- Refonte du diagramme "L'humain au centre"
+Supprimer le lien discret "Decouvrir la plateforme" sous le bouton "Decouvrir kymeria".
 
-**Fichier : `src/pages/Equipe.tsx**`
+## 2. Welcome (/) : Unifier la formule dans les deux sections
 
-Probleme visible sur le screenshot : le cercle SVG et ses labels sont rognes/coupes, "L'humain au centre" est tronque, "Supervision kymeria" deborde.
+Remplacer les deux formules differentes par une seule identique :
 
-Correction :
+- Ligne 56 : "S'entrainer. Ajuster. Progresser." devient **"S'entrainer. Repeter. Ajuster. Maitriser."**
+- Ligne 130 : "Repeter. Ajuster. Maitriser." devient **"S'entrainer. Repeter. Ajuster. Maitriser."**
 
-- Remplacer le diagramme SVG actuel par un design plus innovant et robuste :
-  - 3 cartes/badges disposes en triangle autour d'un centre textuel
-  - Centre : "L'humain au centre" dans un cercle avec bordure gradient
-  - 3 poles relies visuellement : "Usage client", "Supervision kymeria", "Ajustements"
-  - Utiliser flexbox/grid au lieu de positionnement absolu (pas de rognage possible)
-  - Animations subtiles de rotation ou glow sur les connexions
-- Supprimer le `overflow-hidden` sur la section parente
-- Responsive natif : les 3 poles passent en colonne sur mobile
+## 3. Welcome (/) : Simplifier le CTA entreprise
 
-## 3. Contact (/contact) -- Corriger le formulaire Formspree
+Ligne 114 : remplacer "Log-in espace entreprise" par **"Log-in"**.
 
-**Fichier : `src/pages/Contact.tsx**`
+## 4. Home (/home) : Aerer les sous-titres du hero
 
-Le screenshot montre "Erreur d'envoi" en rouge. L'analyse du code montre que le formulaire utilise `FormData` avec un header `Accept: application/json`. Le probleme probable est que Formspree attend certains headers ou que le formulaire n'est pas publie.
+Les sous-titres sont deja alignes a droite (`text-right`) dans un `max-w-2xl ml-auto`. Pour les aligner completement a droite de la page (au meme niveau que le titre "quotidien" de la section suivante), ajuster le conteneur :
 
-Corrections :
+- Retirer `max-w-3xl` du wrapper parent pour que le bloc de sous-titres puisse aller plus a droite
+- Ou augmenter le `max-w-2xl` du bloc sous-titres et ajuster `ml-auto` pour pousser le texte vers le bord droit
 
-- Ajouter un header `Content-Type` explicite ou envoyer en mode `application/x-www-form-urlencoded` (plus compatible Formspree)
-- Convertir FormData en URLSearchParams pour un envoi form-encoded fiable
-- Ameliorer le logging d'erreur pour diagnostiquer
+Approche : elargir le conteneur hero principal et garder `ml-auto` sur le bloc sous-titres pour qu'il colle au bord droit, donnant plus de respiration entre le titre (gauche) et les sous-titres (droite).
 
-## 4. Header CTA -- Visible sur tous les formats
+## 5. Header : Corriger la navigation invisible entre 768px et 1024px
 
-**Fichier : `src/components/layout/Header.tsx**`
+**Probleme identifie** : Les liens de navigation utilisent `hidden lg:flex` (visibles a partir de 1024px). Le hamburger utilise `md:hidden` (visible en dessous de 768px). Entre 768px et 1024px, ni les liens ni le hamburger ne sont affiches, seuls le logo et le CTA "Demander une demo" sont visibles.
 
-Probleme : le bouton "Demander une demo" utilise `hidden lg:block` (visible seulement au-dessus de 1024px). Sur tablette (834px) et mobile, seul le hamburger menu est visible, le CTA n'apparait pas directement.
+**Correction** : Afficher le hamburger pour tous les ecrans ou les liens de nav ne sont pas visibles. Changer `md:hidden` en `lg:hidden` pour le bloc hamburger, afin qu'il apparaisse entre 768px et 1024px aussi.
 
-Correction :
-
-- Afficher le bouton CTA "Demander une demo" a cote du hamburger menu sur tablette/mobile
-- Changer `hidden lg:block` en `hidden md:block` pour le CTA desktop (visible des 768px)
-- Sur mobile (< 768px), afficher un bouton CTA compact a cote du hamburger
-- Reduire la taille du bouton CTA sur les ecrans intermediaires (`text-xs px-4 py-2` sur md, `text-sm px-6` sur lg)
-
-## 5. Pourquoi (/pourquoi) -- Aucun changement
-
-Page deja conforme. Aucune modification requise.
+- Bloc hamburger (ligne 90) : `flex items-center gap-2 md:hidden` devient `flex items-center gap-2 lg:hidden`
+- Garder le CTA desktop `hidden md:block` (visible des 768px)
+- Le menu deroulant mobile (ligne 117) est deja `lg:hidden`, donc il fonctionnera correctement
 
 ---
 
-## Fichiers modifies (4)
+## Fichiers modifies (3)
 
+| Fichier | Modifications |
+|---------|--------------|
+| `src/pages/Welcome.tsx` | Supprimer CTA secondaire, unifier formule, simplifier "Log-in" |
+| `src/pages/Index.tsx` | Elargir conteneur hero, pousser sous-titres a droite |
+| `src/components/layout/Header.tsx` | Hamburger visible entre md et lg |
 
-| Fichier                            | Modification                                              |
-| ---------------------------------- | --------------------------------------------------------- |
-| `src/pages/Index.tsx`              | Supprimer CTA hero, aligner sous-titres a droite, aerer   |
-| `src/pages/Equipe.tsx`             | Refonte diagramme en layout flexbox, suppression overflow |
-| `src/pages/Contact.tsx`            | Fiabiliser envoi Formspree (form-encoded)                 |
-| `src/components/layout/Header.tsx` | CTA visible des tablette, compact sur mobile              |
-
-
----
-
-## Details techniques
-
-### Diagramme Equipe (nouveau design)
-
-Le diagramme actuel utilise du positionnement absolu avec des labels qui debordent du conteneur. Le nouveau design utilisera un layout en grille 3 colonnes avec le centre en position relative, garantissant qu'aucun element ne soit rogne. Les connexions seront representees par des lignes CSS (bordures/pseudo-elements) plutot que des arcs SVG.
-
-### Formspree
-
-L'envoi actuel utilise `FormData` brut. Le correctif convertira en `URLSearchParams` pour un `Content-Type: application/x-www-form-urlencoded` automatique, plus compatible avec Formspree sans configuration CORS speciale.
-
-### Header responsive
-
-Le breakpoint `lg` (1024px) est trop haut pour le CTA. Le correctif abaisse a `md` (768px) pour le bouton desktop, et ajoute un bouton compact entre le logo et le hamburger pour les ecrans < 768px.
